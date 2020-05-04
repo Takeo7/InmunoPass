@@ -18,6 +18,12 @@ public class UIController : MonoBehaviour
 
     [Space]
     [SerializeField]
+    Color Pass;
+    [SerializeField]
+    Color NotPass;
+
+    [Space]
+    [SerializeField]
     RawImage qrImage;
 
     [Space]
@@ -60,6 +66,7 @@ public class UIController : MonoBehaviour
     Text DocName;
     [SerializeField]
     Text DocDNI;
+    
 
 
     [Space]
@@ -95,6 +102,13 @@ public class UIController : MonoBehaviour
 
             PatientInfo.SetActive(true);
             FillPatientInfo();
+        }
+        else
+        {
+            DeviceCamera.SetActive(false);
+            ScanLayer.SetActive(false);
+
+
         }
     }
 
@@ -155,7 +169,7 @@ public class UIController : MonoBehaviour
 
     public void SaveDoctorInfo()
     {
-        mc.SaveStardardInfo(inputDocName.text + " " + inputDocLastName.text, inputDocDNI.text);
+        mc.SaveStardardInfo("Dr." + inputDocName.text + " " + inputDocLastName.text, inputDocDNI.text);
     }
     public void DocAlreadyRegistered()
     {

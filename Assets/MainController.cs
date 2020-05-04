@@ -93,9 +93,12 @@ public class MainController : MonoBehaviour
                 switch (read_Type)
                 {
                     case readType.QR:
-
+                        uinfo.DoctorPatientPharser(scan);
+                        uiC.EndQRScan();
                         break;
                     case readType.BarCode:
+                        uinfo.AddDocTest(scan);
+                        uiC.EndQRScan();
                         break;
                     default:
                         break;

@@ -61,6 +61,13 @@ public class UserInfo : ScriptableObject
         AddPatientInfo(sliced[0], sliced[1], sliced[2], sliced[3]);
     }
 
+    public void DoctorPatientPharser(string t)
+    {
+        string[] sliced = t.Split('/');
+
+        AddDocPatient(sliced[0], sliced[1]);
+    }
+
 
 
     public void AddDocPatient(string pn, string pid)
