@@ -22,7 +22,7 @@ public class UserInfo : ScriptableObject
     public PatientInfo patient_Info;
     public List<DoctorInfo> doctor_Info = new List<DoctorInfo>();
 
-    DoctorInfo doc_temp = new DoctorInfo();
+    public DoctorInfo doc_temp = new DoctorInfo();
 
     public void AddStandardInfo(string n, string id)
     {
@@ -56,14 +56,16 @@ public class UserInfo : ScriptableObject
 
     public void PatientPharser(string t)
     {
-        string[] sliced = t.Split('/');
+        string[] sliced = t.Split('%');
 
         AddPatientInfo(sliced[0], sliced[1], sliced[2], sliced[3]);
     }
 
     public void DoctorPatientPharser(string t)
     {
-        string[] sliced = t.Split('/');
+        doc_temp = new DoctorInfo();
+
+        string[] sliced = t.Split('%');
 
         AddDocPatient(sliced[0], sliced[1]);
     }
@@ -87,7 +89,20 @@ public class UserInfo : ScriptableObject
         doc_temp.Result = r;
 
         doctor_Info.Add(doc_temp);
+        
+    }
+
+
+    public void ResetInfo()
+    {
+        doctor_Info = new List<DoctorInfo>();
         doc_temp = new DoctorInfo();
+        isRegistered = false;
+        isTested = false;
+        userName = "";
+        userDNI = "";
+        patient_Info = new PatientInfo();
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
 

@@ -16,13 +16,19 @@ public class MainController : MonoBehaviour
 
     [Space]
     [SerializeField]
-    readType read_Type;
+    public readType read_Type;
     void Start()
     {
+
         qrController.onQRScanFinished += SaveScanInfo;
         uiC.LoadUserInfo();
 
         CheckIsRegisteredStart();
+    }
+
+    public void ResetInfo()
+    {
+        uinfo.ResetInfo();
     }
 
     public UserInfo GetUserScriptable()
@@ -41,7 +47,8 @@ public class MainController : MonoBehaviour
             }
             else
             {
-                
+                uiC.FillDoctorInfo();
+                uiC.DoctorAlreadyRegistered();
             }
             
         }
@@ -83,6 +90,7 @@ public class MainController : MonoBehaviour
 
     public void SaveScanInfo(string scan)
     {
+        Debug.Log(scan);
         switch (uinfo.userT)
         {
             case userType.Patient:
@@ -107,11 +115,25 @@ public class MainController : MonoBehaviour
             default:
                 break;
         }
+        qrController.Reset();
     }
 
     public void SaveStardardInfo(string n, string dni)
     {
         uinfo.AddStandardInfo(n, dni);
+    }
+
+    public void SetResultInfo(bool b)
+    {
+        switch (b)
+        {
+            case true:
+                uinfo.doc_temp.Result = "PASS";
+                break;
+            case false:
+                uinfo.doc_temp.Result = "FAIL";
+                break;
+        }
     }
 
     public enum userType

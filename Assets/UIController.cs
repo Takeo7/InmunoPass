@@ -1,10 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+
+    [SerializeField]
+    public Text DEBUG;
 
     [SerializeField]
     MainController mc;
@@ -66,6 +70,24 @@ public class UIController : MonoBehaviour
     Text DocName;
     [SerializeField]
     Text DocDNI;
+
+    [Space]
+    [SerializeField]
+    Text newPatientName;
+    [SerializeField]
+    Text newPatientDNI;
+    [SerializeField]
+    Text newPatientTest;
+    [SerializeField]
+    Text newPatientDate;
+    [SerializeField]
+    GameObject newTestScan;
+    [SerializeField]
+    GameObject newButtonPass;
+    [SerializeField]
+    GameObject newButtonNotPass;
+    [SerializeField]
+    GameObject newPatientGenerateQR;
     
 
 
@@ -87,14 +109,17 @@ public class UIController : MonoBehaviour
     GameObject DoctorInput;
     [SerializeField]
     GameObject DoctorInfo;
+    [SerializeField]
+    GameObject NewPatient;
 
     private void Start()
     {
         mc.qrCreator.onQREncodeFinished += PatientQRLoad;
+        mc.qrCreator.onQREncodeFinished += DoctorQRLoad;
     }
 
     public void EndQRScan()
-    {
+    {        
         if (uInfo.userT == MainController.userType.Patient)
         {
             DeviceCamera.SetActive(false);
@@ -105,9 +130,26 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            DeviceCamera.SetActive(false);
-            ScanLayer.SetActive(false);
+            switch (mc.read_Type)
+            {
+                case MainController.readType.QR:
+                    DeviceCamera.SetActive(false);
+                    ScanLayer.SetActive(false);
 
+                    NewPatient.SetActive(true);
+                    FillDocNewPatientInfo();
+                    break;
+                case MainController.readType.BarCode:
+                    DeviceCamera.SetActive(false);
+                    ScanLayer.SetActive(false);
+
+                    NewPatient.SetActive(true);
+                    FillDocNewTestInfo();
+                    break;
+                default:
+                    break;
+            }
+            
 
         }
     }
@@ -151,7 +193,7 @@ public class UIController : MonoBehaviour
     }
     public void PatientGenerateQR()
     {
-        string textToEncode = uInfo.userName + "/" + uInfo.userDNI;
+        string textToEncode = uInfo.userName + "%" + uInfo.userDNI;
         
         mc.qrCreator.Encode(textToEncode);
         
@@ -159,7 +201,6 @@ public class UIController : MonoBehaviour
 
     public void PatientQRLoad(Texture2D t)
     {
-        PatientInfo.SetActive(false);
         ShowQR.SetActive(true);
 
         qrImage.texture = t;
@@ -167,14 +208,58 @@ public class UIController : MonoBehaviour
 
     #endregion
 
+    public void FillDoctorInfo()
+    {
+        if (uInfo.CheckIsRegistered())
+        {
+            DocName.text = uInfo.userName;
+            DocDNI.text = uInfo.userDNI;
+        }
+    }
+
+    public void DoctorAlreadyRegistered()
+    {
+        DoctorInfo.SetActive(true);
+        FillDoctorInfo();
+
+        UserSelection.SetActive(false);
+    }
+
     public void SaveDoctorInfo()
     {
         mc.SaveStardardInfo("Dr." + inputDocName.text + " " + inputDocLastName.text, inputDocDNI.text);
     }
-    public void DocAlreadyRegistered()
+    
+    public void FillDocNewPatientInfo()
     {
-        DoctorInfo.SetActive(true);
-        UserSelection.SetActive(false);
+        newPatientName.text = uInfo.doc_temp.PatientName;
+        newPatientDNI.text = uInfo.doc_temp.PatientDNI;
+
+        newTestScan.SetActive(true);
+    }
+
+    public void FillDocNewTestInfo()
+    {
+        newPatientTest.text = uInfo.doc_temp.Test;
+        newPatientDate.text = DateTime.Today.ToString();
+
+        newButtonPass.SetActive(true);
+        newButtonNotPass.SetActive(true);
+    }
+
+    public void DoctorGenerateQR()
+    {
+        string textToEncode = uInfo.userName + "%" + uInfo.doc_temp.Test + "%" + uInfo.doc_temp.Date + "%" + uInfo.doc_temp.Result;
+
+        mc.qrCreator.Encode(textToEncode);
+
+    }
+
+    public void DoctorQRLoad(Texture2D t)
+    {
+        ShowQR.SetActive(true);
+
+        qrImage.texture = t;
     }
 
 }
