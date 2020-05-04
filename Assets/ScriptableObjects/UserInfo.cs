@@ -6,11 +6,21 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableInfo/user Info")]
 public class UserInfo : ScriptableObject
 {
-    string userName;
-    string userDNI;
+    [SerializeField]
+    public MainController.userType userT;
+    [SerializeField]
+    bool isRegistered;
+    [SerializeField]
+    public string userName;
+    [SerializeField]
+    public string userDNI;
 
-    List<PatientInfo> patient_Info = new List<PatientInfo>();
-    List<DoctorInfo> doctor_Info = new List<DoctorInfo>();
+    [Space]
+    [SerializeField]
+    bool isTested;
+
+    public PatientInfo patient_Info;
+    public List<DoctorInfo> doctor_Info = new List<DoctorInfo>();
 
     DoctorInfo doc_temp = new DoctorInfo();
 
@@ -18,6 +28,16 @@ public class UserInfo : ScriptableObject
     {
         userName = n;
         userDNI = id;
+        isRegistered = true;
+    }
+
+    public bool CheckIsRegistered()
+    {
+        return isRegistered;
+    }
+    public bool CheckIsTested()
+    {
+        return isTested;
     }
 
     public void AddPatientInfo(string d, string t, string dat, string r)
@@ -29,7 +49,9 @@ public class UserInfo : ScriptableObject
         temp.Date = dat;
         temp.Result = r;
 
-        patient_Info.Add(temp);
+        patient_Info = temp;
+
+        isTested = true;
     }
 
     public void PatientPharser(string t)

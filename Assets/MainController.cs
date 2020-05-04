@@ -7,17 +7,44 @@ public class MainController : MonoBehaviour
 {
 
     public QRCodeDecodeController qrController;
+    public QRCodeEncodeController qrCreator;
 
     [SerializeField]
     UserInfo uinfo;
-
     [SerializeField]
-    userType user_Type;
+    UIController uiC;
+
+    [Space]
     [SerializeField]
     readType read_Type;
     void Start()
     {
         qrController.onQRScanFinished += SaveScanInfo;
+        uiC.LoadUserInfo();
+
+        CheckIsRegisteredStart();
+    }
+
+    public UserInfo GetUserScriptable()
+    {
+        return uinfo;
+    }
+
+    void CheckIsRegisteredStart()
+    {
+        if (uinfo.CheckIsRegistered())
+        {
+            if (uinfo.userT == userType.Patient)
+            {
+                uiC.FillPatientInfo();
+                uiC.PatientAlreadyRegistered();
+            }
+            else
+            {
+                
+            }
+            
+        }
     }
 
     public void SetUserType(int user)
@@ -25,10 +52,10 @@ public class MainController : MonoBehaviour
         switch (user)
         {
             case 0:
-                user_Type = userType.Patient;
+                uinfo.userT = userType.Patient;
                 break;
             case 1:
-                user_Type = userType.Doctor;
+                uinfo.userT = userType.Doctor;
                 break;
             default:
                 break;
@@ -56,10 +83,11 @@ public class MainController : MonoBehaviour
 
     public void SaveScanInfo(string scan)
     {
-        switch (user_Type)
+        switch (uinfo.userT)
         {
             case userType.Patient:
                 uinfo.PatientPharser(scan);
+                uiC.EndQRScan();
                 break;
             case userType.Doctor:
                 switch (read_Type)
