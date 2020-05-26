@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userT: 0
   isRegistered: 0
+  userSec: 
+  passSec: 
   userName: 
   userDNI: 
+  docCode: 
   isTested: 0

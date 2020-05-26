@@ -17,13 +17,62 @@ public class MainController : MonoBehaviour
     [Space]
     [SerializeField]
     public readType read_Type;
+
+
     void Start()
     {
+        //string path = Application.persistentDataPath + "/userData.pass";
+        //Debug.Log("Path: " + path);
+        LoadUser();
 
         qrController.onQRScanFinished += SaveScanInfo;
+        
+
+
+    }
+
+
+    public void SaveUser()
+    {
+        SaveSystemController.SaveUser(uinfo);
+    }
+
+    public void LoadUser()
+    {
+
+        Debug.Log("Load User");
+
+        UserData data = SaveSystemController.LoadUser();
+
+        if (data != null)
+        {
+            uinfo.isRegistered = data.isRegistered;
+            if (data.isDoctor)
+            {
+                uinfo.userT = userType.Doctor;
+            }
+            else
+            {
+                uinfo.userT = userType.Patient;
+            }
+
+            uinfo.userName = data.Name;
+            uinfo.userDNI = data.Dni;
+            uinfo.docCode = data.DocId;
+
+            uinfo.isTested = data.isTested;
+
+            uinfo.patient_Info.Test = data.test;
+            uinfo.patient_Info.Doctor = data.doctor;
+            uinfo.patient_Info.Date = data.date;
+            uinfo.patient_Info.Result_igm = data.resultIgm;
+            uinfo.patient_Info.Result_igg = data.resultIgg;
+        }
+
         uiC.LoadUserInfo();
 
         CheckIsRegisteredStart();
+
     }
 
     public void ResetInfo()
@@ -116,22 +165,39 @@ public class MainController : MonoBehaviour
                 break;
         }
         qrController.Reset();
+        SaveUser();
     }
 
     public void SaveStardardInfo(string n, string dni)
     {
         uinfo.AddStandardInfo(n, dni);
     }
+    public void SaveDocStandardInfo(string n, string dni, string docId)
+    {
+        uinfo.AddStandardInfo(n, dni, docId);
+    }
 
-    public void SetResultInfo(bool b)
+    public void SetResultInfo_igm(bool b)
     {
         switch (b)
         {
             case true:
-                uinfo.doc_temp.Result = "PASS";
+                uinfo.doc_temp.Result_igm = "+";
                 break;
             case false:
-                uinfo.doc_temp.Result = "FAIL";
+                uinfo.doc_temp.Result_igm = "-";
+                break;
+        }
+    }
+    public void SetResultInfo_igg(bool b)
+    {
+        switch (b)
+        {
+            case true:
+                uinfo.doc_temp.Result_igg = "+";
+                break;
+            case false:
+                uinfo.doc_temp.Result_igg = "-";
                 break;
         }
     }

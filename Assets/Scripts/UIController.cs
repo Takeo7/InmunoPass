@@ -22,13 +22,17 @@ public class UIController : MonoBehaviour
 
     [Space]
     [SerializeField]
-    Color Pass;
+    Color negative;
     [SerializeField]
-    Color NotPass;
+    Color positive;
 
     [Space]
     [SerializeField]
     RawImage qrImage;
+
+    [Space]
+    [SerializeField]
+    Idiomas lang;
 
     [Space]
     [Header("Patient Input")]
@@ -47,6 +51,8 @@ public class UIController : MonoBehaviour
     Text inputDocLastName;
     [SerializeField]
     Text inputDocDNI;
+    [SerializeField]
+    Text inputDocID;
 
 
     [Space]
@@ -55,6 +61,9 @@ public class UIController : MonoBehaviour
     Text PatientName;
     [SerializeField]
     Text PatientDNI;
+
+    [SerializeField]
+    GameObject TestInfo;
     [SerializeField]
     Text PatientTestLot;
     [SerializeField]
@@ -62,7 +71,9 @@ public class UIController : MonoBehaviour
     [SerializeField]
     Text PatientDocTester;
     [SerializeField]
-    Text PatientTestResult;
+    Text PatientTestResult_igm;
+    [SerializeField]
+    Text PatientTestResult_igg;
 
     [Space]
     [Header("Doctor Info Visualization")]
@@ -70,6 +81,8 @@ public class UIController : MonoBehaviour
     Text DocName;
     [SerializeField]
     Text DocDNI;
+    [SerializeField]
+    Text DocID;
 
     [Space]
     [SerializeField]
@@ -83,9 +96,7 @@ public class UIController : MonoBehaviour
     [SerializeField]
     GameObject newTestScan;
     [SerializeField]
-    GameObject newButtonPass;
-    [SerializeField]
-    GameObject newButtonNotPass;
+    GameObject newResult;
     [SerializeField]
     GameObject newPatientGenerateQR;
     
@@ -116,7 +127,55 @@ public class UIController : MonoBehaviour
     {
         mc.qrCreator.onQREncodeFinished += PatientQRLoad;
         mc.qrCreator.onQREncodeFinished += DoctorQRLoad;
+
+        if (PlayerPrefs.GetInt("LanguageSet") == 0)
+        {
+            SetStartLanguage();
+        }
+        
     }
+
+    #region Language
+
+    public delegate void changelang();
+    public changelang delegateChangeLang;
+
+    void SetStartLanguage()
+    {
+        switch (Application.systemLanguage)
+        {
+            case SystemLanguage.Catalan:
+                lang.ChangeLang(Idiomas.idiomasEnum.Catalan);
+                delegateChangeLang();
+                break;
+            case SystemLanguage.English:
+                lang.ChangeLang(Idiomas.idiomasEnum.Ingles);
+                delegateChangeLang();
+                break;
+            case SystemLanguage.Spanish:
+                lang.ChangeLang(Idiomas.idiomasEnum.Español);
+                delegateChangeLang();
+                break;
+            default:
+                lang.ChangeLang(Idiomas.idiomasEnum.Español);
+                delegateChangeLang();
+                break;
+        }
+        PlayerPrefs.SetInt("LanguageSet", 1);
+    }
+
+    public void ChangeLanguage(int i)
+    {
+        lang.ChangeLang((Idiomas.idiomasEnum)i);
+        delegateChangeLang();
+    }
+
+    public string GetText(Idiomas.texto t)
+    {
+       return  lang.GetText(t);
+    }
+
+    #endregion
 
     public void EndQRScan()
     {        
@@ -180,10 +239,32 @@ public class UIController : MonoBehaviour
 
             if (uInfo.CheckIsTested())
             {
+                TestInfo.SetActive(true);
                 PatientTestLot.text = uInfo.patient_Info.Test;
                 PatientTestDate.text = uInfo.patient_Info.Date;
                 PatientDocTester.text = uInfo.patient_Info.Doctor;
-                PatientTestResult.text = uInfo.patient_Info.Result;
+                PatientTestResult_igm.text = uInfo.patient_Info.Result_igm;
+                if (PatientTestResult_igm.text == "-")
+                {
+                    PatientTestResult_igm.color = negative;
+                }
+                else
+                {
+                    PatientTestResult_igm.color = positive;
+                }
+                PatientTestResult_igg.text = uInfo.patient_Info.Result_igg;
+                if (PatientTestResult_igg.text == "-")
+                {
+                    PatientTestResult_igg.color = negative;
+                }
+                else
+                {
+                    PatientTestResult_igg.color = positive;
+                }
+            }
+            else
+            {
+                TestInfo.SetActive(false);
             }
         }
         else
@@ -214,6 +295,7 @@ public class UIController : MonoBehaviour
         {
             DocName.text = uInfo.userName;
             DocDNI.text = uInfo.userDNI;
+            DocID.text = uInfo.docCode;
         }
     }
 
@@ -227,7 +309,7 @@ public class UIController : MonoBehaviour
 
     public void SaveDoctorInfo()
     {
-        mc.SaveStardardInfo("Dr." + inputDocName.text + " " + inputDocLastName.text, inputDocDNI.text);
+        mc.SaveDocStandardInfo("Dr. " + inputDocName.text + " " + inputDocLastName.text, inputDocDNI.text, inputDocID.text);
     }
     
     public void FillDocNewPatientInfo()
@@ -243,13 +325,12 @@ public class UIController : MonoBehaviour
         newPatientTest.text = uInfo.doc_temp.Test;
         newPatientDate.text = DateTime.Today.ToString();
 
-        newButtonPass.SetActive(true);
-        newButtonNotPass.SetActive(true);
+        newResult.SetActive(true);
     }
 
     public void DoctorGenerateQR()
     {
-        string textToEncode = uInfo.userName + "%" + uInfo.doc_temp.Test + "%" + uInfo.doc_temp.Date + "%" + uInfo.doc_temp.Result;
+        string textToEncode = uInfo.userName + "%" + uInfo.doc_temp.Test + "%" + uInfo.doc_temp.Date + "%" + uInfo.doc_temp.Result_igm + "%" + uInfo.doc_temp.Result_igg;
 
         mc.qrCreator.Encode(textToEncode);
 

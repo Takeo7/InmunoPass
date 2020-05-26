@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b437b71a64916ee428dc6503712e6b75, type: 3}
+  m_Name: Languages
+  m_EditorClassIdentifier: 
+  currentLang: 0
+  languages:
+  - textos:
+    - Paciente
+    - Facultativo
+    - Nombre
+    - Apellidos
+    - Reiniciar Info.
+    - Generar
+    - Escanear
+    - Guardar
+    - Fecha
+    - Negativo
+    - Positivo
+    - Ingresar
+    - Registrar
+    - Usuario
+    - "Contrase\xF1a"
+    - Nuevo Test
+    - Volver
+  - textos:
+    - Patient
+    - Facultative
+    - Name
+    - Last Name
+    - Reset Info.
+    - Generate
+    - Scan
+    - Save
+    - Date
+    - Negative
+    - Positive
+    - Login
+    - Register
+    - User
+    - Password
+    - New Test
+    - Back
+  - textos:
+    - Pacient
+    - Facultatiu
+    - Nom
+    - Cognom
+    - "Reiniciar informaci\xF3"
+    - Generar
+    - Escanejar
+    - Guardar
+    - Data
+    - Negatiu
+    - Positiu
+    - Ingressar
+    - Registrar
+    - Usuari
+    - Contrasenya
+    - Nou Test
+    - Tornar
+  - textos:
+    - Paciente
+    - Doctor
+    - Nom
+    - 'Cognom '
+    - "Reiniciar informaci\xF3"
+    - Generar
+    - Escanejar
+    - Guardar
+    - Data
+    - Negatiu
+    - Positiu
+    - Ingressar
+    - Registrar
+    - Usuari
+    - Contrasenya
+    - Nou Test
+    - Tornar
+  - textos:
+    - 'Paciente '
+    - Doutor
+    - Nome
+    - 'Apelidos '
+    - Reiniciar informacion
+    - Xerar
+    - Escanear
+    - Gardar
+    - Data
+    - Negativo
+    - Positivo
+    - Ingresar
+    - Rexistrar
+    - Usuario
+    - Contrasinal
+    - Nova Proba
+    - Volver

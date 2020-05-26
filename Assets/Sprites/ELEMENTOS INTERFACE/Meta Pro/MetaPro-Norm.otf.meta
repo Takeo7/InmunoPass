@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: c623db09d1180894e9af8405c4dccc90
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Meta Pro
+  fontNames:
+  - Meta Pro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0416ed2771e86d7458d2f8a1486e52c2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

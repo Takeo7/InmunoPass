@@ -9,18 +9,24 @@ public class UserInfo : ScriptableObject
     [SerializeField]
     public MainController.userType userT;
     [SerializeField]
-    bool isRegistered;
+    public bool isRegistered = false;
+    [SerializeField]
+    string userSec;
+    [SerializeField]
+    string passSec;
     [SerializeField]
     public string userName;
     [SerializeField]
     public string userDNI;
+    [SerializeField]
+    public string docCode;
 
     [Space]
     [SerializeField]
-    bool isTested;
+    public bool isTested;
 
-    public PatientInfo patient_Info;
-    public List<DoctorInfo> doctor_Info = new List<DoctorInfo>();
+    public PatientInfo patient_Info = new PatientInfo();
+    public DoctorInfo doctor_Info = new DoctorInfo();
 
     public DoctorInfo doc_temp = new DoctorInfo();
 
@@ -28,6 +34,13 @@ public class UserInfo : ScriptableObject
     {
         userName = n;
         userDNI = id;
+        isRegistered = true;
+    }
+    public void AddStandardInfo(string n, string id, string dId)
+    {
+        userName = n;
+        userDNI = id;
+        docCode = dId;
         isRegistered = true;
     }
 
@@ -40,14 +53,15 @@ public class UserInfo : ScriptableObject
         return isTested;
     }
 
-    public void AddPatientInfo(string d, string t, string dat, string r)
+    public void AddPatientInfo(string d, string t, string dat, string igm, string igg)
     {
         PatientInfo temp = new PatientInfo();
 
         temp.Doctor = d;
         temp.Test = t;
         temp.Date = dat;
-        temp.Result = r;
+        temp.Result_igm = igm;
+        temp.Result_igg = igg;
 
         patient_Info = temp;
 
@@ -58,7 +72,7 @@ public class UserInfo : ScriptableObject
     {
         string[] sliced = t.Split('%');
 
-        AddPatientInfo(sliced[0], sliced[1], sliced[2], sliced[3]);
+        AddPatientInfo(sliced[0], sliced[1], sliced[2], sliced[3], sliced[4]);
     }
 
     public void DoctorPatientPharser(string t)
@@ -84,24 +98,27 @@ public class UserInfo : ScriptableObject
         doc_temp.Date = DateTime.Today.ToString();
     }
 
-    public void AddDocResult(string r)
+    public void AddDocResult(string igm, string igg)
     {
-        doc_temp.Result = r;
+        doc_temp.Result_igm = igm;
+        doc_temp.Result_igg = igg;
 
-        doctor_Info.Add(doc_temp);
+        doctor_Info = doc_temp;
         
     }
 
 
     public void ResetInfo()
     {
-        doctor_Info = new List<DoctorInfo>();
+        doctor_Info = new DoctorInfo();
         doc_temp = new DoctorInfo();
         isRegistered = false;
         isTested = false;
         userName = "";
         userDNI = "";
+        docCode = "";
         patient_Info = new PatientInfo();
+        SaveSystemController.SaveUser(new UserInfo());
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
@@ -116,7 +133,8 @@ public class PatientInfo
     public string Doctor;
     public string Test;
     public string Date;
-    public string Result;   
+    public string Result_igm;
+    public string Result_igg;
 }
 
 public class DoctorInfo
@@ -125,5 +143,6 @@ public class DoctorInfo
     public string PatientDNI;
     public string Test;
     public string Date;
-    public string Result;
+    public string Result_igm;
+    public string Result_igg;
 }
