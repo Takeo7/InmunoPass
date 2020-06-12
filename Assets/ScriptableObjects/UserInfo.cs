@@ -10,10 +10,8 @@ public class UserInfo : ScriptableObject
     public MainController.userType userT;
     [SerializeField]
     public bool isRegistered = false;
-    [SerializeField]
-    string userSec;
-    [SerializeField]
-    string passSec;
+
+
     [SerializeField]
     public string userName;
     [SerializeField]
@@ -23,65 +21,37 @@ public class UserInfo : ScriptableObject
 
     [Space]
     [SerializeField]
-    public bool isTested;
+    public string LabNICA;
 
-    public PatientInfo patient_Info = new PatientInfo();
-    public DoctorInfo doctor_Info = new DoctorInfo();
 
-    public DoctorInfo doc_temp = new DoctorInfo();
+
+    public DoctorPatientInfo doctor_Info = new DoctorPatientInfo();
+    public DoctorPatientInfo doc_temp = new DoctorPatientInfo();
+
+    public LabPatientInfo lab_Info = new LabPatientInfo();
+    public LabPatientInfo lab_temp = new LabPatientInfo();
 
     public void AddStandardInfo(string n, string id)
     {
+        //LAB
         userName = n;
-        userDNI = id;
+        LabNICA = id;
+        userT = MainController.userType.Lab;
         isRegistered = true;
     }
     public void AddStandardInfo(string n, string id, string dId)
     {
+        //DOCTOR
         userName = n;
         userDNI = id;
         docCode = dId;
+        userT = MainController.userType.Doctor;
         isRegistered = true;
     }
 
     public bool CheckIsRegistered()
     {
         return isRegistered;
-    }
-    public bool CheckIsTested()
-    {
-        return isTested;
-    }
-
-    public void AddPatientInfo(string d, string t, string dat, string igm, string igg)
-    {
-        PatientInfo temp = new PatientInfo();
-
-        temp.Doctor = d;
-        temp.Test = t;
-        temp.Date = dat;
-        temp.Result_igm = igm;
-        temp.Result_igg = igg;
-
-        patient_Info = temp;
-
-        isTested = true;
-    }
-
-    public void PatientPharser(string t)
-    {
-        string[] sliced = t.Split('%');
-
-        AddPatientInfo(sliced[0], sliced[1], sliced[2], sliced[3], sliced[4]);
-    }
-
-    public void DoctorPatientPharser(string t)
-    {
-        doc_temp = new DoctorInfo();
-
-        string[] sliced = t.Split('%');
-
-        AddDocPatient(sliced[0], sliced[1]);
     }
 
 
@@ -92,10 +62,21 @@ public class UserInfo : ScriptableObject
         doc_temp.PatientDNI = pid;
     }
 
+    public void AddLabPatient(string pn, string pid)
+    {
+        lab_temp.PatientName = pn;
+        lab_temp.PatientDNI = pid;
+    }
+
     public void AddDocTest(string t)
     {
         doc_temp.Test = t;
         doc_temp.Date = DateTime.Today.ToString();
+    }
+
+    public void AddLabTest()
+    {
+        lab_temp.Date = DateTime.Today.ToString();
     }
 
     public void AddDocResult(string igm, string igg)
@@ -107,19 +88,43 @@ public class UserInfo : ScriptableObject
         
     }
 
+    public void AddLabResult(string igm, string igg)
+    {
+        lab_temp.Result_igm = igm;
+        lab_temp.Result_igg = igg;
+
+        lab_Info = lab_temp;
+
+    }
+
 
     public void ResetInfo()
     {
-        doctor_Info = new DoctorInfo();
-        doc_temp = new DoctorInfo();
-        isRegistered = false;
-        isTested = false;
-        userName = "";
-        userDNI = "";
-        docCode = "";
-        patient_Info = new PatientInfo();
-        SaveSystemController.SaveUser(new UserInfo());
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        switch (userT)
+        {
+            case MainController.userType.Lab:
+                lab_Info = new LabPatientInfo();
+                lab_temp = new LabPatientInfo();
+                isRegistered = false;
+                userName = "";
+                LabNICA = "";
+                SaveSystemController.SaveUser(new UserInfo());
+                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+                break;
+            case MainController.userType.Doctor:
+                doctor_Info = new DoctorPatientInfo();
+                doc_temp = new DoctorPatientInfo();
+                isRegistered = false;
+                userName = "";
+                userDNI = "";
+                docCode = "";
+                SaveSystemController.SaveUser(new UserInfo());
+                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+                break;
+            default:
+                break;
+        }
+        
     }
 
 
@@ -128,20 +133,20 @@ public class UserInfo : ScriptableObject
 
 }
 
-public class PatientInfo
+public class DoctorPatientInfo
 {
-    public string Doctor;
+    public string PatientName;
+    public string PatientDNI;
     public string Test;
     public string Date;
     public string Result_igm;
     public string Result_igg;
 }
 
-public class DoctorInfo
+public class LabPatientInfo
 {
     public string PatientName;
     public string PatientDNI;
-    public string Test;
     public string Date;
     public string Result_igm;
     public string Result_igg;

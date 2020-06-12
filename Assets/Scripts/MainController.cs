@@ -50,23 +50,17 @@ public class MainController : MonoBehaviour
             if (data.isDoctor)
             {
                 uinfo.userT = userType.Doctor;
+                uinfo.userDNI = data.Dni;
+                uinfo.docCode = data.DocId;
             }
             else
             {
-                uinfo.userT = userType.Patient;
+                uinfo.userT = userType.Lab;
+                uinfo.LabNICA = data.LabNica;
             }
 
             uinfo.userName = data.Name;
-            uinfo.userDNI = data.Dni;
-            uinfo.docCode = data.DocId;
-
-            uinfo.isTested = data.isTested;
-
-            uinfo.patient_Info.Test = data.test;
-            uinfo.patient_Info.Doctor = data.doctor;
-            uinfo.patient_Info.Date = data.date;
-            uinfo.patient_Info.Result_igm = data.resultIgm;
-            uinfo.patient_Info.Result_igg = data.resultIgg;
+            
         }
 
         uiC.LoadUserInfo();
@@ -89,32 +83,18 @@ public class MainController : MonoBehaviour
     {
         if (uinfo.CheckIsRegistered())
         {
-            if (uinfo.userT == userType.Patient)
+            switch (uinfo.userT)
             {
-                uiC.FillPatientInfo();
-                uiC.PatientAlreadyRegistered();
+                case userType.Lab:
+                    uiC.LabAlreadyRegistered();
+                    break;
+                case userType.Doctor:
+                    uiC.DoctorAlreadyRegistered();
+                    break;
+                default:
+                    break;
             }
-            else
-            {
-                uiC.FillDoctorInfo();
-                uiC.DoctorAlreadyRegistered();
-            }
-            
-        }
-    }
 
-    public void SetUserType(int user)
-    {
-        switch (user)
-        {
-            case 0:
-                uinfo.userT = userType.Patient;
-                break;
-            case 1:
-                uinfo.userT = userType.Doctor;
-                break;
-            default:
-                break;
         }
     }
 
@@ -142,15 +122,14 @@ public class MainController : MonoBehaviour
         Debug.Log(scan);
         switch (uinfo.userT)
         {
-            case userType.Patient:
-                uinfo.PatientPharser(scan);
+            case userType.Lab:
                 uiC.EndQRScan();
                 break;
             case userType.Doctor:
                 switch (read_Type)
                 {
                     case readType.QR:
-                        uinfo.DoctorPatientPharser(scan);
+
                         uiC.EndQRScan();
                         break;
                     case readType.BarCode:
@@ -168,9 +147,9 @@ public class MainController : MonoBehaviour
         SaveUser();
     }
 
-    public void SaveStardardInfo(string n, string dni)
+    public void SaveLabStardardInfo(string n, string nica)
     {
-        uinfo.AddStandardInfo(n, dni);
+        uinfo.AddStandardInfo(n, nica);
     }
     public void SaveDocStandardInfo(string n, string dni, string docId)
     {
@@ -204,7 +183,7 @@ public class MainController : MonoBehaviour
 
     public enum userType
     {
-        Patient,
+        Lab,
         Doctor
     }
 

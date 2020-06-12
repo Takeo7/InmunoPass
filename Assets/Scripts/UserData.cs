@@ -12,33 +12,26 @@ public class UserData
     public string Name;
     public string Dni;
     public string DocId;
-    public bool isTested;
-    public string test;
-    public string doctor;
-    public string date;
-    public string resultIgm;
-    public string resultIgg;
+    public string LabNica;
 
 
     public UserData (UserInfo userI)
     {
         isRegistered = userI.CheckIsRegistered();
-        if (userI.userT == MainController.userType.Patient)
+        if (userI.userT == MainController.userType.Lab)
         {
             isDoctor = false;
+            LabNica = userI.LabNICA;
         }
         else
         {
+            
             isDoctor = true;
+            Dni = userI.userDNI;
+            DocId = userI.docCode;
         }
         Name = userI.userName;
-        Dni = userI.userDNI;
-        DocId = userI.docCode;
-        isTested = userI.CheckIsTested();
-        test = userI.patient_Info.Test;
-        doctor = userI.patient_Info.Doctor;
-        date = userI.patient_Info.Date;
-        resultIgm = userI.patient_Info.Result_igm;
-        resultIgg = userI.patient_Info.Result_igg;
+        
+
     }
 }

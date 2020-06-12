@@ -34,14 +34,6 @@ public class UIController : MonoBehaviour
     [SerializeField]
     Idiomas lang;
 
-    [Space]
-    [Header("Patient Input")]
-    [SerializeField]
-    Text inputPatientName;
-    [SerializeField]
-    Text inputPatientLastName;
-    [SerializeField]
-    Text inputPatientDNI;
 
     [Space]
     [Header("Doctor Input")]
@@ -54,26 +46,13 @@ public class UIController : MonoBehaviour
     [SerializeField]
     Text inputDocID;
 
-
     [Space]
-    [Header("Patient Info Visualization")]
+    [Header("Lab Input")]
     [SerializeField]
-    Text PatientName;
+    Text inputLabName;
     [SerializeField]
-    Text PatientDNI;
-
-    [SerializeField]
-    GameObject TestInfo;
-    [SerializeField]
-    Text PatientTestLot;
-    [SerializeField]
-    Text PatientTestDate;
-    [SerializeField]
-    Text PatientDocTester;
-    [SerializeField]
-    Text PatientTestResult_igm;
-    [SerializeField]
-    Text PatientTestResult_igg;
+    Text inputNica;
+  
 
     [Space]
     [Header("Doctor Info Visualization")]
@@ -84,22 +63,44 @@ public class UIController : MonoBehaviour
     [SerializeField]
     Text DocID;
 
+
     [Space]
+    [Header("Lab Info Visualization")]
     [SerializeField]
-    Text newPatientName;
+    Text LabName;
     [SerializeField]
-    Text newPatientDNI;
+    Text LabNica;
+
+    [Space]
+    [Header("New Test Doc")]
     [SerializeField]
-    Text newPatientTest;
+    Text newPatientDocName;
     [SerializeField]
-    Text newPatientDate;
+    Text newPatientDocDNI;
     [SerializeField]
-    GameObject newTestScan;
+    Text newPatientDocTest;
     [SerializeField]
-    GameObject newResult;
+    Text newPatientDocDate;
     [SerializeField]
-    GameObject newPatientGenerateQR;
-    
+    GameObject newTestDocScan;
+    [SerializeField]
+    GameObject newDocResult;
+    [SerializeField]
+    GameObject newPatientDocGenerateQR;
+
+    [Space]
+    [Header("New Test Lab")]
+    [SerializeField]
+    Text newPatientLabName;
+    [SerializeField]
+    Text newPatientLabDNI;
+    [SerializeField]
+    Text newPatientLabDate;
+    [SerializeField]
+    GameObject newLabResult;
+    [SerializeField]
+    GameObject newPatientLabGenerateQR;
+
 
 
     [Space]
@@ -109,11 +110,7 @@ public class UIController : MonoBehaviour
     [SerializeField]
     GameObject ShowQR;
 
-    [Space]
-    [SerializeField]
-    GameObject PatientInput;
-    [SerializeField]
-    GameObject PatientInfo;
+
 
     [Space]
     [SerializeField]
@@ -121,18 +118,36 @@ public class UIController : MonoBehaviour
     [SerializeField]
     GameObject DoctorInfo;
     [SerializeField]
-    GameObject NewPatient;
+    GameObject DocNewPatient;
+
+
+    [Space]
+    [SerializeField]
+    GameObject LabInput;
+    [SerializeField]
+    GameObject LabInfo;
+    [SerializeField]
+    GameObject LabNewPatient;
+
 
     private void Start()
     {
-        mc.qrCreator.onQREncodeFinished += PatientQRLoad;
-        mc.qrCreator.onQREncodeFinished += DoctorQRLoad;
+        mc.qrCreator.onQREncodeFinished += QRLoad;
 
         if (PlayerPrefs.GetInt("LanguageSet") == 0)
         {
             SetStartLanguage();
         }
-        
+
+        if (!uInfo.isRegistered)
+        {
+            DoctorInput.SetActive(true);
+            uInfo.userT = MainController.userType.Doctor;
+        }
+        else
+        {
+            DoctorAlreadyRegistered();
+        }
     }
 
     #region Language
@@ -179,13 +194,13 @@ public class UIController : MonoBehaviour
 
     public void EndQRScan()
     {        
-        if (uInfo.userT == MainController.userType.Patient)
+        if (uInfo.userT == MainController.userType.Lab)
         {
             DeviceCamera.SetActive(false);
             ScanLayer.SetActive(false);
 
-            PatientInfo.SetActive(true);
-            FillPatientInfo();
+
+            
         }
         else
         {
@@ -195,14 +210,14 @@ public class UIController : MonoBehaviour
                     DeviceCamera.SetActive(false);
                     ScanLayer.SetActive(false);
 
-                    NewPatient.SetActive(true);
+                    DocNewPatient.SetActive(true);
                     FillDocNewPatientInfo();
                     break;
                 case MainController.readType.BarCode:
                     DeviceCamera.SetActive(false);
                     ScanLayer.SetActive(false);
 
-                    NewPatient.SetActive(true);
+                    DocNewPatient.SetActive(true);
                     FillDocNewTestInfo();
                     break;
                 default:
@@ -218,76 +233,7 @@ public class UIController : MonoBehaviour
        uInfo = mc.GetUserScriptable();
     }
 
-    #region Patient
-    public void SavePatientInfo()
-    {
-        mc.SaveStardardInfo(inputPatientName.text + " " + inputPatientLastName.text, inputPatientDNI.text);
-    }
-    public void PatientAlreadyRegistered()
-    {
-        PatientInfo.SetActive(true);
-        FillPatientInfo();
-
-        UserSelection.SetActive(false);
-    }
-    public void FillPatientInfo()
-    {
-        if (uInfo.CheckIsRegistered())
-        {
-            PatientName.text = uInfo.userName;
-            PatientDNI.text = uInfo.userDNI;
-
-            if (uInfo.CheckIsTested())
-            {
-                TestInfo.SetActive(true);
-                PatientTestLot.text = uInfo.patient_Info.Test;
-                PatientTestDate.text = uInfo.patient_Info.Date;
-                PatientDocTester.text = uInfo.patient_Info.Doctor;
-                PatientTestResult_igm.text = uInfo.patient_Info.Result_igm;
-                if (PatientTestResult_igm.text == "-")
-                {
-                    PatientTestResult_igm.color = negative;
-                }
-                else
-                {
-                    PatientTestResult_igm.color = positive;
-                }
-                PatientTestResult_igg.text = uInfo.patient_Info.Result_igg;
-                if (PatientTestResult_igg.text == "-")
-                {
-                    PatientTestResult_igg.color = negative;
-                }
-                else
-                {
-                    PatientTestResult_igg.color = positive;
-                }
-            }
-            else
-            {
-                TestInfo.SetActive(false);
-            }
-        }
-        else
-        {
-            Debug.LogError("No info to fill");
-        }
-    }
-    public void PatientGenerateQR()
-    {
-        string textToEncode = uInfo.userName + "%" + uInfo.userDNI;
-        
-        mc.qrCreator.Encode(textToEncode);
-        
-    }
-
-    public void PatientQRLoad(Texture2D t)
-    {
-        ShowQR.SetActive(true);
-
-        qrImage.texture = t;
-    }
-
-    #endregion
+   
 
     public void FillDoctorInfo()
     {
@@ -299,44 +245,85 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void FillLabInfo()
+    {
+        if (uInfo.CheckIsRegistered())
+        {
+            LabName.text = uInfo.userName;
+            LabNica.text = uInfo.LabNICA;
+        }
+    }
+
     public void DoctorAlreadyRegistered()
     {
         DoctorInfo.SetActive(true);
-        FillDoctorInfo();
-
-        UserSelection.SetActive(false);
+        FillDoctorInfo();    
+    }
+    public void LabAlreadyRegistered()
+    {
+        LabInfo.SetActive(true);
+        FillLabInfo();
     }
 
     public void SaveDoctorInfo()
     {
         mc.SaveDocStandardInfo("Dr. " + inputDocName.text + " " + inputDocLastName.text, inputDocDNI.text, inputDocID.text);
     }
+
+    public void SaveLabInfo()
+    {
+        mc.SaveLabStardardInfo(inputLabName.text, inputNica.text);
+    }
     
     public void FillDocNewPatientInfo()
     {
-        newPatientName.text = uInfo.doc_temp.PatientName;
-        newPatientDNI.text = uInfo.doc_temp.PatientDNI;
+        newPatientDocName.text = uInfo.doc_temp.PatientName;
+        newPatientDocDNI.text = uInfo.doc_temp.PatientDNI;
 
-        newTestScan.SetActive(true);
+        newTestDocScan.SetActive(true);
     }
+
+    public void FillLabNewPatientInfo()
+    {
+        newPatientLabName.text = uInfo.lab_temp.PatientName;
+        newPatientLabDNI.text = uInfo.lab_temp.PatientDNI;
+
+        newLabResult.SetActive(true);
+    }
+
+
 
     public void FillDocNewTestInfo()
     {
-        newPatientTest.text = uInfo.doc_temp.Test;
-        newPatientDate.text = DateTime.Today.ToString();
+        newPatientDocTest.text = uInfo.doc_temp.Test;
+        newPatientDocDate.text = DateTime.Today.ToString();
 
-        newResult.SetActive(true);
+        newDocResult.SetActive(true);
     }
 
     public void DoctorGenerateQR()
     {
-        string textToEncode = uInfo.userName + "%" + uInfo.doc_temp.Test + "%" + uInfo.doc_temp.Date + "%" + uInfo.doc_temp.Result_igm + "%" + uInfo.doc_temp.Result_igg;
+        string textToEncode = "";
+
+        mc.qrCreator.Encode(textToEncode);
+    }
+
+    public void LabGenerateQR()
+    {
+        string textToEncode = "";
+
+        mc.qrCreator.Encode(textToEncode);
+    }
+
+    public void DoctorGenerateQRDEMO()
+    {
+        string textToEncode = "https://app.immunitypass.es/demo?" + long.Parse(DateTime.Now.ToString("yyyyMMddHHmmss"));
 
         mc.qrCreator.Encode(textToEncode);
 
     }
 
-    public void DoctorQRLoad(Texture2D t)
+    public void QRLoad(Texture2D t)
     {
         ShowQR.SetActive(true);
 
