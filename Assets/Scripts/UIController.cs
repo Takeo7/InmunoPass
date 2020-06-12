@@ -12,8 +12,6 @@ public class UIController : MonoBehaviour
 
     [SerializeField]
     MainController mc;
-    [SerializeField]
-    UserInfo uInfo;
     [Space]
     [SerializeField]
     GameObject DeviceCamera;
@@ -139,15 +137,7 @@ public class UIController : MonoBehaviour
             SetStartLanguage();
         }
 
-        if (!uInfo.isRegistered)
-        {
-            DoctorInput.SetActive(true);
-            uInfo.userT = MainController.userType.Doctor;
-        }
-        else
-        {
-            DoctorAlreadyRegistered();
-        }
+        
     }
 
     #region Language
@@ -192,9 +182,12 @@ public class UIController : MonoBehaviour
 
     #endregion
 
+
+
+
     public void EndQRScan()
     {        
-        if (uInfo.userT == MainController.userType.Lab)
+        if (mc.uinfo.userT == MainController.userType.Lab)
         {
             DeviceCamera.SetActive(false);
             ScanLayer.SetActive(false);
@@ -228,29 +221,59 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void LoadUserInfo()
+
+    public void StartUI()
     {
-       uInfo = mc.GetUserScriptable();
+        if (!mc.uinfo.isRegistered)
+        {
+            switch (mc.uinfo.userT)
+            {
+                case MainController.userType.Lab:
+                    LabInput.SetActive(true);
+                    break;
+                case MainController.userType.Doctor:
+                    DoctorInput.SetActive(true);
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            switch (mc.uinfo.userT)
+            {
+                case MainController.userType.Lab:
+                    LabAlreadyRegistered();
+                    break;
+                case MainController.userType.Doctor:
+                    DoctorAlreadyRegistered();
+                    break;
+                default:
+                    break;
+            }
+
+        }
     }
+
 
    
 
     public void FillDoctorInfo()
     {
-        if (uInfo.CheckIsRegistered())
+        if (mc.uinfo.CheckIsRegistered())
         {
-            DocName.text = uInfo.userName;
-            DocDNI.text = uInfo.userDNI;
-            DocID.text = uInfo.docCode;
+            DocName.text = mc.uinfo.userName;
+            DocDNI.text = mc.uinfo.userDNI;
+            DocID.text = mc.uinfo.docCode;
         }
     }
 
     public void FillLabInfo()
     {
-        if (uInfo.CheckIsRegistered())
+        if (mc.uinfo.CheckIsRegistered())
         {
-            LabName.text = uInfo.userName;
-            LabNica.text = uInfo.LabNICA;
+            LabName.text = mc.uinfo.userName;
+            LabNica.text = mc.uinfo.LabNICA;
         }
     }
 
@@ -277,25 +300,23 @@ public class UIController : MonoBehaviour
     
     public void FillDocNewPatientInfo()
     {
-        newPatientDocName.text = uInfo.doc_temp.PatientName;
-        newPatientDocDNI.text = uInfo.doc_temp.PatientDNI;
+        newPatientDocName.text = mc.uinfo.doc_temp.PatientName;
+        newPatientDocDNI.text = mc.uinfo.doc_temp.PatientDNI;
 
         newTestDocScan.SetActive(true);
     }
 
     public void FillLabNewPatientInfo()
     {
-        newPatientLabName.text = uInfo.lab_temp.PatientName;
-        newPatientLabDNI.text = uInfo.lab_temp.PatientDNI;
-
-        newLabResult.SetActive(true);
+         mc.uinfo.lab_temp.PatientName = newPatientLabName.text;
+         mc.uinfo.lab_temp.PatientDNI = newPatientLabDNI.text;
     }
 
 
 
     public void FillDocNewTestInfo()
     {
-        newPatientDocTest.text = uInfo.doc_temp.Test;
+        newPatientDocTest.text = mc.uinfo.doc_temp.Test;
         newPatientDocDate.text = DateTime.Today.ToString();
 
         newDocResult.SetActive(true);
@@ -308,9 +329,9 @@ public class UIController : MonoBehaviour
         mc.qrCreator.Encode(textToEncode);
     }
 
-    public void LabGenerateQR()
+    public void LabGenerateQR(string url)
     {
-        string textToEncode = "";
+        string textToEncode = url;
 
         mc.qrCreator.Encode(textToEncode);
     }

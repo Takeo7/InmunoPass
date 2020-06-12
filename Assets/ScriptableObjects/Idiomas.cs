@@ -51,7 +51,8 @@ public class Idiomas : ScriptableObject
         Usuario,
         Contraseña,
         NuevoTest,
-        Atras
+        Atras,
+        Laboratorio
     }
 }
 

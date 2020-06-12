@@ -10,7 +10,7 @@ public class MainController : MonoBehaviour
     public QRCodeEncodeController qrCreator;
 
     [SerializeField]
-    UserInfo uinfo;
+    public UserInfo uinfo;
     [SerializeField]
     UIController uiC;
 
@@ -63,9 +63,8 @@ public class MainController : MonoBehaviour
             
         }
 
-        uiC.LoadUserInfo();
 
-        CheckIsRegisteredStart();
+        uiC.StartUI();
 
     }
 
@@ -79,24 +78,7 @@ public class MainController : MonoBehaviour
         return uinfo;
     }
 
-    void CheckIsRegisteredStart()
-    {
-        if (uinfo.CheckIsRegistered())
-        {
-            switch (uinfo.userT)
-            {
-                case userType.Lab:
-                    uiC.LabAlreadyRegistered();
-                    break;
-                case userType.Doctor:
-                    uiC.DoctorAlreadyRegistered();
-                    break;
-                default:
-                    break;
-            }
-
-        }
-    }
+   
 
     public void SetReadType(int read)
     {
@@ -156,7 +138,7 @@ public class MainController : MonoBehaviour
         uinfo.AddStandardInfo(n, dni, docId);
     }
 
-    public void SetResultInfo_igm(bool b)
+    public void SetDocResultInfo_igm(bool b)
     {
         switch (b)
         {
@@ -168,7 +150,7 @@ public class MainController : MonoBehaviour
                 break;
         }
     }
-    public void SetResultInfo_igg(bool b)
+    public void SetDocResultInfo_igg(bool b)
     {
         switch (b)
         {
@@ -177,6 +159,31 @@ public class MainController : MonoBehaviour
                 break;
             case false:
                 uinfo.doc_temp.Result_igg = "-";
+                break;
+        }
+    }
+
+    public void SetLabResultInfo_igm(bool b)
+    {
+        switch (b)
+        {
+            case true:
+                uinfo.lab_temp.Result_igm = "+";
+                break;
+            case false:
+                uinfo.lab_temp.Result_igm = "-";
+                break;
+        }
+    }
+    public void SetLabResultInfo_igg(bool b)
+    {
+        switch (b)
+        {
+            case true:
+                uinfo.lab_temp.Result_igg = "+";
+                break;
+            case false:
+                uinfo.lab_temp.Result_igg = "-";
                 break;
         }
     }

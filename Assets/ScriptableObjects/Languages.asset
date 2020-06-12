@@ -32,6 +32,7 @@ MonoBehaviour:
     - "Contrase\xF1a"
     - Nuevo Test
     - Volver
+    - Laboratorio
   - textos:
     - Patient
     - Facultative
@@ -50,6 +51,7 @@ MonoBehaviour:
     - Password
     - New Test
     - Back
+    - Laboratory
   - textos:
     - Pacient
     - Facultatiu
