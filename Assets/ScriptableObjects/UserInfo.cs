@@ -36,7 +36,7 @@ public class UserInfo : ScriptableObject
         //LAB
         userName = n;
         LabNICA = id;
-        userT = MainController.userType.Lab;
+        //userT = MainController.userType.Lab;
         isRegistered = true;
     }
     public void AddStandardInfo(string n, string id, string dId)
@@ -45,7 +45,7 @@ public class UserInfo : ScriptableObject
         userName = n;
         userDNI = id;
         docCode = dId;
-        userT = MainController.userType.Doctor;
+        //userT = MainController.userType.Doctor;
         isRegistered = true;
     }
 

@@ -300,8 +300,8 @@ public class UIController : MonoBehaviour
     
     public void FillDocNewPatientInfo()
     {
-        newPatientDocName.text = mc.uinfo.doc_temp.PatientName;
-        newPatientDocDNI.text = mc.uinfo.doc_temp.PatientDNI;
+
+        mc.uinfo.AddDocPatient(newPatientDocName.text, newPatientDocDNI.text);
 
         newTestDocScan.SetActive(true);
     }
@@ -316,15 +316,16 @@ public class UIController : MonoBehaviour
 
     public void FillDocNewTestInfo()
     {
+        
         newPatientDocTest.text = mc.uinfo.doc_temp.Test;
-        newPatientDocDate.text = DateTime.Today.ToString();
+        newPatientDocDate.text = DateTime.Today.ToShortDateString();
 
         newDocResult.SetActive(true);
     }
 
-    public void DoctorGenerateQR()
+    public void DoctorGenerateQR(string url)
     {
-        string textToEncode = "";
+        string textToEncode = url;
 
         mc.qrCreator.Encode(textToEncode);
     }
@@ -349,6 +350,21 @@ public class UIController : MonoBehaviour
         ShowQR.SetActive(true);
 
         qrImage.texture = t;
+    }
+
+    public void BackScannReader()
+    {
+        switch (mc.uinfo.userT)
+        {
+            case MainController.userType.Lab:
+                LabNewPatient.SetActive(true);
+                break;
+            case MainController.userType.Doctor:
+                DocNewPatient.SetActive(true);
+                break;
+            default:
+                break;
+        }
     }
 
 }

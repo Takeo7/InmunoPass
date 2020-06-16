@@ -49,13 +49,13 @@ public class MainController : MonoBehaviour
             uinfo.isRegistered = data.isRegistered;
             if (data.isDoctor)
             {
-                uinfo.userT = userType.Doctor;
+                //uinfo.userT = userType.Doctor;
                 uinfo.userDNI = data.Dni;
                 uinfo.docCode = data.DocId;
             }
             else
             {
-                uinfo.userT = userType.Lab;
+                //uinfo.userT = userType.Lab;
                 uinfo.LabNICA = data.LabNica;
             }
 
@@ -71,6 +71,7 @@ public class MainController : MonoBehaviour
     public void ResetInfo()
     {
         uinfo.ResetInfo();
+        SaveSystemController.DeleteInfo();
     }
 
     public UserInfo GetUserScriptable()

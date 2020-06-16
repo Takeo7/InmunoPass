@@ -43,4 +43,19 @@ public static class SaveSystemController
         }
     }
 
+    public static void DeleteInfo()
+    {
+        string path = Application.persistentDataPath + "/userData.pass";
+
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+        else
+        {
+            Debug.LogWarning("No data on path " + path);
+            
+        }
+    }
+
 }

@@ -51,18 +51,29 @@ public class API_Connection : MonoBehaviour
 
             Debug.Log("Token Form upload complete!");
 
-            PostInfo();
+            switch (mc.uinfo.userT)
+            {
+                case MainController.userType.Lab:
+                    PostLabInfo();
+                    break;
+                case MainController.userType.Doctor:
+                    PostDoctorInfo();
+                    break;
+                default:
+                    break;
+            }
+            
         }
     }
 
 
-    void PostInfo()
+    void PostLabInfo()
     {
-        StartCoroutine("SaveInfoAPI");
+        StartCoroutine("SaveInfoLabAPI");
     }
 
 
-    IEnumerator SaveInfoAPI()
+    IEnumerator SaveInfoLabAPI()
     {
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
         formData.Add(new MultipartFormDataSection("token", token));
@@ -90,6 +101,50 @@ public class API_Connection : MonoBehaviour
             Debug.Log("Save Form upload complete!");
 
             uic.LabGenerateQR(url);
+        }
+    }
+
+
+    void PostDoctorInfo()
+    {
+        StartCoroutine("SaveInfoDoctorAPI");
+    }
+
+
+    IEnumerator SaveInfoDoctorAPI()
+    {
+        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+        formData.Add(new MultipartFormDataSection("token", token));
+
+
+
+        formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.doc_temp.PatientName));
+        formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.doc_temp.PatientDNI));
+
+        formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName));
+        formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI));
+        formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode));
+        formData.Add(new MultipartFormDataSection("test[lote]", mc.uinfo.doc_temp.Test));
+
+        formData.Add(new MultipartFormDataSection("test[igm]", mc.uinfo.doc_temp.Result_igm));
+        formData.Add(new MultipartFormDataSection("test[igg]", mc.uinfo.doc_temp.Result_igg));
+
+
+
+        UnityWebRequest www = UnityWebRequest.Post("https://app.immunitypass.es/save", formData);
+        yield return www.SendWebRequest();
+
+        if (www.isNetworkError)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            SaveStructure response = SaveStructure.CreateFromJSON(www.downloadHandler.text);
+            url = response.payload.url;
+            Debug.Log("Save Form upload complete!");
+
+            uic.DoctorGenerateQR(url);
         }
     }
 }
