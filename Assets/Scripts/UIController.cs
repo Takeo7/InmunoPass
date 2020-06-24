@@ -85,6 +85,8 @@ public class UIController : MonoBehaviour
     GameObject newDocResult;
     [SerializeField]
     GameObject newPatientDocGenerateQR;
+    [SerializeField]
+    RectTransform layoutVDoc;
 
     [Space]
     [Header("New Test Lab")]
@@ -98,6 +100,8 @@ public class UIController : MonoBehaviour
     GameObject newLabResult;
     [SerializeField]
     GameObject newPatientLabGenerateQR;
+    [SerializeField]
+    RectTransform layoutVLab;
 
 
 
@@ -361,6 +365,28 @@ public class UIController : MonoBehaviour
                 break;
             case MainController.userType.Doctor:
                 DocNewPatient.SetActive(true);
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    public void GeneralTrigger(GameObject _go)
+    {
+        _go.SetActive(!_go.activeSelf);
+        UpdateLayouts();
+    }
+
+    public void UpdateLayouts()
+    {
+        switch (mc.uinfo.userT)
+        {
+            case MainController.userType.Lab:
+                LayoutRebuilder.ForceRebuildLayoutImmediate(layoutVLab);
+                break;
+            case MainController.userType.Doctor:
+                LayoutRebuilder.ForceRebuildLayoutImmediate(layoutVDoc);
                 break;
             default:
                 break;

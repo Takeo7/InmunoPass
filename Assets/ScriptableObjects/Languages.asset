@@ -33,6 +33,9 @@ MonoBehaviour:
     - Nuevo Test
     - Volver
     - Laboratorio
+    - "Test Anticuerpos R\xC1PIDO"
+    - "Test Ant\xEDgenos PCR"
+    - Test Anticuerpos ELISA
   - textos:
     - Patient
     - Facultative

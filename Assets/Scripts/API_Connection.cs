@@ -78,10 +78,10 @@ public class API_Connection : MonoBehaviour
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
         formData.Add(new MultipartFormDataSection("token", token));
         Debug.Log("Info: " + mc.uinfo.lab_temp.PatientName);
-        formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.lab_temp.PatientName));
-        formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.lab_temp.PatientDNI));
-        formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName));
-        formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA));
+        formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.lab_temp.PatientName + "DEMO"));
+        formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.lab_temp.PatientDNI + "DEMO"));
+        formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + "DEMO"));
+        formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + "DEMO"));
         formData.Add(new MultipartFormDataSection("test[igm]", mc.uinfo.lab_temp.Result_igm));
         formData.Add(new MultipartFormDataSection("test[igg]", mc.uinfo.lab_temp.Result_igg));
 
@@ -118,13 +118,13 @@ public class API_Connection : MonoBehaviour
 
 
 
-        formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.doc_temp.PatientName));
-        formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.doc_temp.PatientDNI));
+        formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.doc_temp.PatientName + "DEMO"));
+        formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.doc_temp.PatientDNI + "DEMO"));
 
-        formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName));
-        formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI));
-        formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode));
-        formData.Add(new MultipartFormDataSection("test[lote]", mc.uinfo.doc_temp.Test));
+        formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + "DEMO"));
+        formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + "DEMO"));
+        formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + "DEMO"));
+        formData.Add(new MultipartFormDataSection("test[lote]", mc.uinfo.doc_temp.Test + "DEMO"));
 
         formData.Add(new MultipartFormDataSection("test[igm]", mc.uinfo.doc_temp.Result_igm));
         formData.Add(new MultipartFormDataSection("test[igg]", mc.uinfo.doc_temp.Result_igg));

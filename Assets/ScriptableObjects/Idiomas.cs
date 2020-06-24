@@ -52,7 +52,10 @@ public class Idiomas : ScriptableObject
         Contraseña,
         NuevoTest,
         Atras,
-        Laboratorio
+        Laboratorio,
+        TestRapido,
+        TestPCR,
+        TestElisa
     }
 }
 
