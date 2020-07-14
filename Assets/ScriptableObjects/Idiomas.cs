@@ -55,7 +55,11 @@ public class Idiomas : ScriptableObject
         Laboratorio,
         TestRapido,
         TestPCR,
-        TestElisa
+        TestElisa,
+        Idioma,
+        DNI,
+        IDFacultativo,
+        ID
     }
 }
 

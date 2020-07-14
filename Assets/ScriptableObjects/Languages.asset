@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b437b71a64916ee428dc6503712e6b75, type: 3}
   m_Name: Languages
   m_EditorClassIdentifier: 
-  currentLang: 0
+  currentLang: 1
   languages:
   - textos:
     - Paciente
@@ -36,6 +36,10 @@ MonoBehaviour:
     - "Test Anticuerpos R\xC1PIDO"
     - "Test Ant\xEDgenos PCR"
     - Test Anticuerpos ELISA
+    - Idioma
+    - DNI
+    - ID Facultativo
+    - ID
   - textos:
     - Patient
     - Facultative
@@ -55,6 +59,13 @@ MonoBehaviour:
     - New Test
     - Back
     - Laboratory
+    - Antibodies Test QUICK
+    - Antigens Test PCR
+    - Antibodies Test ELISA
+    - Language
+    - Passport
+    - Medical ID
+    - ID
   - textos:
     - Pacient
     - Facultatiu
