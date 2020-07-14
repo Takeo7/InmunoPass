@@ -148,6 +148,12 @@ public class LabPatientInfo
     public string PatientName;
     public string PatientDNI;
     public string Date;
+    public string testType;
+    public string testResult;//PCR, ELISA, RAPIDO
+
     public string Result_igm;
     public string Result_igg;
+
+    public string Valor_igm;
+    public string Valor_igg;
 }

@@ -77,13 +77,24 @@ public class API_Connection : MonoBehaviour
     {
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
         formData.Add(new MultipartFormDataSection("token", token));
-        Debug.Log("Info: " + mc.uinfo.lab_temp.PatientName);
+        formData.Add(new MultipartFormDataSection("partner", ""));//
+
         formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.lab_temp.PatientName + "DEMO"));
         formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.lab_temp.PatientDNI + "DEMO"));
+
         formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + "DEMO"));
+        formData.Add(new MultipartFormDataSection("medico[nif]", ""));//
         formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + "DEMO"));
+
+        formData.Add(new MultipartFormDataSection("test[fecha]", ""));//
+        formData.Add(new MultipartFormDataSection("test[tipo]", mc.uinfo.lab_temp.testType));//Posibles valores: PCR, RAPIDO, ELISA
+        formData.Add(new MultipartFormDataSection("test[resultado]", mc.uinfo.lab_temp.testResult));
+
         formData.Add(new MultipartFormDataSection("test[igm]", mc.uinfo.lab_temp.Result_igm));
         formData.Add(new MultipartFormDataSection("test[igg]", mc.uinfo.lab_temp.Result_igg));
+
+        formData.Add(new MultipartFormDataSection("test[valor_igm]", mc.uinfo.lab_temp.Valor_igm));
+        formData.Add(new MultipartFormDataSection("test[valor_igg]", mc.uinfo.lab_temp.Valor_igg));
 
 
 
