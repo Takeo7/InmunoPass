@@ -26,7 +26,9 @@ public class UIController : MonoBehaviour
 
     [Space]
     [SerializeField]
-    RawImage qrImage;
+    GameObject[] qrShow;
+    [SerializeField]
+    RawImage[] qrImage;
 
     [Space]
     [SerializeField]
@@ -130,6 +132,12 @@ public class UIController : MonoBehaviour
     GameObject LabInfo;
     [SerializeField]
     GameObject LabNewPatient;
+
+    [Space]
+    [SerializeField]
+    GameObject GenerateQRGO;
+    [SerializeField]
+    public Texture2D[] qrTextures;
 
 
     private void Start()
@@ -305,55 +313,50 @@ public class UIController : MonoBehaviour
     public void FillDocNewPatientInfo()
     {
 
-        mc.uinfo.AddDocPatient(newPatientDocName.text, newPatientDocDNI.text);
+        mc.uinfo.AddPatient(newPatientDocName.text, newPatientDocDNI.text);
 
         newTestDocScan.SetActive(true);
     }
 
     public void FillLabNewPatientInfo()
     {
-         mc.uinfo.lab_temp.PatientName = newPatientLabName.text;
-         mc.uinfo.lab_temp.PatientDNI = newPatientLabDNI.text;
+         mc.uinfo.patient_temp.PatientName = newPatientLabName.text;
+         mc.uinfo.patient_temp.PatientDNI = newPatientLabDNI.text;
     }
 
 
 
     public void FillDocNewTestInfo()
     {
-        
-        newPatientDocTest.text = mc.uinfo.doc_temp.Test;
         newPatientDocDate.text = DateTime.Today.ToShortDateString();
 
         newDocResult.SetActive(true);
     }
 
-    public void DoctorGenerateQR(string url)
+    public void GenerateQR(string url)
     {
+        Debug.Log(url);
         string textToEncode = url;
 
         mc.qrCreator.Encode(textToEncode);
-    }
-
-    public void LabGenerateQR(string url)
-    {
-        string textToEncode = url;
-
-        mc.qrCreator.Encode(textToEncode);
-    }
-
-    public void DoctorGenerateQRDEMO()
-    {
-        string textToEncode = "https://app.immunitypass.es/demo?" + long.Parse(DateTime.Now.ToString("yyyyMMddHHmmss"));
-
-        mc.qrCreator.Encode(textToEncode);
-
     }
 
     public void QRLoad(Texture2D t)
     {
         ShowQR.SetActive(true);
 
-        qrImage.texture = t;
+        int length = qrShow.Length;
+        for (int i = 0; i < length; i++)
+        {
+            if (qrTextures[i] == null)
+            {
+                qrTextures[i] = t;
+                qrShow[i].SetActive(true);
+                qrImage[i].texture = qrTextures[i];
+                break;
+            }
+
+        }
     }
 
     public void BackScannReader()
@@ -369,6 +372,11 @@ public class UIController : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void ShowGenerateQR()
+    {
+        GenerateQRGO.SetActive(true);
     }
 
 

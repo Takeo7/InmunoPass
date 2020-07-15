@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Packages.Rider.Editor;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,12 +25,8 @@ public class UserInfo : ScriptableObject
     public string LabNICA;
 
 
-
-    public DoctorPatientInfo doctor_Info = new DoctorPatientInfo();
-    public DoctorPatientInfo doc_temp = new DoctorPatientInfo();
-
-    public LabPatientInfo lab_Info = new LabPatientInfo();
-    public LabPatientInfo lab_temp = new LabPatientInfo();
+    public PatientInfo patient_Info = new PatientInfo();
+    public PatientInfo patient_temp = new PatientInfo();
 
     public void AddStandardInfo(string n, string id)
     {
@@ -54,48 +51,126 @@ public class UserInfo : ScriptableObject
         return isRegistered;
     }
 
-
-
-    public void AddDocPatient(string pn, string pid)
+    public void InitializeNewPatient()
     {
-        doc_temp.PatientName = pn;
-        doc_temp.PatientDNI = pid;
+        patient_Info = new PatientInfo();
+        patient_temp = new PatientInfo();
+        patient_temp.tests = new Test[3];
+        for (int i = 0; i < 3; i++)
+        {
+            patient_temp.tests[i] = new Test();
+        }
     }
 
-    public void AddLabPatient(string pn, string pid)
+    public void AddPatient(string pn, string pid)
     {
-        lab_temp.PatientName = pn;
-        lab_temp.PatientDNI = pid;
+        patient_temp.PatientName = pn;
+        patient_temp.PatientDNI = pid;
     }
 
-    public void AddDocTest(string t)
+    #region Rapido
+    public void AddRAPIDOResult_IGM(string igm)
     {
-        doc_temp.Test = t;
-        doc_temp.Date = DateTime.Today.ToString();
-    }
+        Debug.Log(patient_temp.tests.Length);
+        patient_temp.tests[0].testType = "RAPIDO";
+        patient_temp.tests[0].Result_igm = igm;
 
-    public void AddLabTest()
-    {
-        lab_temp.Date = DateTime.Today.ToString();
-    }
-
-    public void AddDocResult(string igm, string igg)
-    {
-        doc_temp.Result_igm = igm;
-        doc_temp.Result_igg = igg;
-
-        doctor_Info = doc_temp;
+        if (patient_temp.tests[0].Result_igg != "")
+        {
+            patient_temp.tests[0].valid = true;
+            MainController.instance.uiC.ShowGenerateQR();
+        }
         
+
+        patient_Info = patient_temp;
+
     }
 
-    public void AddLabResult(string igm, string igg)
+    public void AddRAPIDOResult_IGG(string igg)
     {
-        lab_temp.Result_igm = igm;
-        lab_temp.Result_igg = igg;
+        patient_temp.tests[0].testType = "RAPIDO";
+        patient_temp.tests[0].Result_igg = igg;
 
-        lab_Info = lab_temp;
+        if (patient_temp.tests[0].Result_igm != "")
+        {
+            patient_temp.tests[0].valid = true;
+            MainController.instance.uiC.ShowGenerateQR();
+        }
 
+        patient_Info = patient_temp;
     }
+    #endregion
+
+    #region PCR
+    public void AddPCRResult(string result)
+    {
+        patient_temp.tests[1].testType = "PCR";
+        patient_temp.tests[1].testResult = result;
+        patient_temp.tests[1].valid = true;
+        MainController.instance.uiC.ShowGenerateQR();
+
+        patient_Info = patient_temp;
+    }
+    #endregion
+
+    #region Elisa
+    public void AddELISAResult_igm(string igm)
+    {
+        patient_temp.tests[2].testType = "ELISA";
+        patient_temp.tests[2].Result_igm = igm;
+
+        if (patient_temp.tests[2].Result_igg != "" && patient_temp.tests[2].Valor_igg != "" && patient_temp.tests[2].Valor_igm != "")
+        {
+            patient_temp.tests[2].valid = true;
+            MainController.instance.uiC.ShowGenerateQR();
+        }
+
+        patient_Info = patient_temp;
+    }
+
+    public void AddELISAResult_igg(string igg)
+    {
+        patient_temp.tests[2].testType = "ELISA";
+        patient_temp.tests[2].Result_igg = igg;
+
+        if (patient_temp.tests[2].Result_igm != "" && patient_temp.tests[2].Valor_igg != "" && patient_temp.tests[2].Valor_igm != "")
+        {
+            patient_temp.tests[2].valid = true;
+            MainController.instance.uiC.ShowGenerateQR();
+        }
+
+        patient_Info = patient_temp;
+    }
+
+    public void AddELISAResult_Valorigm(string v_igm)
+    {
+        patient_temp.tests[2].testType = "ELISA";
+        patient_temp.tests[2].Valor_igm = v_igm;
+
+        if (patient_temp.tests[2].Result_igg != "" && patient_temp.tests[2].Result_igm != "" && patient_temp.tests[2].Valor_igg != "")
+        {
+            patient_temp.tests[2].valid = true;
+            MainController.instance.uiC.ShowGenerateQR();
+        }
+
+        patient_Info = patient_temp;
+    }
+
+    public void AddELISAResult_Valorigg(string v_igg)
+    {
+        patient_temp.tests[2].testType = "ELISA";
+        patient_temp.tests[2].Valor_igg = v_igg;
+
+        if (patient_temp.tests[2].Result_igg != "" && patient_temp.tests[2].Result_igm != "" && patient_temp.tests[2].Valor_igm != "")
+        {
+            patient_temp.tests[2].valid = true;
+            MainController.instance.uiC.ShowGenerateQR();
+        }
+
+        patient_Info = patient_temp;
+    }
+
+    #endregion
 
 
     public void ResetInfo()
@@ -103,8 +178,8 @@ public class UserInfo : ScriptableObject
         switch (userT)
         {
             case MainController.userType.Lab:
-                lab_Info = new LabPatientInfo();
-                lab_temp = new LabPatientInfo();
+                patient_Info = new PatientInfo();
+                patient_temp = new PatientInfo();
                 isRegistered = false;
                 userName = "";
                 LabNICA = "";
@@ -112,8 +187,8 @@ public class UserInfo : ScriptableObject
                 UnityEngine.SceneManagement.SceneManager.LoadScene(0);
                 break;
             case MainController.userType.Doctor:
-                doctor_Info = new DoctorPatientInfo();
-                doc_temp = new DoctorPatientInfo();
+                patient_Info = new PatientInfo();
+                patient_temp = new PatientInfo();
                 isRegistered = false;
                 userName = "";
                 userDNI = "";
@@ -133,20 +208,19 @@ public class UserInfo : ScriptableObject
 
 }
 
-public class DoctorPatientInfo
+public class PatientInfo
 {
     public string PatientName;
     public string PatientDNI;
-    public string Test;
-    public string Date;
-    public string Result_igm;
-    public string Result_igg;
+
+    public Test[] tests = new Test[3];
+    
 }
 
-public class LabPatientInfo
+public class Test
 {
-    public string PatientName;
-    public string PatientDNI;
+    public bool valid;
+
     public string Date;
     public string testType;
     public string testResult;//PCR, ELISA, RAPIDO

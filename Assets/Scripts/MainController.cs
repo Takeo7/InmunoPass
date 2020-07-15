@@ -2,9 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainController : MonoBehaviour
 {
+    public static MainController instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     public QRCodeDecodeController qrController;
     public QRCodeEncodeController qrCreator;
@@ -12,7 +22,7 @@ public class MainController : MonoBehaviour
     [SerializeField]
     public UserInfo uinfo;
     [SerializeField]
-    UIController uiC;
+    public UIController uiC;
 
     [Space]
     [SerializeField]
@@ -25,7 +35,7 @@ public class MainController : MonoBehaviour
         //Debug.Log("Path: " + path);
         LoadUser();
 
-        qrController.onQRScanFinished += SaveScanInfo;
+        //qrController.onQRScanFinished += SaveScanInfo;
         
 
 
@@ -100,7 +110,7 @@ public class MainController : MonoBehaviour
 
 
 
-    public void SaveScanInfo(string scan)
+    /*public void SaveScanInfo(string scan)
     {
         Debug.Log(scan);
         switch (uinfo.userT)
@@ -116,7 +126,7 @@ public class MainController : MonoBehaviour
                         uiC.EndQRScan();
                         break;
                     case readType.BarCode:
-                        uinfo.AddDocTest(scan);
+                        //uinfo.AddDocTest(scan);
                         uiC.EndQRScan();
                         break;
                     default:
@@ -128,7 +138,7 @@ public class MainController : MonoBehaviour
         }
         qrController.Reset();
         SaveUser();
-    }
+    }*/
 
     public void SaveLabStardardInfo(string n, string nica)
     {
@@ -139,55 +149,101 @@ public class MainController : MonoBehaviour
         uinfo.AddStandardInfo(n, dni, docId);
     }
 
-    public void SetDocResultInfo_igm(bool b)
+    public void NewPatient()
+    {
+        uinfo.InitializeNewPatient();
+    }
+
+    #region ResultRapido
+    public void SetResultInfo_RAPIDO_igm(bool b)
     {
         switch (b)
         {
             case true:
-                uinfo.doc_temp.Result_igm = "+";
+                uinfo.AddRAPIDOResult_IGM("+");
                 break;
             case false:
-                uinfo.doc_temp.Result_igm = "-";
+                uinfo.AddRAPIDOResult_IGM("-");
                 break;
         }
     }
-    public void SetDocResultInfo_igg(bool b)
+    public void SetResultInfo_RAPIDO_igg(bool b)
     {
         switch (b)
         {
             case true:
-                uinfo.doc_temp.Result_igg = "+";
+                uinfo.AddRAPIDOResult_IGG("+");
                 break;
             case false:
-                uinfo.doc_temp.Result_igg = "-";
+                uinfo.AddRAPIDOResult_IGG("-");
+                break;
+        }
+    }
+    #endregion
+
+    #region ResultPCR
+    public void SetResultInfo_PCR(bool b)
+    {
+        switch (b)
+        {
+            case true:
+                uinfo.AddPCRResult("+");
+                break;
+            case false:
+                uinfo.AddPCRResult("-");
+                break;
+        }
+    }
+    #endregion
+
+    #region ResultElisa
+    public void SetResultInfo_ELISA_igm(bool b)
+    {
+        switch (b)
+        {
+            case true:
+                uinfo.AddELISAResult_igm("+");
+                break;
+            case false:
+                uinfo.AddELISAResult_igm("-");
                 break;
         }
     }
 
-    public void SetLabResultInfo_igm(bool b)
+    public void SetResultInfo_ELISA_igg(bool b)
     {
         switch (b)
         {
             case true:
-                uinfo.lab_temp.Result_igm = "+";
+                uinfo.AddELISAResult_igg("+");
                 break;
             case false:
-                uinfo.lab_temp.Result_igm = "-";
+                uinfo.AddELISAResult_igg("-");
                 break;
         }
     }
-    public void SetLabResultInfo_igg(bool b)
+
+    public void SetResultInfo_ELISA_V_igm(Text v_igm)
     {
-        switch (b)
-        {
-            case true:
-                uinfo.lab_temp.Result_igg = "+";
-                break;
-            case false:
-                uinfo.lab_temp.Result_igg = "-";
-                break;
-        }
+        uinfo.AddELISAResult_Valorigm(v_igm.text);
     }
+
+    public void SetResultInfo_ELISA_V_igg(Text v_igg)
+    {
+        uinfo.AddELISAResult_Valorigg(v_igg.text);
+    }
+#endregion
+
+
+    public void ResetScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+
+
+
+
 
     public enum userType
     {
