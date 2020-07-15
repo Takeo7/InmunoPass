@@ -34,7 +34,7 @@ MonoBehaviour:
     - Volver
     - Laboratorio
     - "Test Anticuerpos R\xC1PIDO"
-    - "Test Ant\xEDgenos PCR"
+    - Test PCR
     - Test Anticuerpos ELISA
     - Idioma
     - DNI
@@ -60,7 +60,7 @@ MonoBehaviour:
     - Back
     - Laboratory
     - Antibodies Test QUICK
-    - Antigens Test PCR
+    - Test PCR
     - Antibodies Test ELISA
     - Language
     - Passport

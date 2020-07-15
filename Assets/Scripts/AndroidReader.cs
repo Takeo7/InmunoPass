@@ -9,7 +9,7 @@ public class AndroidReader : MonoBehaviour
 {
     AndroidJavaObject scanditJava = new AndroidJavaObject("com.scandit.datacapture");
 
-    new PDF417Reader idReader;
+    
 
     /*
      * 
