@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class API_Connection : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class API_Connection : MonoBehaviour
     MainController mc;
     [SerializeField]
     UIController uic;
+    [SerializeField]
+    CameraCapture ccap;
+   
 
     [Space]
     [SerializeField]
@@ -22,6 +26,30 @@ public class API_Connection : MonoBehaviour
     [SerializeField]
     string partner;
 
+    [Space]
+    [SerializeField]
+    Text _imageRec;
+
+    [Space]
+    [SerializeField]
+    string jsonCOntent;
+    [SerializeField]
+    string jsonPlayload;
+    [SerializeField]
+    InputField nameInput;
+    [SerializeField]
+    InputField idInput;
+    [SerializeField]
+    GameObject _LoadingScreen;
+
+    [SerializeField]
+    Text debugText;
+
+
+    private void Start()
+    {
+        RequestToken();
+    }
 
     public void StartAPIConnection()
     {
@@ -81,8 +109,8 @@ public class API_Connection : MonoBehaviour
                       "\nmedico[referencia]: " + mc.uinfo.docCode +
                       "\ntest[igm]: " + mc.uinfo.patient_temp.tests[0].Result_igm +
                       "\ntest[igg]: " + mc.uinfo.patient_temp.tests[0].Result_igg);
-            formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.patient_temp.PatientName + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.patient_temp.PatientDNI + "DEMO"));
+            formData.Add(new MultipartFormDataSection("paciente[nombre]", nameInput.text + "DEMO"));
+            formData.Add(new MultipartFormDataSection("paciente[nif]", idInput.text + "DEMO"));
 
             formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + "DEMO"));
             switch (mc.uinfo.userT)
@@ -97,6 +125,9 @@ public class API_Connection : MonoBehaviour
                 default:
                     break;
             }
+
+
+            formData.Add(new MultipartFormDataSection("test[pais]", "ESP"));
 
             //formData.Add(new MultipartFormDataSection("test[fecha]", DateTime.Today.ToShortDateString()));//
             formData.Add(new MultipartFormDataSection("test[tipo]", "RAPIDO"));//Posibles valores: PCR, RAPIDO, ELISA
@@ -150,7 +181,8 @@ public class API_Connection : MonoBehaviour
                 default:
                     break;
             }
-            
+
+            formData.Add(new MultipartFormDataSection("test[pais]", "ESP"));
 
             //formData.Add(new MultipartFormDataSection("test[fecha]", DateTime.Today.ToShortDateString()));//
             formData.Add(new MultipartFormDataSection("test[tipo]", "PCR"));//Posibles valores: PCR, RAPIDO, ELISA
@@ -200,6 +232,8 @@ public class API_Connection : MonoBehaviour
             }
 
             //formData.Add(new MultipartFormDataSection("test[fecha]", DateTime.Today.ToShortDateString()));//
+            formData.Add(new MultipartFormDataSection("test[pais]", "ESP"));//Posibles valores: 
+
             formData.Add(new MultipartFormDataSection("test[tipo]", "ELISA"));//Posibles valores: PCR, RAPIDO, ELISA
 
             formData.Add(new MultipartFormDataSection("test[igm]", mc.uinfo.patient_temp.tests[2].Result_igm));
@@ -227,6 +261,73 @@ public class API_Connection : MonoBehaviour
             }
         }
 
+    }
+
+
+    public void ImageRecognition(string photo)
+    {
+        StartCoroutine("TokenImageRecognitionRequestAPI", photo);
+    }
+
+    IEnumerator TokenImageRecognitionRequestAPI(string photo)
+    {
+        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+        formData.Add(new MultipartFormDataSection("usr", "immunitypass"));
+        formData.Add(new MultipartFormDataSection("pwd", "s.lp{{?CG|3>Yj8v"));
+
+        UnityWebRequest www = UnityWebRequest.Post("https://app.immunitypass.es/token", formData);
+        yield return www.SendWebRequest();
+
+        if (www.isNetworkError)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            TokenStructure response = TokenStructure.CreateFromJSON(www.downloadHandler.text);
+            token = response.payload.token;
+
+            Debug.Log("Token Form Image Recongnition complete!");
+
+            StartCoroutine("ImageRecognitionRequestAPI", photo);
+        }
+    }
+
+    IEnumerator ImageRecognitionRequestAPI(string photo)
+    {
+
+        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+        formData.Add(new MultipartFormDataSection("token", token));
+        formData.Add(new MultipartFormDataSection("source", "data:image/png;base64," + photo));
+
+        UnityWebRequest www = UnityWebRequest.Post("https://app.immunitypass.es/klippa", formData);
+        yield return www.SendWebRequest();
+
+        if (www.isNetworkError)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            //OCRResponse response = OCRResponse.CreateFromJSON(jsonPlayload);// www.downloadHandler.text
+
+            string[] s = www.downloadHandler.text.Split('{');
+
+            string[] p = s[s.Length - 1].Split('}');
+
+            string jsonContent = "{" + s[s.Length - 2] + "{" + p[0] + "}}";
+
+            OCRResponsePlayload response = OCRResponsePlayload.CreateFromJSON(jsonContent);// www.downloadHandler.text
+            //Debug.Log("Image Recognition: " + www.downloadHandler.text);
+            Debug.Log(response.content.nombre + response.content.apellidos + "---" + response.content.numero_documento);
+            nameInput.text = response.content.nombre + " " +response.content.apellidos;
+            idInput.text = response.content.numero_documento;
+            ccap.cCaptureGO.SetActive(false);
+            _LoadingScreen.SetActive(false);
+
+            debugText.text = jsonContent;
+
+        }
     }
 }
 
@@ -279,4 +380,38 @@ public class SaveErrorStructure
 {
     public string code;
     public string message;
+}
+
+[Serializable]
+public class OCRResponse //Image Recognition: {"success":true,"payload":{"content":{"tipo_documento":"PASSPORT","numero_documento":null,"pais":null,"nombre":null,"apellidos":null}}}
+{
+    public string success;
+    public OCRResponsePlayload playload;
+
+    public static OCRResponse CreateFromJSON(string jsonString)
+    {
+        return JsonUtility.FromJson<OCRResponse>(jsonString);
+    }
+}
+
+[Serializable]
+public class OCRResponsePlayload
+{
+    public OCRResponseContent content;
+
+    public static OCRResponsePlayload CreateFromJSON(string jsonString)
+    {
+        return JsonUtility.FromJson<OCRResponsePlayload>(jsonString);
+    }
+
+}
+
+[Serializable]
+public class OCRResponseContent
+{
+    public string tipo_documento;
+    public string numero_documento;
+    public string pais;
+    public string nombre;
+    public string apellidos;
 }
