@@ -95,6 +95,8 @@ public class UIController : MonoBehaviour
     [SerializeField]
     Text newPatientLabName;
     [SerializeField]
+    Text newPatientLabLastName;
+    [SerializeField]
     Text newPatientLabDNI;
     [SerializeField]
     Text newPatientLabDate;
@@ -148,6 +150,10 @@ public class UIController : MonoBehaviour
         {
             SetStartLanguage();
         }
+        else
+        {
+            ChangeLanguage(PlayerPrefs.GetInt("Idioma"));
+        }
 
         
     }
@@ -173,6 +179,31 @@ public class UIController : MonoBehaviour
                 lang.ChangeLang(Idiomas.idiomasEnum.Español);
                 delegateChangeLang();
                 break;
+            case SystemLanguage.Arabic:
+                lang.ChangeLang(Idiomas.idiomasEnum.Arabe);
+                delegateChangeLang();
+                break;
+            case SystemLanguage.German:
+                lang.ChangeLang(Idiomas.idiomasEnum.Aleman);
+                delegateChangeLang();
+                break;
+            case SystemLanguage.Italian:
+                lang.ChangeLang(Idiomas.idiomasEnum.Italiano);
+                delegateChangeLang();
+                break;
+            case SystemLanguage.French:
+                lang.ChangeLang(Idiomas.idiomasEnum.Frances);
+                delegateChangeLang();
+                break;
+            case SystemLanguage.Chinese:
+            case SystemLanguage.ChineseSimplified:
+                lang.ChangeLang(Idiomas.idiomasEnum.Chino);
+                delegateChangeLang();
+                break;
+            case SystemLanguage.Portuguese:
+                lang.ChangeLang(Idiomas.idiomasEnum.Portugues);
+                delegateChangeLang();
+                break;
             default:
                 lang.ChangeLang(Idiomas.idiomasEnum.Español);
                 delegateChangeLang();
@@ -184,7 +215,10 @@ public class UIController : MonoBehaviour
     public void ChangeLanguage(int i)
     {
         lang.ChangeLang((Idiomas.idiomasEnum)i);
+        PlayerPrefs.SetInt("Idioma", i);
+        PlayerPrefs.SetInt("LanguageSet", 1);
         delegateChangeLang();
+        
     }
 
     public string GetText(Idiomas.texto t)
@@ -320,7 +354,7 @@ public class UIController : MonoBehaviour
 
     public void FillLabNewPatientInfo()
     {
-         mc.uinfo.patient_temp.PatientName = newPatientLabName.text;
+         mc.uinfo.patient_temp.PatientName = newPatientLabName.text + "" + newPatientLabLastName.text;
          mc.uinfo.patient_temp.PatientDNI = newPatientLabDNI.text;
     }
 

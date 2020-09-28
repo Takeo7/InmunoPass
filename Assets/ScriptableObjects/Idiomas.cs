@@ -29,9 +29,14 @@ public class Idiomas : ScriptableObject
         Español,
         Ingles,
         Catalan,
-        Mallorqui,
         Gallego,
-        Valenciano
+        Aleman,
+        Frances,
+        Italiano,
+        Portugues,
+        Arabe,
+        Chino,
+        Brasileño
     }
     public enum texto
     {
@@ -55,11 +60,15 @@ public class Idiomas : ScriptableObject
         Laboratorio,
         TestRapido,
         TestPCR,
-        TestElisa,
+        TestElisa,       
         Idioma,
         DNI,
         IDFacultativo,
-        ID
+        ID,
+        TestAntigenos,
+        Inmuno,
+        PrivacidadToogle,
+        Privacidad
     }
 }
 

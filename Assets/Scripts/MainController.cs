@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -36,8 +37,13 @@ public class MainController : MonoBehaviour
         LoadUser();
 
         //qrController.onQRScanFinished += SaveScanInfo;
-        
 
+#if PLATFORM_ANDROID
+        if (!Permission.HasUserAuthorizedPermission(Permission.Camera))
+        {
+            Permission.RequestUserPermission(Permission.Camera);
+        }
+#endif
 
     }
 
@@ -181,6 +187,33 @@ public class MainController : MonoBehaviour
     }
     #endregion
 
+    #region ResultInmuno
+    public void SetResultInfo_Inmuno_igm(bool b)
+    {
+        switch (b)
+        {
+            case true:
+                uinfo.AddInmunoResult_IGM("+");
+                break;
+            case false:
+                uinfo.AddInmunoResult_IGM("-");
+                break;
+        }
+    }
+    public void SetResultInfo_Inmuno_igg(bool b)
+    {
+        switch (b)
+        {
+            case true:
+                uinfo.AddInmunoResult_IGG("+");
+                break;
+            case false:
+                uinfo.AddInmunoResult_IGG("-");
+                break;
+        }
+    }
+    #endregion
+
     #region ResultPCR
     public void SetResultInfo_PCR(bool b)
     {
@@ -191,6 +224,21 @@ public class MainController : MonoBehaviour
                 break;
             case false:
                 uinfo.AddPCRResult("-");
+                break;
+        }
+    }
+    #endregion
+
+    #region ResultAntige
+    public void SetResultInfo_Antige(bool b)
+    {
+        switch (b)
+        {
+            case true:
+                uinfo.AddAntigenosQResult("+");
+                break;
+            case false:
+                uinfo.AddAntigenosQResult("-");
                 break;
         }
     }
@@ -234,6 +282,51 @@ public class MainController : MonoBehaviour
     }
 #endregion
 
+
+    public void CountryChanger(int i)
+    {
+        switch (i)
+        {
+            case 0:
+                uinfo.patient_temp.PatientCountry = "ESP";
+                break;
+            case 1:
+                uinfo.patient_temp.PatientCountry = "USA";
+                break;
+            case 2:
+                uinfo.patient_temp.PatientCountry = "ESP";
+                break;
+            case 3:
+                uinfo.patient_temp.PatientCountry = "ESP";
+                break;
+            case 4:
+                uinfo.patient_temp.PatientCountry = "ESP";
+                break;
+            case 5:
+                uinfo.patient_temp.PatientCountry = "ESP";
+                break;
+            case 6:
+                uinfo.patient_temp.PatientCountry = "ESP";
+                break;
+            case 7:
+                uinfo.patient_temp.PatientCountry = "ESP";
+                break;
+            case 8:
+                uinfo.patient_temp.PatientCountry = "ESP";
+                break;
+            case 9:
+                uinfo.patient_temp.PatientCountry = "ESP";
+                break;
+            case 10:
+                uinfo.patient_temp.PatientCountry = "ESP";
+                break;
+
+      
+
+            default:
+                break;
+        }
+    }
 
     public void ResetScene()
     {

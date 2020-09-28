@@ -14,6 +14,7 @@ public class API_Connection : MonoBehaviour
     UIController uic;
     [SerializeField]
     CameraCapture ccap;
+    
    
 
     [Space]
@@ -37,6 +38,8 @@ public class API_Connection : MonoBehaviour
     string jsonPlayload;
     [SerializeField]
     InputField nameInput;
+    [SerializeField]
+    InputField lastnameInput;
     [SerializeField]
     InputField idInput;
     [SerializeField]
@@ -95,6 +98,8 @@ public class API_Connection : MonoBehaviour
 
     IEnumerator SaveInfoLabAPI()
     {
+
+
         if (mc.uinfo.patient_temp.tests[0].valid)
         {
             yield return StartCoroutine("TokenRequestAPI");
@@ -126,8 +131,15 @@ public class API_Connection : MonoBehaviour
                     break;
             }
 
-
-            formData.Add(new MultipartFormDataSection("test[pais]", "ESP"));
+            if (mc.uinfo.patient_temp.PatientCountry == null || mc.uinfo.patient_temp.PatientCountry == "")
+            {
+                formData.Add(new MultipartFormDataSection("test[pais]", "USA"));
+            }
+            else
+            {
+                formData.Add(new MultipartFormDataSection("test[pais]", mc.uinfo.patient_temp.PatientCountry));  
+            }
+            
 
             //formData.Add(new MultipartFormDataSection("test[fecha]", DateTime.Today.ToShortDateString()));//
             formData.Add(new MultipartFormDataSection("test[tipo]", "RAPIDO"));//Posibles valores: PCR, RAPIDO, ELISA
@@ -182,7 +194,14 @@ public class API_Connection : MonoBehaviour
                     break;
             }
 
-            formData.Add(new MultipartFormDataSection("test[pais]", "ESP"));
+            if (mc.uinfo.patient_temp.PatientCountry == null || mc.uinfo.patient_temp.PatientCountry == "")
+            {
+                formData.Add(new MultipartFormDataSection("test[pais]", "USA"));
+            }
+            else
+            {
+                formData.Add(new MultipartFormDataSection("test[pais]", mc.uinfo.patient_temp.PatientCountry));
+            }
 
             //formData.Add(new MultipartFormDataSection("test[fecha]", DateTime.Today.ToShortDateString()));//
             formData.Add(new MultipartFormDataSection("test[tipo]", "PCR"));//Posibles valores: PCR, RAPIDO, ELISA
@@ -231,8 +250,14 @@ public class API_Connection : MonoBehaviour
                     break;
             }
 
-            //formData.Add(new MultipartFormDataSection("test[fecha]", DateTime.Today.ToShortDateString()));//
-            formData.Add(new MultipartFormDataSection("test[pais]", "ESP"));//Posibles valores: 
+            if (mc.uinfo.patient_temp.PatientCountry == null || mc.uinfo.patient_temp.PatientCountry == "")
+            {
+                formData.Add(new MultipartFormDataSection("test[pais]", "USA"));
+            }
+            else
+            {
+                formData.Add(new MultipartFormDataSection("test[pais]", mc.uinfo.patient_temp.PatientCountry));
+            }
 
             formData.Add(new MultipartFormDataSection("test[tipo]", "ELISA"));//Posibles valores: PCR, RAPIDO, ELISA
 
@@ -254,6 +279,131 @@ public class API_Connection : MonoBehaviour
             else
             {
                 SaveStructure response = SaveStructure.CreateFromJSON(www.downloadHandler.text);
+                url = response.payload.url;
+                Debug.Log("Save Form upload complete!");
+
+                uic.GenerateQR(url);
+            }
+        }
+        if (mc.uinfo.patient_temp.tests[3].valid)
+        {
+            yield return StartCoroutine("TokenRequestAPI");
+
+            List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+            formData.Add(new MultipartFormDataSection("token", token));
+            formData.Add(new MultipartFormDataSection("partner", partner));//
+
+            formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.patient_temp.PatientName + "DEMO"));
+            formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.patient_temp.PatientDNI + "DEMO"));
+
+            formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + "DEMO"));
+            switch (mc.uinfo.userT)
+            {
+                case MainController.userType.Lab:
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + "DEMO"));
+                    break;
+                case MainController.userType.Doctor:
+                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + "DEMO"));
+                    break;
+                default:
+                    break;
+            }
+
+            if (mc.uinfo.patient_temp.PatientCountry == null || mc.uinfo.patient_temp.PatientCountry == "")
+            {
+                formData.Add(new MultipartFormDataSection("test[pais]", "USA"));
+            }
+            else
+            {
+                formData.Add(new MultipartFormDataSection("test[pais]", mc.uinfo.patient_temp.PatientCountry));
+            }
+
+            //formData.Add(new MultipartFormDataSection("test[fecha]", DateTime.Today.ToShortDateString()));//
+            formData.Add(new MultipartFormDataSection("test[tipo]", "ANTIGENOS"));//Posibles valores: PCR, RAPIDO, ELISA
+            formData.Add(new MultipartFormDataSection("test[resultado]", mc.uinfo.patient_temp.tests[3].testResult));
+
+
+
+            UnityWebRequest www = UnityWebRequest.Post("https://app.immunitypass.es/save", formData);
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                SaveStructure response = SaveStructure.CreateFromJSON(www.downloadHandler.text);
+                url = response.payload.url;
+                Debug.Log("Save Form upload complete!");
+
+                uic.GenerateQR(url);
+            }
+        }
+        if (mc.uinfo.patient_temp.tests[4].valid)
+        {
+            yield return StartCoroutine("TokenRequestAPI");
+
+            List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+            formData.Add(new MultipartFormDataSection("token", token));
+            formData.Add(new MultipartFormDataSection("partner", partner));//
+
+            Debug.Log("paciente[nombre]: " + mc.uinfo.patient_temp.PatientName +
+                      "\npaciente[nif]: " + mc.uinfo.patient_temp.PatientDNI +
+                      "\nmedico[nombre]: " + mc.uinfo.userName +
+                      "\nmedico[referencia]: " + mc.uinfo.docCode +
+                      "\ntest[igm]: " + mc.uinfo.patient_temp.tests[4].Result_igm +
+                      "\ntest[igg]: " + mc.uinfo.patient_temp.tests[4].Result_igg);
+            formData.Add(new MultipartFormDataSection("paciente[nombre]", nameInput.text + "DEMO"));
+            formData.Add(new MultipartFormDataSection("paciente[nif]", idInput.text + "DEMO"));
+
+            formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + "DEMO"));
+            switch (mc.uinfo.userT)
+            {
+                case MainController.userType.Lab:
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + "DEMO"));
+                    break;
+                case MainController.userType.Doctor:
+                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + "DEMO"));
+                    break;
+                default:
+                    break;
+            }
+
+
+            if (mc.uinfo.patient_temp.PatientCountry == null || mc.uinfo.patient_temp.PatientCountry == "")
+            {
+                formData.Add(new MultipartFormDataSection("test[pais]", "USA"));
+            }
+            else
+            {
+                formData.Add(new MultipartFormDataSection("test[pais]", mc.uinfo.patient_temp.PatientCountry));
+            }
+
+            //formData.Add(new MultipartFormDataSection("test[fecha]", DateTime.Today.ToShortDateString()));//
+            formData.Add(new MultipartFormDataSection("test[tipo]", "INMUNOCROMA"));//Posibles valores: PCR, RAPIDO, ELISA
+
+            formData.Add(new MultipartFormDataSection("test[igm]", mc.uinfo.patient_temp.tests[4].Result_igm));
+            formData.Add(new MultipartFormDataSection("test[igg]", mc.uinfo.patient_temp.tests[4].Result_igg));
+
+
+
+            UnityWebRequest www = UnityWebRequest.Post("https://app.immunitypass.es/save", formData);
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                SaveStructure response = SaveStructure.CreateFromJSON(www.downloadHandler.text);
+                if (response.success == "false")
+                {
+                    Debug.Log("Error API: " + response.error.message);
+                }
                 url = response.payload.url;
                 Debug.Log("Save Form upload complete!");
 
@@ -320,8 +470,14 @@ public class API_Connection : MonoBehaviour
             OCRResponsePlayload response = OCRResponsePlayload.CreateFromJSON(jsonContent);// www.downloadHandler.text
             //Debug.Log("Image Recognition: " + www.downloadHandler.text);
             Debug.Log(response.content.nombre + response.content.apellidos + "---" + response.content.numero_documento);
-            nameInput.text = response.content.nombre + " " +response.content.apellidos;
+            nameInput.text = response.content.nombre;
+            lastnameInput.text = response.content.apellidos;
             idInput.text = response.content.numero_documento;
+            mc.uinfo.patient_Info.PatientCountry = response.content.pais;
+            mc.uinfo.patient_temp.PatientCountry = response.content.pais;
+
+            Debug.Log("Pais: "+mc.uinfo.patient_temp.PatientCountry);
+
             ccap.cCaptureGO.SetActive(false);
             _LoadingScreen.SetActive(false);
 

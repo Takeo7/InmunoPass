@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b437b71a64916ee428dc6503712e6b75, type: 3}
   m_Name: Languages
   m_EditorClassIdentifier: 
-  currentLang: 1
+  currentLang: 0
   languages:
   - textos:
     - Paciente
@@ -40,6 +40,45 @@ MonoBehaviour:
     - DNI
     - ID Facultativo
     - ID
+    - "Test Antigenos R\xC1PIDO"
+    - Test INMUNOCROMATOGRAFIA
+    - "Acepto y he leido la Pol\xEDtica de Privacidad"
+    - "POL\xCDTICA DE PRIVACIDAD  Pedido Verde, S.L. (\"Pedido Verde\") tratar\xE1
+      los datos personales del usuario de la aplicaci\xF3n m\xF3vil Immunity Pass
+      App, como responsable del tratamiento, con la finalidad de: \uF0B7 Dar de alta
+      al usuario en Immunity Pass App, permitirle su uso y llevar a cabo todas las
+      tareas de gesti\xF3n y mantenimiento que implica la misma, incluyendo el an\xE1lisis
+      del uso que los usuarios hagan de la misma. Ello, en base a la ejecuci\xF3n
+      de un contrato entre Pedido Verde y el usuario o en base al leg\xEDtimo inter\xE9s
+      de Pedido Verde en gestionar su relaci\xF3n contractual con la empresa para
+      la que el usuario trabaja, en su caso, o en evaluar la calidad del servicio
+      y mejorarlo; \uF0B7 En su caso, gestionar la relaci\xF3n comercial existente
+      entre Pedido Verde y la empresa para la que trabaja el usuario; y \uF0B7 Cumplir
+      con las obligaciones legales que tiene atribuidas Pedido Verde. [Seleccionar
+      lo que resulte oportuno con respecto a cesiones de datos: Opci\xF3n 1: Pedido
+      Verde ceder\xE1 los datos personales del usuario a [especificar otra(s) sociedad(es)
+      a las que se vayan a ceder los datos a fin de que \xE9stas los traten para
+      sus propias finalidades]. Opci\xF3n 2: Pedido Verde no ceder\xE1 a terceros
+      los datos personales del Arrendatario.] [Seleccionar lo que resulte oportuno
+      con respecto a transferencias internacionales: Opci\xF3n 1: Los datos personales
+      del usuario ser\xE1n transferidos internacionalmente (es decir, fuera del Espacio
+      Econ\xF3mico Europeo) a los siguientes pa\xEDses: \uF0B7 [Especificar el pa\xEDs,
+      si existe alguna decisi\xF3n de adecuaci\xF3n al respecto y, si no, cu\xE1l
+      es la garant\xEDa adoptada a efectos de legitimar dicha transferencia internacional].
+      \uF0B7 [Especificar el pa\xEDs, si existe alguna decisi\xF3n de adecuaci\xF3n
+      al respecto y, si no, cu\xE1l es la garant\xEDa adoptada a efectos de legitimar
+      dicha transferencia internacional]. Opci\xF3n 2: Los datos personales del usuario
+      no ser\xE1n transferidos internacionalmente.] Pedido Verde conservar\xE1 los
+      datos personales del usuario durante todo el tiempo en que se mantenga su cuenta
+      de usuario en Immunity Pass App y, posteriormente, mientras puedan derivarse
+      responsabilidades para Pedido Verde como consecuencia de su tratamiento. El
+      usuario podr\xE1 ejercitar sus derechos de acceso, rectificaci\xF3n, supresi\xF3n,
+      limitaci\xF3n del tratamiento, portabilidad y oposici\xF3n mediante solicitud
+      escrita, firmada y dirigida a Pedido Verde a la siguiente direcci\xF3n de correo
+      electr\xF3nico: [correo electr\xF3nico]. Asimismo, si lo considerara necesario,
+      el usurario podr\xE1 presentar una reclamaci\xF3n ante la Agencia Espa\xF1ola
+      de Protecci\xF3n de Datos (https://www.aepd.es/) o autoridad de protecci\xF3n
+      de datos competente."
   - textos:
     - Patient
     - Facultative
@@ -66,6 +105,41 @@ MonoBehaviour:
     - Passport
     - Medical ID
     - ID
+    - QUICK Antigen Test
+    - IMMUNOCROMATOGRAPHY Test
+    - I accept and have read the Privacy Policy
+    - "PRIVACY POLICY  Orden Verde, S.L. (\"Green Order\") will process the personal
+      data of the application user mobile Immunity Pass App, as the data controller,
+      in order to: \uF0B7 Enroll the user in the Immunity Pass App, allow its use
+      and carry out all the management and maintenance tasks involved, including
+      the analysis the use that users make of it. This, based on the execution of
+      a contract between the Green Order and the user or based on the legitimate
+      interest of the Order Green in managing its contractual relationship with the
+      company for which the user works, where appropriate, or to evaluate the quality
+      of the service and improve it; \uF0B7 Where appropriate, manage the existing
+      commercial relationship between the Green Order and the company for which the
+      user works; Y \uF0B7 Comply with the legal obligations attributed to the Green
+      Order. [Select what is appropriate with respect to data transfers: Option 1:
+      Green Order will transfer the user's personal data to [specify other (s) company
+      (s) to which the data will be transferred in order for them to process them
+      for their own purposes]. Option 2: Green Order will not transfer the Lessee's
+      personal data to third parties.] [Select what is appropriate with respect to
+      international transfers: Option 1: The user's personal data will be transferred
+      internationally (i.e. outside the European Economic Area) to the following
+      countries: \uF0B7 [Specify the country, if there is any adequacy decision in
+      this regard and, if not, which one it is the guarantee adopted in order to
+      legitimize said international transfer]. \uF0B7 [Specify the country, if there
+      is any adequacy decision in this regard and, if not, which one it is the guarantee
+      adopted in order to legitimize said international transfer]. Option 2: The
+      user's personal data will not be transferred internationally.] Green Order
+      will keep the user's personal data for as long as it is keep your user account
+      in the Immunity Pass App and subsequently, as long as they can derive responsibilities
+      for Green Order as a consequence of its treatment. The user may exercise their
+      rights of access, rectification, deletion, limitation of the treatment, portability
+      and opposition by means of a written request, signed and addressed to the Order
+      Green to the following email address: [email]. Likewise, if deemed necessary,
+      the user may file a claim with the Spanish Agency. of Data Protection (https://www.aepd.es/)
+      or data protection authority competent."
   - textos:
     - Pacient
     - Facultatiu
@@ -84,24 +158,53 @@ MonoBehaviour:
     - Contrasenya
     - Nou Test
     - Tornar
-  - textos:
-    - Paciente
-    - Doctor
-    - Nom
-    - 'Cognom '
-    - "Reiniciar informaci\xF3"
-    - Generar
-    - Escanejar
-    - Guardar
-    - Data
-    - Negatiu
-    - Positiu
-    - Ingressar
-    - Registrar
-    - Usuari
-    - Contrasenya
-    - Nou Test
-    - Tornar
+    - Laboratori
+    - "Test Anticossos R\xC0PID"
+    - Test PCR
+    - Test Anticossos ELISA
+    - Idioma
+    - DNI
+    - ID Facultatiu
+    - ID
+    - "Test ant\xEDgens R\xC0PID"
+    - test Immunocromatografia
+    - "Accepto i he llegit la Pol\xEDtica de Privacitat"
+    - "POL\xCDTICA DE PRIVACITAT  Comanda Verd, S.L. ( \"Comanda Verd\") tractar\xE0
+      les dades personals d'l'usuari de l'aplicaci\xF3 m\xF2bil Immunity Pass App,
+      com a responsable de l'tractament, amb la finalitat de: \uF0B7 Donar d'alta
+      a l'usuari en Immunity Pass App, permetre el seu \xFAs i dur a terme totes
+      les tasques de gesti\xF3 i manteniment que implica la mateixa, incloent l'an\xE0lisi
+      de l'\xFAs que els usuaris facin de la mateixa. Aix\xF2, en base a l'execuci\xF3
+      d'un contracte entre Comanda Verd i l'usuari o basant-se el leg\xEDtim inter\xE8s
+      de Comanda Verd a gestionar la seva relaci\xF3 contractual amb l'empresa per
+      a la qual l'usuari treballa, si escau, o en avaluar la qualitat de l'servei
+      i millorar-lo; \uF0B7 Si \xE9s el cas, gestionar la relaci\xF3 comercial existent
+      entre Comanda Verd i l'empresa per a la qual treballa l'usuari; i \uF0B7 Complir
+      amb les obligacions legals que t\xE9 atribu\xEFdes Comanda Verd. [Seleccionar
+      el que resulti oport\xFA respecte a cessions de dades: Opci\xF3 1: Comanda
+      Verd cedir\xE0 les dades personals de l'usuari a [especificar una altra (s)
+      societat (\xE9s) a les que es vagin a cedir les dades a fi que aquestes els
+      tractin per les seves pr\xF2pies finalitats]. Opci\xF3 2: Comanda Verd no cedir\xE0
+      a tercers les dades personals de l'Arrendatari.] [Seleccionar el que resulti
+      oport\xFA pel que fa a transfer\xE8ncies internacionals: Opci\xF3 1: Les dades
+      personals de l'usuari seran transferits internacionalment (\xE9s a dir, fora
+      de l'Espai Econ\xF2mic Europeu) als seg\xFCents pa\xEFsos: \uF0B7 [Especifica
+      el pa\xEDs, si hi ha alguna decisi\xF3 d'adequaci\xF3 a l'respecte i, si no,
+      quin \xE9s la garantia adoptada a l'efecte de legitimar aquesta transfer\xE8ncia
+      internacional]. \uF0B7 [Especifica el pa\xEDs, si hi ha alguna decisi\xF3 d'adequaci\xF3
+      a l'respecte i, si no, quin \xE9s la garantia adoptada a l'efecte de legitimar
+      aquesta transfer\xE8ncia internacional]. Opci\xF3 2: Les dades personals de
+      l'usuari no seran transferits internacionalment.] Comanda Verd conservar\xE0
+      les dades personals de l'usuari durant tot el temps en qu\xE8 es mantingui
+      la seva compte d'usuari en Immunity Pass App i, posteriorment, mentre puguin
+      derivar-se responsabilitats per a la compra Verd com a conseq\xFC\xE8ncia del
+      seu tractament. L'usuari podr\xE0 exercir els drets d'acc\xE9s, rectificaci\xF3,
+      supressi\xF3, limitaci\xF3 de l' tractament, portabilitat i oposici\xF3 mitjan\xE7ant
+      sol\xB7licitud escrita, signada i dirigida a la compra Verd a la seg\xFCent
+      adre\xE7a de correu electr\xF2nic: [correu electr\xF2nic]. Aix\xED mateix,
+      si ho consider\xE9s necessari, el usurari podr\xE0 presentar una reclamaci\xF3
+      davant l'Ag\xE8ncia Espanyola de Protecci\xF3 de Dades (https://www.aepd.es/)
+      o autoritat de protecci\xF3 de dades competent."
   - textos:
     - 'Paciente '
     - Doutor
@@ -120,3 +223,480 @@ MonoBehaviour:
     - Contrasinal
     - Nova Proba
     - Volver
+    - Laboratorio
+    - RAPID Test Anticorpo
+    - Test PCR
+    - ELISA Test Anticorpo
+    - Lingua
+    - DNI
+    - ID Doutor
+    - ID
+    - "Proba de ant\xEDxeno R\xC1PIDA"
+    - "Proba de INMUNOCROMATOGRAF\xCDA"
+    - "Acepto e lin a pol\xEDtica de privacidade"
+    - "POL\xCDTICA DE PRIVACIDADE Orden Verde, S.L. (\"Orde Verde\") tratar\xE1 os
+      datos persoais do usuario da aplicaci\xF3n m\xF3bil Immunity Pass App, como
+      controlador de datos, co fin de: \uF0B7 Inscribir ao usuario na aplicaci\xF3n
+      Immunity Pass, permitir o seu uso e realizar todos os tarefas de xesti\xF3n
+      e mantemento que implica, inclu\xEDda a an\xE1lise do uso que fan os usuarios
+      dela. Isto bas\xE9ase na execuci\xF3n dun contrato entre a Orde Verde e o usuario
+      ou bas\xE9ase no interese lex\xEDtimo de Orde Verde en xestionar a s\xFAa relaci\xF3n
+      contractual coa empresa para a que traballa o usuario ou en avaliar a calidade
+      do servizo e melloralo; \uF0B7 Se \xE9 o caso, xestione a relaci\xF3n comercial
+      existente entre a Orde Verde e a empresa para a que traballa o usuario; e \uF0B7
+      Cumprir as obrigas legais atribu\xEDdas \xE1 Orde Verde. [Seleccione o que
+      corresponda con respecto \xE1s transferencias de datos: Opci\xF3n 1: Green
+      Order transferir\xE1 os datos persoais do usuario a [especificar outras empresas
+      \xE1s que se transferir\xE1n os datos para que poidan tratar para os seus propios
+      prop\xF3sitos]. Opci\xF3n 2: Green Order non transferir\xE1 os datos persoais
+      do arrendatario a terceiros.] [Seleccione o que corresponda con respecto \xE1s
+      transferencias internacionais: Opci\xF3n 1: os datos persoais do usuario transferiranse
+      internacionalmente (\xE9 dicir, f\xF3ra do Espazo Econ\xF3mico Europeo) a os
+      seguintes pa\xEDses: \uF0B7 [Especifique o pa\xEDs, se hai algunha decisi\xF3n
+      de adecuaci\xF3n ao respecto e, se non, cal \xE9 a garant\xEDa adoptada para
+      lexitimar a devandita transferencia internacional]. \uF0B7 [Especifique o pa\xEDs,
+      se hai algunha decisi\xF3n adecuada ao respecto e, se non, cal \xE9 a garant\xEDa
+      adoptada para lexitimar a devandita transferencia internacional]. Opci\xF3n
+      2: os datos persoais do usuario non se transferir\xE1n a nivel internacional.]
+      Green Order manter\xE1 os datos persoais do usuario mentres a s\xFAa conta
+      de usuario se mante\xF1a na aplicaci\xF3n Immunity Pass e, posteriormente,
+      sempre que as responsabilidades de Green Order como consecuencia do seu tratamento.
+      O usuario pode exercer os seus dereitos de acceso, rectificaci\xF3n, eliminaci\xF3n,
+      limitaci\xF3n de tratamento, portabilidade e oposici\xF3n mediante unha solicitude
+      escrita, asinada e dirixida a Green Order no seguinte enderezo de correo electr\xF3nico:
+      [correo electr\xF3nico]. As\xED mesmo, se o considera necesario, o usuario
+      poder\xE1 presentar unha reclamaci\xF3n ante a Axencia Espa\xF1ola de Protecci\xF3n
+      de Datos (https://www.aepd.es/) ou a autoridade competente en materia de protecci\xF3n
+      de datos."
+  - textos:
+    - Krank
+    - Mediziner
+    - Name
+    - Nachnamen
+    - "Info zur\xFCcksetzen"
+    - Generieren
+    - Scan
+    - Sparen
+    - Datum
+    - Negativ
+    - Positiv
+    - Enterokay
+    - Zu registrieren
+    - Benutzer
+    - Passwort
+    - Neuer Test
+    - "R\xFCckkehr"
+    - Labor
+    - "RAPID-Antik\xF6rpertest"
+    - PCR-Test
+    - "ELISA-Antik\xF6rpertest"
+    - Sprache
+    - Reisepass
+    - Mediziner ID
+    - ID
+    - SCHNELLER Antigentest
+    - IMMUNOCROMATOGRAPHY Test
+    - Ich akzeptiere und habe die Datenschutzrichtlinie gelesen
+    - "DATENSCHUTZRICHTLINIE Orden Verde, S.L. (\"Gr\xFCne Bestellung\") behandelt
+      die pers\xF6nlichen Daten des Benutzers der mobilen Anwendung der Immunit\xE4tspass-App
+      als Datenverantwortlichen, um: \uF0B7 den Benutzer in die Immunit\xE4tspass-App
+      einzuschreiben, deren Verwendung zuzulassen und alle Daten auszuf\xFChren damit
+      verbundene Verwaltungs- und Wartungsaufgaben, einschlie\xDFlich der Analyse
+      der Verwendung durch Benutzer. Dies basiert auf der Ausf\xFChrung eines Vertrags
+      zwischen der Gr\xFCnen Bestellung und dem Benutzer oder auf dem berechtigten
+      Interesse der Gr\xFCnen Bestellung an der Verwaltung ihrer Vertragsbeziehung
+      mit dem Unternehmen, f\xFCr das der Benutzer arbeitet, oder an der Bewertung
+      der Qualit\xE4t der Service und Verbesserung; \uF0B7 Verwalten Sie gegebenenfalls
+      die bestehende Gesch\xE4ftsbeziehung zwischen dem Green Order und dem Unternehmen,
+      f\xFCr das der Benutzer arbeitet. und \uF0B7 die gesetzlichen Verpflichtungen
+      einhalten, die der Gr\xFCnen Ordnung zugeschrieben werden. [W\xE4hlen Sie aus,
+      was f\xFCr die Daten\xFCbertragung angemessen ist: Option 1: Green Order \xFCbertr\xE4gt
+      die pers\xF6nlichen Daten des Benutzers an [Geben Sie andere Unternehmen an,
+      an die die Daten \xFCbertragen werden sollen, damit diese Daten \xFCbertragen
+      werden f\xFCr ihre eigenen Zwecke behandeln]. Option 2: Green Order \xFCbertr\xE4gt
+      die personenbezogenen Daten des Mieters nicht an Dritte.] [W\xE4hlen Sie aus,
+      was f\xFCr internationale \xDCbertragungen angemessen ist: Option 1: Die personenbezogenen
+      Daten des Nutzers werden international (dh au\xDFerhalb des Europ\xE4ischen
+      Wirtschaftsraums) an \xFCbertragen die folgenden L\xE4nder: \uF0B7 [Geben Sie
+      das Land an, wenn diesbez\xFCglich eine Angemessenheitsentscheidung vorliegt,
+      und wenn nicht, welche Garantie wird zur Legitimation des internationalen Transfers
+      \xFCbernommen]. \uF0B7 [Geben Sie das Land an, wenn diesbez\xFCglich eine angemessene
+      Entscheidung getroffen wurde, und wenn nicht, welche Garantie wird zur Legitimation
+      des internationalen Transfers \xFCbernommen]. Option 2: Die pers\xF6nlichen
+      Daten des Benutzers werden nicht international \xFCbertragen.] Green Order
+      speichert die pers\xF6nlichen Daten des Benutzers so lange, wie sein Benutzerkonto
+      in der Immunity Pass App gef\xFChrt wird, und anschlie\xDFend, solange Verantwortlichkeiten
+      f\xFCr Green Order wie z Folge Ihrer Behandlung. Der Benutzer kann sein Recht
+      auf Zugang, Berichtigung, L\xF6schung, Einschr\xE4nkung der Behandlung, Portabilit\xE4t
+      und Widerspruch durch eine schriftliche Anfrage aus\xFCben, die an Green Order
+      unter der folgenden E-Mail-Adresse unterzeichnet und adressiert ist: [E-Mail].
+      Ebenso kann der Benutzer bei Bedarf eine Klage bei der spanischen Datenschutzbeh\xF6rde
+      (https://www.aepd.es/) oder der zust\xE4ndigen Datenschutzbeh\xF6rde einreichen."
+  - textos:
+    - Patient
+    - "M\xE9decins"
+    - Nom
+    - "Pr\xE8nom"
+    - "R\xE9initialiser les info."
+    - Produire
+    - Analyse
+    - Sauvegarder
+    - Date
+    - "N\xE9gatif"
+    - Positif
+    - Enterokay
+    - Enregistrer
+    - Utilisateur
+    - Mot de passe
+    - Nouveau test
+    - Revenir
+    - Laboratoire
+    - Test d'anticorps RAPID
+    - Test PCR
+    - Test d'anticorps ELISA
+    - Langage
+    - "Carte d'identit\xE9 ou passeport"
+    - ID facultatif
+    - ID
+    - "Test d'antig\xE8ne FAST"
+    - Test IMMUNOCROMATOGRAPHIE
+    - "J'accepte et j'ai lu la politique de confidentialit\xE9"
+    - "POLITIQUE DE CONFIDENTIALIT\xC9 Orden Verde, S.L. (\"Green Order\") traitera
+      les donn\xE9es personnelles de l'utilisateur de l'application mobile Immunity
+      Pass App, en tant que responsable du traitement, afin de: \uF0B7 Inscrire l'utilisateur
+      dans l'application Immunity Pass, permettre son utilisation et effectuer toutes
+      les les t\xE2ches de gestion et de maintenance qu'il implique, y compris l'analyse
+      de l'usage que les utilisateurs en font. Ceci est bas\xE9 sur l'ex\xE9cution
+      d'un contrat entre l'Ordre Vert et l'utilisateur ou sur l'int\xE9r\xEAt l\xE9gitime
+      de l'Ordre Vert \xE0 g\xE9rer sa relation contractuelle avec l'entreprise pour
+      laquelle l'utilisateur travaille, ou \xE0 \xE9valuer la qualit\xE9 du le service
+      et l'am\xE9liorer; \uF0B7 Le cas \xE9ch\xE9ant, g\xE9rer la relation commerciale
+      existante entre l'Ordre Vert et l'entreprise pour laquelle l'utilisateur travaille;
+      et \uF0B7 Se conformer aux obligations l\xE9gales attribu\xE9es \xE0 l'Ordre
+      Vert. [S\xE9lectionnez ce qui est appropri\xE9 en ce qui concerne les transferts
+      de donn\xE9es: Option 1: Green Order transf\xE9rera les donn\xE9es personnelles
+      de l'utilisateur \xE0 [sp\xE9cifiez les autres soci\xE9t\xE9s auxquelles les
+      donn\xE9es seront transf\xE9r\xE9es afin qu'elles puissent traiter \xE0 leurs
+      propres fins]. Option 2: Green Order ne transf\xE9rera pas les donn\xE9es personnelles
+      du locataire \xE0 des tiers.] [S\xE9lectionnez ce qui est appropri\xE9 en ce
+      qui concerne les transferts internationaux: Option 1: les donn\xE9es personnelles
+      de l'utilisateur seront transf\xE9r\xE9es au niveau international (c'est-\xE0-dire
+      en dehors de l'Espace \xE9conomique europ\xE9en) \xE0 les pays suivants: \uF0B7
+      [Pr\xE9cisez le pays, s'il y a une d\xE9cision d'ad\xE9quation \xE0 cet \xE9gard
+      et, dans le cas contraire, quelle est la garantie adopt\xE9e pour l\xE9gitimer
+      ledit transfert international]. \uF0B7 [Pr\xE9cisez le pays, s'il y a une d\xE9cision
+      appropri\xE9e \xE0 cet \xE9gard et, dans le cas contraire, quelle est la garantie
+      adopt\xE9e pour l\xE9gitimer ledit transfert international]. Option 2: Les
+      donn\xE9es personnelles de l'utilisateur ne seront pas transf\xE9r\xE9es \xE0
+      l'international.] Green Order conservera les donn\xE9es personnelles de l'utilisateur
+      aussi longtemps que son compte utilisateur est maintenu dans l'application
+      Immunity Pass et, par la suite, aussi longtemps que les responsabilit\xE9s
+      de Green Order telles que cons\xE9quence de votre traitement. L'utilisateur
+      peut exercer ses droits d'acc\xE8s, de rectification, de suppression, de limitation
+      de traitement, de portabilit\xE9 et d'opposition au moyen d'une demande \xE9crite,
+      sign\xE9e et adress\xE9e \xE0 Green Order \xE0 l'adresse \xE9lectronique suivante:
+      [email]. De m\xEAme, s'il le juge n\xE9cessaire, l'utilisateur peut d\xE9poser
+      une r\xE9clamation aupr\xE8s de l'Agence espagnole de protection des donn\xE9es
+      (https://www.aepd.es/) ou de l'autorit\xE9 de protection des donn\xE9es comp\xE9tente."
+  - textos:
+    - Pazienti
+    - Dottori
+    - Nome
+    - Cognomi
+    - Reimposta info.
+    - Creare
+    - Scansione
+    - Salva
+    - Data
+    - Negativo
+    - Positivo
+    - Enterokay
+    - Registrare
+    - Utente
+    - Parola d'ordine
+    - Nuovo test
+    - Ritorno
+    - Laboratorio
+    - Test anticorpale RAPID
+    - Test PCR
+    - Test degli anticorpi ELISA
+    - Linguaggio
+    - "Carta d'identit\xE0 o passaporto"
+    - ID Dottori
+    - ID
+    - FAST Antigen Test
+    - Test di IMMUNOCROMATOGRAFIA
+    - Accetto e ho letto la Privacy Policy
+    - "INFORMATIVA SULLA PRIVACY Orden Verde, S.L. (\"Green Order\") tratter\xE0
+      i dati personali dell'utente dell'applicazione mobile Immunity Pass App, in
+      qualit\xE0 di titolare del trattamento, al fine di: \uF0B7 Iscrivere l'utente
+      all'App Immunity Pass, consentirne l'utilizzo ed eseguire tutte le attivit\xE0
+      di gestione e manutenzione che essa implica, inclusa l'analisi dell'uso che
+      ne fanno gli utenti. Ci\xF2 si basa sull'esecuzione di un contratto tra Green
+      Order e l'utente o sul legittimo interesse di Green Order a gestire il proprio
+      rapporto contrattuale con l'azienda per la quale l'utente lavora, ovvero a
+      valutare la qualit\xE0 del servirlo e migliorarlo; \uF0B7 Dove appropriato,
+      gestire il rapporto commerciale esistente tra l'Ordine Verde e l'azienda per
+      cui lavora l'utente; e \uF0B7 Rispettare gli obblighi legali attribuiti all'Ordine
+      Verde. [Selezionare ci\xF2 che \xE8 appropriato rispetto ai trasferimenti di
+      dati: Opzione 1: Green Order trasferir\xE0 i dati personali dell'utente a [specificare
+      altre societ\xE0 a cui verranno trasferiti i dati per consentire loro di trattare
+      per i propri scopi]. Opzione 2: Green Order non trasferir\xE0 i dati personali
+      del Locatario a terzi.] [Selezionare ci\xF2 che \xE8 appropriato rispetto ai
+      trasferimenti internazionali: Opzione 1: I dati personali dell'utente saranno
+      trasferiti a livello internazionale (cio\xE8 al di fuori dello Spazio economico
+      europeo) a i seguenti Paesi: \uF0B7 [Specificare il Paese, se esiste una decisione
+      di adeguatezza al riguardo e, in caso negativo, qual \xE8 la garanzia adottata
+      per legittimare detto trasferimento internazionale]. \uF0B7 [Specificare il
+      Paese, se esiste una decisione appropriata al riguardo e, in caso negativo,
+      qual \xE8 la garanzia adottata per legittimare detto trasferimento internazionale].
+      Opzione 2: i dati personali dell'utente non saranno trasferiti a livello internazionale.]
+      Green Order conserver\xE0 i dati personali dell'utente per tutto il tempo in
+      cui il suo account utente viene mantenuto nell'app Immunity Pass e, successivamente,
+      fino a quando le responsabilit\xE0 per Green Order come conseguenza del trattamento.
+      L'utente pu\xF2 esercitare i propri diritti di accesso, rettifica, cancellazione,
+      limitazione del trattamento, portabilit\xE0 e opposizione mediante richiesta
+      scritta, firmata e indirizzata a Green Order al seguente indirizzo di posta
+      elettronica: [email]. Allo stesso modo, se ritenuto necessario, l'utente pu\xF2
+      presentare un reclamo all'Agenzia spagnola per la protezione dei dati (https://www.aepd.es/)
+      o all'autorit\xE0 competente per la protezione dei dati."
+  - textos:
+    - Paciente
+    - Doutores
+    - Nome
+    - Sobrenomes
+    - "Reiniciar informa\xE7\xF5es."
+    - Gerar
+    - Varredura
+    - Salve
+    - Encontro
+    - Negativo
+    - Positivo
+    - Enterokay
+    - Registrar
+    - Do utilizador
+    - Senha
+    - Novo Teste
+    - Retorna
+    - "Laborat\xF3rio"
+    - Teste de Anticorpo RAPID
+    - Teste PCR
+    - Teste de Anticorpo ELISA
+    - "L\xEDngua"
+    - Carteira de identidade ou passaporte
+    - ID Doutores
+    - ID
+    - "Teste de Ant\xEDgeno R\xC1PIDO"
+    - Teste de IMUNOCROMATOGRAFIA
+    - "Aceito e li a Pol\xEDtica de Privacidade"
+    - "POL\xCDTICA DE PRIVACIDADE Orden Verde, S.L. (\"Ordem Verde\") tratar\xE1
+      os dados pessoais do usu\xE1rio do aplicativo m\xF3vel Immunity Pass App, como
+      o controlador de dados, a fim de: \uF0B7 Inscrever o usu\xE1rio no aplicativo
+      Immunity Pass, permitir seu uso e realizar todas as tarefas de gest\xE3o e
+      manuten\xE7\xE3o que implica, incluindo a an\xE1lise da utiliza\xE7\xE3o que
+      os utilizadores fazem dela. Baseia-se na execu\xE7\xE3o de um contrato entre
+      a Ordem Verde e o usu\xE1rio ou no leg\xEDtimo interesse da Ordem Verde em
+      administrar sua rela\xE7\xE3o contratual com a empresa para a qual o usu\xE1rio
+      trabalha, ou na avalia\xE7\xE3o da qualidade do servi\xE7o e melhor\xE1-lo;
+      \uF0B7 Quando apropriado, gerenciar a rela\xE7\xE3o comercial existente entre
+      a Ordem Verde e a empresa para a qual o usu\xE1rio trabalha; e \uF0B7 Cumprir
+      as obriga\xE7\xF5es legais atribu\xEDdas \xE0 Ordem Verde. [Selecione o que
+      \xE9 apropriado em rela\xE7\xE3o \xE0s transfer\xEAncias de dados: Op\xE7\xE3o
+      1: Green Order transferir\xE1 os dados pessoais do usu\xE1rio para [especificar
+      outra (s) empresa (s) para a qual os dados ser\xE3o transferidos para que eles
+      tratar para seus pr\xF3prios fins]. Op\xE7\xE3o 2: A Green Order n\xE3o transferir\xE1
+      os dados pessoais do Locat\xE1rio a terceiros.] [Selecione o que \xE9 apropriado
+      em rela\xE7\xE3o a transfer\xEAncias internacionais: Op\xE7\xE3o 1: Os dados
+      pessoais do usu\xE1rio ser\xE3o transferidos internacionalmente (ou seja, fora
+      do Espa\xE7o Econ\xF4mico Europeu) para os seguintes pa\xEDses: \uF0B7 [Especificar
+      o pa\xEDs, se existe alguma decis\xE3o de adequa\xE7\xE3o a este respeito e,
+      caso contr\xE1rio, qual a garantia adotada para legitimar a referida transfer\xEAncia
+      internacional]. \uF0B7 [Especificar o pa\xEDs, se existe alguma decis\xE3o
+      cab\xEDvel a esse respeito e, caso contr\xE1rio, qual a garantia adotada para
+      legitimar a referida transfer\xEAncia internacional]. Op\xE7\xE3o 2: Os dados
+      pessoais do usu\xE1rio n\xE3o ser\xE3o transferidos internacionalmente.] Green
+      Order manter\xE1 os dados pessoais do usu\xE1rio enquanto sua conta de usu\xE1rio
+      for mantida no Immunity Pass App e, posteriormente, enquanto as responsabilidades
+      para Green Order, como conseq\xFC\xEAncia do seu tratamento. O usu\xE1rio poder\xE1
+      exercer seus direitos de acesso, retifica\xE7\xE3o, exclus\xE3o, limita\xE7\xE3o
+      de tratamento, portabilidade e oposi\xE7\xE3o por meio de solicita\xE7\xE3o
+      por escrito, assinada e endere\xE7ada \xE0 Green Order no seguinte endere\xE7o
+      de e-mail: [email]. Da mesma forma, se julgar necess\xE1rio, o usu\xE1rio pode
+      registrar uma reclama\xE7\xE3o junto \xE0 Ag\xEAncia Espanhola de Prote\xE7\xE3o
+      de Dados (https://www.aepd.es/) ou autoridade de prote\xE7\xE3o de dados competente."
+  - textos:
+    - "\u0635\u0628\u0648\u0631"
+    - "\u0627\u062E\u062A\u064A\u0627\u0631\u064A"
+    - "\u0627\u0633\u0645"
+    - "\u0627\u0644\u0623\u0644\u0642\u0627\u0628"
+    - "\u0625\u0639\u0627\u062F\u0629 \u062A\u0639\u064A\u064A\u0646 \u0627\u0644\u0645\u0639\u0644\u0648\u0645\u0627\u062A."
+    - "\u0627\u0646\u0634\u0627\u0621"
+    - "\u0645\u0633\u062D"
+    - "\u062D\u0641\u0638"
+    - "\u062A\u0627\u0631\u064A\u062E"
+    - "\u0633\u0644\u0628\u064A"
+    - "\u0625\u064A\u062C\u0627\u0628\u064A"
+    - "\u0625\u0646\u062A\u064A\u0631\u0648\u0643\u0627\u064A"
+    - "\u0644\u0644\u062A\u0633\u062C\u064A\u0644"
+    - "\u0627\u0644\u0645\u0633\u062A\u0639\u0645\u0644"
+    - "\u0643\u0644\u0645\u0647 \u0627\u0644\u0633\u0631"
+    - "\u0627\u062E\u062A\u0628\u0627\u0631 \u062C\u062F\u064A\u062F"
+    - "\u0625\u0631\u062C\u0627\u0639"
+    - "\u0645\u062E\u062A\u0628\u0631"
+    - "\u0627\u062E\u062A\u0628\u0627\u0631 \u0627\u0644\u062C\u0633\u0645 \u0627\u0644\u0645\u0636\u0627\u062F
+      \u0627\u0644\u0633\u0631\u064A\u0639"
+    - "\u0627\u062E\u062A\u0628\u0627\u0631 PCR"
+    - "\u0627\u062E\u062A\u0628\u0627\u0631 \u0627\u0644\u0623\u062C\u0633\u0627\u0645
+      \u0627\u0644\u0645\u0636\u0627\u062F\u0629 ELISA"
+    - "\u0644\u063A\u0629"
+    - "\u0628\u0637\u0627\u0642\u0629 \u0627\u0644\u0647\u0648\u064A\u0629 \u0623\u0648
+      \u062C\u0648\u0627\u0632 \u0627\u0644\u0633\u0641\u0631"
+    - "\u0645\u0639\u0631\u0641 \u0627\u062E\u062A\u064A\u0627\u0631\u064A"
+    - "\u0647\u0648\u064A\u0629 \u0634\u062E\u0635\u064A\u0629"
+    - "\u0627\u062E\u062A\u0628\u0627\u0631 \u0645\u0633\u062A\u0636\u062F \u0633\u0631\u064A\u0639"
+    - "\u0627\u062E\u062A\u0628\u0627\u0631 \u0643\u0631\u0648\u0645\u0627\u062A\u0648\u063A\u0631\u0627\u0641\u064A\u0627
+      \u0627\u0644\u0645\u0646\u0627\u0639\u0629"
+    - "\u0623\u0646\u0627 \u0623\u0642\u0628\u0644 \u0648\u0642\u062F \u0642\u0631\u0623\u062A
+      \u0633\u064A\u0627\u0633\u0629 \u0627\u0644\u062E\u0635\u0648\u0635\u064A\u0629"
+    - "\u0633\u064A\u0627\u0633\u0629 \u0627\u0644\u062E\u0635\u0648\u0635\u064A\u0629
+      Orden Verde\u060C S.L. (\"Green Order\") \u0633\u064A\u062A\u0639\u0627\u0645\u0644
+      \u0645\u0639 \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A \u0627\u0644\u0634\u062E\u0635\u064A\u0629
+      \u0644\u0645\u0633\u062A\u062E\u062F\u0645 \u062A\u0637\u0628\u064A\u0642 \u0627\u0644\u0647\u0627\u062A\u0641
+      \u0627\u0644\u0645\u062A\u062D\u0631\u0643 Immunity Pass \u060C \u0628\u0635\u0641\u062A\u0647
+      \u0627\u0644\u0645\u062A\u062D\u0643\u0645 \u0641\u064A \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A
+      \u060C \u0645\u0646 \u0623\u062C\u0644: \uF0B7 \u062A\u0633\u062C\u064A\u0644
+      \u0627\u0644\u0645\u0633\u062A\u062E\u062F\u0645 \u0641\u064A \u062A\u0637\u0628\u064A\u0642
+      Immunity Pass \u060C \u0648\u0627\u0644\u0633\u0645\u0627\u062D \u0628\u0627\u0633\u062A\u062E\u062F\u0627\u0645\u0647
+      \u0648\u062A\u0646\u0641\u064A\u0630 \u062C\u0645\u064A\u0639 \u0645\u0647\u0627\u0645
+      \u0627\u0644\u0625\u062F\u0627\u0631\u0629 \u0648\u0627\u0644\u0635\u064A\u0627\u0646\u0629
+      \u0627\u0644\u062A\u064A \u062A\u0646\u0637\u0648\u064A \u0639\u0644\u064A\u0647\u0627
+      \u060C \u0628\u0645\u0627 \u0641\u064A \u0630\u0644\u0643 \u062A\u062D\u0644\u064A\u0644
+      \u0627\u0644\u0627\u0633\u062A\u062E\u062F\u0627\u0645 \u0627\u0644\u0630\u064A
+      \u064A\u0633\u062A\u062E\u062F\u0645\u0647 \u0627\u0644\u0645\u0633\u062A\u062E\u062F\u0645\u0648\u0646
+      \u0644\u0647\u0627. \u064A\u0639\u062A\u0645\u062F \u0647\u0630\u0627 \u0639\u0644\u0649
+      \u062A\u0646\u0641\u064A\u0630 \u0639\u0642\u062F \u0628\u064A\u0646 \u0627\u0644\u0623\u0645\u0631
+      \u0627\u0644\u0623\u062E\u0636\u0631 \u0648\u0627\u0644\u0645\u0633\u062A\u062E\u062F\u0645
+      \u0623\u0648 \u0639\u0644\u0649 \u0623\u0633\u0627\u0633 \u0627\u0644\u0645\u0635\u0644\u062D\u0629
+      \u0627\u0644\u0645\u0634\u0631\u0648\u0639\u0629 \u0644\u0640 Green Order \u0641\u064A
+      \u0625\u062F\u0627\u0631\u0629 \u0639\u0644\u0627\u0642\u062A\u0647\u0627 \u0627\u0644\u062A\u0639\u0627\u0642\u062F\u064A\u0629
+      \u0645\u0639 \u0627\u0644\u0634\u0631\u0643\u0629 \u0627\u0644\u062A\u064A
+      \u064A\u0639\u0645\u0644 \u0628\u0647\u0627 \u0627\u0644\u0645\u0633\u062A\u062E\u062F\u0645
+      \u060C \u0623\u0648 \u0641\u064A \u062A\u0642\u064A\u064A\u0645 \u062C\u0648\u062F\u0629
+      \u0627\u0644\u062E\u062F\u0645\u0629 \u0648\u062A\u062D\u0633\u064A\u0646\u0647\u0627
+      \u061B \uF0B7 \u0639\u0646\u062F \u0627\u0644\u0627\u0642\u062A\u0636\u0627\u0621
+      \u060C \u0625\u062F\u0627\u0631\u0629 \u0627\u0644\u0639\u0644\u0627\u0642\u0629
+      \u0627\u0644\u062A\u062C\u0627\u0631\u064A\u0629 \u0627\u0644\u0642\u0627\u0626\u0645\u0629
+      \u0628\u064A\u0646 \u0627\u0644\u0623\u0645\u0631 \u0627\u0644\u0623\u062E\u0636\u0631
+      \u0648\u0627\u0644\u0634\u0631\u0643\u0629 \u0627\u0644\u062A\u064A \u064A\u0639\u0645\u0644
+      \u0628\u0647\u0627 \u0627\u0644\u0645\u0633\u062A\u062E\u062F\u0645 \u061B
+      \u0648 ly \u0627\u0644\u0627\u0645\u062A\u062B\u0627\u0644 \u0644\u0644\u0627\u0644\u062A\u0632\u0627\u0645\u0627\u062A
+      \u0627\u0644\u0642\u0627\u0646\u0648\u0646\u064A\u0629 \u0627\u0644\u0645\u0646\u0633\u0648\u0628\u0629
+      \u0625\u0644\u0649 \u0627\u0644\u0646\u0638\u0627\u0645 \u0627\u0644\u0623\u062E\u0636\u0631.
+      [\u062D\u062F\u062F \u0645\u0627 \u0647\u0648 \u0645\u0646\u0627\u0633\u0628
+      \u0641\u064A\u0645\u0627 \u064A\u062A\u0639\u0644\u0642 \u0628\u0639\u0645\u0644\u064A\u0627\u062A
+      \u0646\u0642\u0644 \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A: \u0627\u0644\u062E\u064A\u0627\u0631
+      1: \u064A\u0642\u0648\u0645 Green Order \u0628\u0646\u0642\u0644 \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A
+      \u0627\u0644\u0634\u062E\u0635\u064A\u0629 \u0644\u0644\u0645\u0633\u062A\u062E\u062F\u0645
+      \u0625\u0644\u0649 [\u062D\u062F\u062F \u0627\u0644\u0634\u0631\u0643\u0629
+      (\u0627\u0644\u0634\u0631\u0643\u0627\u062A) \u0627\u0644\u0623\u062E\u0631\u0649
+      \u0627\u0644\u062A\u064A \u0633\u064A\u062A\u0645 \u0646\u0642\u0644 \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A
+      \u0625\u0644\u064A\u0647\u0627 \u0645\u0646 \u0623\u062C\u0644 \u064A\u0639\u0627\u0645\u0644\u0648\u0646
+      \u0644\u0623\u063A\u0631\u0627\u0636\u0647\u0645 \u0627\u0644\u062E\u0627\u0635\u0629].
+      \u0627\u0644\u062E\u064A\u0627\u0631 2: \u0644\u0646 \u064A\u0642\u0648\u0645
+      \u0627\u0644\u0646\u0638\u0627\u0645 \u0627\u0644\u0623\u062E\u0636\u0631 \u0628\u0646\u0642\u0644
+      \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A \u0627\u0644\u0634\u062E\u0635\u064A\u0629
+      \u0644\u0644\u0645\u0633\u062A\u0623\u062C\u0631 \u0625\u0644\u0649 \u0623\u0637\u0631\u0627\u0641
+      \u062B\u0627\u0644\u062B\u0629.] [\u062D\u062F\u062F \u0645\u0627 \u0647\u0648
+      \u0645\u0646\u0627\u0633\u0628 \u0641\u064A\u0645\u0627 \u064A\u062A\u0639\u0644\u0642
+      \u0628\u0627\u0644\u062A\u062D\u0648\u064A\u0644\u0627\u062A \u0627\u0644\u062F\u0648\u0644\u064A\u0629:
+      \u0627\u0644\u062E\u064A\u0627\u0631 1: \u0633\u064A\u062A\u0645 \u0646\u0642\u0644
+      \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A \u0627\u0644\u0634\u062E\u0635\u064A\u0629
+      \u0644\u0644\u0645\u0633\u062A\u062E\u062F\u0645 \u062F\u0648\u0644\u064A\u064B\u0627
+      (\u0623\u064A \u062E\u0627\u0631\u062C \u0627\u0644\u0645\u0646\u0637\u0642\u0629
+      \u0627\u0644\u0627\u0642\u062A\u0635\u0627\u062F\u064A\u0629 \u0627\u0644\u0623\u0648\u0631\u0648\u0628\u064A\u0629)
+      \u0625\u0644\u0649 \u0627\u0644\u0628\u0644\u062F\u0627\u0646 \u0627\u0644\u062A\u0627\u0644\u064A\u0629:
+      \uF0B7 [\u062D\u062F\u062F \u0627\u0644\u062F\u0648\u0644\u0629 \u060C \u0625\u0630\u0627
+      \u0643\u0627\u0646 \u0647\u0646\u0627\u0643 \u0623\u064A \u0642\u0631\u0627\u0631
+      \u0645\u0644\u0627\u0626\u0645 \u0628\u0647\u0630\u0627 \u0627\u0644\u0635\u062F\u062F
+      \u060C \u0648\u0625\u0630\u0627 \u0644\u0645 \u064A\u0643\u0646 \u0627\u0644\u0623\u0645\u0631
+      \u0643\u0630\u0644\u0643 \u060C \u0641\u0645\u0627 \u0647\u0648 \u0627\u0644\u0636\u0645\u0627\u0646
+      \u0627\u0644\u0645\u0639\u062A\u0645\u062F \u0644\u0625\u0636\u0641\u0627\u0621
+      \u0627\u0644\u0634\u0631\u0639\u064A\u0629 \u0639\u0644\u0649 \u0627\u0644\u0646\u0642\u0644
+      \u0627\u0644\u062F\u0648\u0644\u064A \u0627\u0644\u0645\u0630\u0643\u0648\u0631].
+      \uF0B7 [\u062D\u062F\u062F \u0627\u0644\u062F\u0648\u0644\u0629 \u060C \u0625\u0630\u0627
+      \u0643\u0627\u0646 \u0647\u0646\u0627\u0643 \u0623\u064A \u0642\u0631\u0627\u0631
+      \u0645\u0646\u0627\u0633\u0628 \u0641\u064A \u0647\u0630\u0627 \u0627\u0644\u0635\u062F\u062F
+      \u060C \u0648\u0625\u0630\u0627 \u0644\u0645 \u064A\u0643\u0646 \u0627\u0644\u0623\u0645\u0631
+      \u0643\u0630\u0644\u0643 \u060C \u0641\u0645\u0627 \u0647\u0648 \u0627\u0644\u0636\u0645\u0627\u0646
+      \u0627\u0644\u0645\u0639\u062A\u0645\u062F \u0644\u0625\u0636\u0641\u0627\u0621
+      \u0627\u0644\u0634\u0631\u0639\u064A\u0629 \u0639\u0644\u0649 \u0627\u0644\u0646\u0642\u0644
+      \u0627\u0644\u062F\u0648\u0644\u064A \u0627\u0644\u0645\u0630\u0643\u0648\u0631].
+      \u0627\u0644\u062E\u064A\u0627\u0631 2: \u0644\u0646 \u064A\u062A\u0645 \u0646\u0642\u0644
+      \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A \u0627\u0644\u0634\u062E\u0635\u064A\u0629
+      \u0644\u0644\u0645\u0633\u062A\u062E\u062F\u0645 \u062F\u0648\u0644\u064A\u064B\u0627.]
+      \u0633\u064A\u062D\u062A\u0641\u0638 Green Order \u0628\u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A
+      \u0627\u0644\u0634\u062E\u0635\u064A\u0629 \u0644\u0644\u0645\u0633\u062A\u062E\u062F\u0645
+      \u0637\u0627\u0644\u0645\u0627 \u0623\u0646 \u062D\u0633\u0627\u0628 \u0627\u0644\u0645\u0633\u062A\u062E\u062F\u0645
+      \u0627\u0644\u062E\u0627\u0635 \u0628\u0647 \u0645\u062D\u0641\u0648\u0638
+      \u0641\u064A \u062A\u0637\u0628\u064A\u0642 Immunity Pass \u060C \u0648\u0628\u0627\u0644\u062A\u0627\u0644\u064A
+      \u060C \u0645\u0627 \u062F\u0627\u0645\u062A \u0645\u0633\u0624\u0648\u0644\u064A\u0627\u062A
+      \u0627\u0644\u0646\u0638\u0627\u0645 \u0627\u0644\u0623\u062E\u0636\u0631 \u0645\u062B\u0644
+      Green Order \u0646\u062A\u064A\u062C\u0629 \u0639\u0644\u0627\u062C\u0643.
+      \u064A\u062C\u0648\u0632 \u0644\u0644\u0645\u0633\u062A\u062E\u062F\u0645 \u0645\u0645\u0627\u0631\u0633\u0629
+      \u062D\u0642\u0648\u0642\u0647 \u0641\u064A \u0627\u0644\u0648\u0635\u0648\u0644
+      \u060C \u0648\u0627\u0644\u062A\u0635\u062D\u064A\u062D \u060C \u0648\u0627\u0644\u062D\u0630\u0641
+      \u060C \u0648\u062A\u0642\u064A\u064A\u062F \u0627\u0644\u0645\u0639\u0627\u0645\u0644\u0629
+      \u060C \u0648\u0642\u0627\u0628\u0644\u064A\u0629 \u0627\u0644\u0646\u0642\u0644
+      \u0648\u0627\u0644\u0645\u0639\u0627\u0631\u0636\u0629 \u0639\u0646 \u0637\u0631\u064A\u0642
+      \u0637\u0644\u0628 \u0643\u062A\u0627\u0628\u064A \u060C \u0645\u0648\u0642\u0639
+      \u0648\u0645\u0648\u062C\u0647 \u0625\u0644\u0649 Green Order \u0639\u0644\u0649
+      \u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u0628\u0631\u064A\u062F \u0627\u0644\u0625\u0644\u0643\u062A\u0631\u0648\u0646\u064A
+      \u0627\u0644\u062A\u0627\u0644\u064A: [\u0627\u0644\u0628\u0631\u064A\u062F
+      \u0627\u0644\u0625\u0644\u0643\u062A\u0631\u0648\u0646\u064A]. \u0648\u0628\u0627\u0644\u0645\u062B\u0644
+      \u060C \u0625\u0630\u0627 \u0627\u0639\u062A\u0628\u0631 \u0630\u0644\u0643
+      \u0636\u0631\u0648\u0631\u064A\u064B\u0627 \u060C \u064A\u062C\u0648\u0632
+      \u0644\u0644\u0645\u0633\u062A\u062E\u062F\u0645 \u062A\u0642\u062F\u064A\u0645
+      \u0645\u0637\u0627\u0644\u0628\u0629 \u0625\u0644\u0649 \u0648\u0643\u0627\u0644\u0629
+      \u062D\u0645\u0627\u064A\u0629 \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A
+      \u0627\u0644\u0625\u0633\u0628\u0627\u0646\u064A\u0629 (https://www.aepd.es/)
+      \u0623\u0648 \u0633\u0644\u0637\u0629 \u062D\u0645\u0627\u064A\u0629 \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A
+      \u0627\u0644\u0645\u062E\u062A\u0635\u0629."
+  - textos:
+    - "\u60A3\u8005"
+    - "\u53EF\u9009\u7684"
+    - "\u540D\u79F0"
+    - "\u59D3\u6C0F"
+    - "\u91CD\u7F6E\u4FE1\u606F\u3002"
+    - "\u751F\u6210"
+    - "\u626B\u7784"
+    - "\u4FDD\u5B58"
+    - "\u65E5\u671F"
+    - "\u8D1F"
+    - "\u6B63"
+    - Enterokay
+    - "\u6CE8\u518C"
+    - "\u7528\u6237"
+    - "\u5BC6\u7801"
+    - "\u65B0\u6D4B\u8BD5"
+    - "\u8FD4\u56DE"
+    - "\u5B9E\u9A8C\u5BA4"
+    - "RAPID\u6297\u4F53\u6D4B\u8BD5"
+    - "PCR\u6D4B\u8BD5"
+    - "ELISA\u6297\u4F53\u6D4B\u8BD5"
+    - "\u8BED\u8A00"
+    - "\u8EAB\u4EFD\u8BC1\u6216\u62A4\u7167"
+    - "\u53EF\u9009ID"
+    - ID
+    - "\u5FEB\u901F\u6297\u539F\u6D4B\u8BD5"
+    - "\u514D\u75AB\u5C42\u6790\u6210\u50CF\u6D4B\u8BD5"
+    - "\u6211\u63A5\u53D7\u5E76\u5DF2\u9605\u8BFB\u9690\u79C1\u653F\u7B56"
+    - "\u9690\u79C1\u653F\u7B56Orden Verde\uFF0CS.L. \uFF08\u201C\u7EFF\u8272\u8BA2\u5355\u201D\uFF09\u4F1A\u5C06Immunity
+      Pass App\u79FB\u52A8\u5E94\u7528\u7A0B\u5E8F\u7528\u6237\u7684\u4E2A\u4EBA\u6570\u636E\u89C6\u4E3A\u6570\u636E\u63A7\u5236\u8005\uFF0C\u4EE5\u4FBF\uFF1A\uF0B7\u5C06\u7528\u6237\u6CE8\u518C\u5230Immunity
+      Pass App\u4E2D\uFF0C\u5141\u8BB8\u5176\u4F7F\u7528\u5E76\u6267\u884C\u6240\u6709\u5B83\u6697\u542B\u7684\u7BA1\u7406\u548C\u7EF4\u62A4\u4EFB\u52A1\uFF0C\u5305\u62EC\u5BF9\u7528\u6237\u4F7F\u7528\u5B83\u7684\u7528\u9014\u7684\u5206\u6790\u3002\u8FD9\u662F\u57FA\u4E8E\u7EFF\u8272\u8BA2\u5355\u4E0E\u7528\u6237\u4E4B\u95F4\u7684\u5408\u540C\u7684\u6267\u884C\uFF0C\u6216\u8005\u57FA\u4E8E\u7EFF\u8272\u8BA2\u5355\u5728\u7BA1\u7406\u5176\u4E0E\u7528\u6237\u6240\u5728\u516C\u53F8\u4E4B\u95F4\u7684\u5408\u540C\u5173\u7CFB\u6216\u8BC4\u4F30\u5176\u8D28\u91CF\u65F6\u7684\u5408\u6CD5\u6743\u76CA\u3002\u670D\u52A1\u5E76\u6539\u5584\u5B83\uFF1B
+      \uF0B7\u5728\u9002\u5F53\u7684\u60C5\u51B5\u4E0B\uFF0C\u7BA1\u7406\u7EFF\u8272\u8BA2\u5355\u4E0E\u7528\u6237\u6240\u5728\u516C\u53F8\u4E4B\u95F4\u7684\u73B0\u6709\u5546\u4E1A\u5173\u7CFB\uFF1B
+      \uF0B7\u9075\u5B88\u5F52\u56E0\u4E8E\u7EFF\u8272\u8BA2\u5355\u7684\u6CD5\u5F8B\u4E49\u52A1\u3002
+      [\u9009\u62E9\u5408\u9002\u7684\u6570\u636E\u4F20\u8F93\u65B9\u5F0F\uFF1A\u9009\u98791\uFF1A\u7EFF\u8272\u8BA2\u5355\u5C06\u7528\u6237\u7684\u4E2A\u4EBA\u6570\u636E\u4F20\u8F93\u81F3[\u6307\u5B9A\u8981\u5411\u5176\u4F20\u8F93\u6570\u636E\u7684\u5176\u4ED6\u516C\u53F8\uFF0C\u4EE5\u4FBF\u4ED6\u4EEC\u4E3A\u81EA\u5DF1\u7684\u76EE\u7684\u800C\u5BF9\u5F85]\u3002\u9009\u98792\uFF1A\u7EFF\u8272\u8BA2\u5355\u4E0D\u4F1A\u5C06\u627F\u79DF\u4EBA\u7684\u4E2A\u4EBA\u6570\u636E\u4F20\u8F93\u7ED9\u7B2C\u4E09\u65B9\u3002]
+      [\u9009\u62E9\u9002\u5408\u56FD\u9645\u4F20\u8F93\u7684\u65B9\u5F0F\uFF1A\u9009\u98791\uFF1A\u7528\u6237\u7684\u4E2A\u4EBA\u6570\u636E\u5C06\u901A\u8FC7\u56FD\u9645\u4F20\u8F93\uFF08\u5373\u5728\u6B27\u6D32\u7ECF\u6D4E\u533A\u4EE5\u5916\uFF09\u4F20\u8F93\u5230\u4E0B\u5217\u56FD\u5BB6\uFF1A\uF0B7[\u6307\u5B9A\u56FD\u5BB6\uFF0C\u5982\u679C\u5728\u8FD9\u65B9\u9762\u6709\u4EFB\u4F55\u9002\u5F53\u7684\u51B3\u5B9A\uFF0C\u5982\u679C\u6CA1\u6709\uFF0C\u90A3\u4E48\u4E3A\u4F7F\u4E0A\u8FF0\u56FD\u9645\u8F6C\u8BA9\u5408\u6CD5\u5316\u6240\u91C7\u7528\u7684\u4FDD\u8BC1\u662F\u4EC0\u4E48\uFF1F
+      \uF0B7[\u6307\u5B9A\u56FD\u5BB6\uFF0C\u5982\u679C\u5728\u8FD9\u65B9\u9762\u6709\u4EFB\u4F55\u9002\u5F53\u7684\u51B3\u5B9A\uFF0C\u5982\u679C\u6CA1\u6709\uFF0C\u90A3\u4E48\u4E3A\u4F7F\u4E0A\u8FF0\u56FD\u9645\u8F6C\u8BA9\u5408\u6CD5\u5316\u800C\u91C7\u53D6\u7684\u4FDD\u8BC1\u662F\u4EC0\u4E48\uFF1F\u9009\u98792\uFF1A\u7528\u6237\u7684\u4E2A\u4EBA\u6570\u636E\u5C06\u4E0D\u4F1A\u5728\u56FD\u9645\u8303\u56F4\u5185\u8F6C\u79FB\u3002]\u53EA\u8981\u5728Immunity
+      Pass App\u4E2D\u7EF4\u62A4\u4E86\u7528\u6237\u5E10\u6237\uFF0CGreen Order\u5C31\u4F1A\u4FDD\u7559\u7528\u6237\u7684\u4E2A\u4EBA\u6570\u636E\uFF0C\u5176\u540E\uFF0C\u8BF8\u5982\u6CBB\u7597\u7684\u540E\u679C\u3002\u7528\u6237\u53EF\u4EE5\u901A\u8FC7\u4E66\u9762\u8BF7\u6C42\u6765\u884C\u4F7F\u8BBF\u95EE\uFF0C\u7EA0\u6B63\uFF0C\u5220\u9664\uFF0C\u5904\u7406\u9650\u5236\uFF0C\u53EF\u79FB\u690D\u6027\u548C\u5F02\u8BAE\u7684\u6743\u5229\uFF0C\u5E76\u901A\u8FC7\u4EE5\u4E0B\u7535\u5B50\u90AE\u4EF6\u5730\u5740\u7B7E\u7F72\u5E76\u5BC4\u7ED9Green
+      Order\uFF1A[email]\u3002\u540C\u6837\uFF0C\u5982\u679C\u8BA4\u4E3A\u6709\u5FC5\u8981\uFF0C\u5219\u7528\u6237\u53EF\u4EE5\u5411\u897F\u73ED\u7259\u6570\u636E\u4FDD\u62A4\u5C40\uFF08https://www.aepd.es/\uFF09\u6216\u4E3B\u7BA1\u6570\u636E\u4FDD\u62A4\u673A\u6784\u63D0\u51FA\u7D22\u8D54\u3002"

@@ -54,8 +54,8 @@ public class UserInfo : ScriptableObject
     {
         patient_Info = new PatientInfo();
         patient_temp = new PatientInfo();
-        patient_temp.tests = new Test[3];
-        for (int i = 0; i < 3; i++)
+        patient_temp.tests = new Test[5];
+        for (int i = 0; i < patient_temp.tests.Length; i++)
         {
             patient_temp.tests[i] = new Test();
         }
@@ -100,12 +100,57 @@ public class UserInfo : ScriptableObject
     }
     #endregion
 
+    #region Inmuno
+    public void AddInmunoResult_IGM(string igm)
+    {
+        Debug.Log(patient_temp.tests.Length);
+        patient_temp.tests[4].testType = "INMUNOCROMA";
+        patient_temp.tests[4].Result_igm = igm;
+
+        if (patient_temp.tests[4].Result_igg != "")
+        {
+            patient_temp.tests[4].valid = true;
+            MainController.instance.uiC.ShowGenerateQR();
+        }
+
+
+        patient_Info = patient_temp;
+
+    }
+
+    public void AddInmunoResult_IGG(string igg)
+    {
+        patient_temp.tests[4].testType = "INMUNOCROMA";
+        patient_temp.tests[4].Result_igg = igg;
+
+        if (patient_temp.tests[4].Result_igm != "")
+        {
+            patient_temp.tests[4].valid = true;
+            MainController.instance.uiC.ShowGenerateQR();
+        }
+
+        patient_Info = patient_temp;
+    }
+    #endregion
+
     #region PCR
     public void AddPCRResult(string result)
     {
         patient_temp.tests[1].testType = "PCR";
         patient_temp.tests[1].testResult = result;
         patient_temp.tests[1].valid = true;
+        MainController.instance.uiC.ShowGenerateQR();
+
+        patient_Info = patient_temp;
+    }
+    #endregion
+
+    #region AntigenosQuick
+    public void AddAntigenosQResult(string result)
+    {
+        patient_temp.tests[3].testType = "ANTIGENOS";
+        patient_temp.tests[3].testResult = result;
+        patient_temp.tests[3].valid = true;
         MainController.instance.uiC.ShowGenerateQR();
 
         patient_Info = patient_temp;
@@ -211,6 +256,7 @@ public class PatientInfo
 {
     public string PatientName;
     public string PatientDNI;
+    public string PatientCountry;
 
     public Test[] tests = new Test[3];
     
