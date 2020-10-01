@@ -3283,6 +3283,17 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2078246362}
+        m_MethodName: UpdateResultTestsVisual
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2078246362}
         m_MethodName: UpdateLayouts
         m_Mode: 1
         m_Arguments:
@@ -6083,7 +6094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.10196079, g: 0.654902, b: 0.7294118, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9661,7 +9672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 535, y: -918}
+  m_AnchoredPosition: {x: 535, y: -928}
   m_SizeDelta: {x: 807.2765, y: 140.18384}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &690332433
@@ -9736,9 +9747,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7d30a7673c95044c5ba541d8597d4f60, type: 3}
-  m_Type: 1
-  m_PreserveAspect: 1
+  m_Sprite: {fileID: 21300000, guid: 9cf796dc170b53c4588b1b282759168d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -9821,7 +9832,7 @@ PrefabInstance:
     - target: {fileID: 11434868, guid: 751f7137cfffd4a16b1a4c191e687d64, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 2078246362}
+      objectReference: {fileID: 2078246361}
     - target: {fileID: 11434868, guid: 751f7137cfffd4a16b1a4c191e687d64, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 6
@@ -9840,7 +9851,7 @@ PrefabInstance:
       objectReference: {fileID: 1431263716}
     - target: {fileID: 11434868, guid: 751f7137cfffd4a16b1a4c191e687d64, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: UpdateLayouts
+      value: NewPatient
       objectReference: {fileID: 0}
     - target: {fileID: 11434868, guid: 751f7137cfffd4a16b1a4c191e687d64, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -10399,7 +10410,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 397.60678, y: -146.24385}
+  m_AnchoredPosition: {x: 397.78674, y: -146.24385}
   m_SizeDelta: {x: 807.2766, y: 140.18384}
   m_Pivot: {x: 0.5, y: 0.99999994}
 --- !u!114 &795918900
@@ -13392,6 +13403,17 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2078246362}
+        m_MethodName: UpdateResultTestsVisual
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2078246362}
         m_MethodName: UpdateLayouts
         m_Mode: 1
         m_Arguments:
@@ -13567,7 +13589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 397.60678, y: -584.97534}
+  m_AnchoredPosition: {x: 397.78674, y: -584.97534}
   m_SizeDelta: {x: 807.2766, y: 140.18384}
   m_Pivot: {x: 0.5, y: 0.99999994}
 --- !u!114 &1010427581
@@ -14354,6 +14376,28 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1977450793}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2078246362}
+        m_MethodName: UpdateResultTestsVisual
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2078246362}
+        m_MethodName: UpdateLayouts
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -16467,7 +16511,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 397.60678, y: -292.48767}
+  m_AnchoredPosition: {x: 397.78674, y: -292.48767}
   m_SizeDelta: {x: 807.2766, y: 140.18384}
   m_Pivot: {x: 0.5, y: 0.99999994}
 --- !u!114 &1228350393
@@ -19642,7 +19686,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 397.60678, y: -438.7315}
+  m_AnchoredPosition: {x: 397.78674, y: -438.7315}
   m_SizeDelta: {x: 807.2766, y: 140.18384}
   m_Pivot: {x: 0.5, y: 0.99999994}
 --- !u!114 &1452385327
@@ -19720,7 +19764,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 397.60678, y: 0}
+  m_AnchoredPosition: {x: 397.78674, y: 0}
   m_SizeDelta: {x: 807.2766, y: 140.18384}
   m_Pivot: {x: 0.5, y: 0.99999994}
 --- !u!114 &1471088765
@@ -24051,6 +24095,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2078246362}
+        m_MethodName: UpdateResultTestsVisual
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2078246362}
+        m_MethodName: UpdateLayouts
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1777819174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26003,10 +26069,10 @@ RectTransform:
   m_Father: {fileID: 1503228791}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.13444445, y: 0.164}
-  m_AnchorMax: {x: 0.8637408, y: 0.637}
-  m_AnchoredPosition: {x: -3.75, y: -146}
-  m_SizeDelta: {x: 7.5734863, y: -0.98913574}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 535, y: -1558}
+  m_SizeDelta: {x: 795.5735, y: 1106.0109}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1913016256
 MonoBehaviour:
@@ -26165,7 +26231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 287, y: 6.6661}
+  m_AnchoredPosition: {x: 260, y: -0.00003767}
   m_SizeDelta: {x: 209.92456, y: 153.51599}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1921370551
@@ -27306,6 +27372,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2078246362}
+        m_MethodName: UpdateResultTestsVisual
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2078246362}
+        m_MethodName: UpdateLayouts
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2012123491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28375,6 +28463,8 @@ MonoBehaviour:
   - {fileID: 1350389355}
   - {fileID: 1178850109}
   - {fileID: 280585627}
+  - {fileID: 1598330849}
+  - {fileID: 1632826916}
   lang: {fileID: 11400000, guid: 1190c771d38eead448f1be6ad9f12387, type: 2}
   inputDocName: {fileID: 101301081}
   inputDocLastName: {fileID: 1135339234}
@@ -28402,6 +28492,12 @@ MonoBehaviour:
   newLabResult: {fileID: 737255775}
   newPatientLabGenerateQR: {fileID: 1572274751}
   layoutVLab: {fileID: 1913016255}
+  testTypesResultGO:
+  - {fileID: 2124114530}
+  - {fileID: 1977450793}
+  - {fileID: 1676254973}
+  - {fileID: 585032116}
+  - {fileID: 2025492967}
   UserSelection: {fileID: 0}
   ShowQR: {fileID: 231026342}
   DoctorInput: {fileID: 2014316790}
@@ -28412,6 +28508,8 @@ MonoBehaviour:
   LabNewPatient: {fileID: 1503228790}
   GenerateQRGO: {fileID: 1572274751}
   qrTextures:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

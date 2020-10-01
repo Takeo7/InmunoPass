@@ -107,7 +107,10 @@ public class UIController : MonoBehaviour
     [SerializeField]
     RectTransform layoutVLab;
 
-
+    [Space]
+    [Header("TestTypesResult")]
+    [SerializeField]
+    GameObject[] testTypesResultGO;
 
     [Space]
     [Header("Canvas Windows")]
@@ -432,6 +435,18 @@ public class UIController : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    public void UpdateResultTestsVisual(int test)
+    {
+        int length = testTypesResultGO.Length;
+        for (int i = 0; i < length; i++)
+        {
+            if (i != test)
+            {
+                testTypesResultGO[i].SetActive(false);
+            }       
         }
     }
 

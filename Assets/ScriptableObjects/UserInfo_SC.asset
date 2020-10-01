@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11630dd8bd1397f419a5896cde8eb7b5, type: 3}
   m_Name: UserInfo_SC
   m_EditorClassIdentifier: 
-  userT: 1
+  userT: 0
   isRegistered: 1
-  userName: Dr. Andrew Smith
-  userDNI: 54862475GG
-  docCode: 54763/5472-22
-  LabNICA: 
+  userName: Laboratorio B&G
+  userDNI: 56384567F
+  docCode: 3654/7512-G56
+  LabNICA: 54635275f456
