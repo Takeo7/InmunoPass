@@ -25778,6 +25778,34 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12800000, guid: be910985fd2b66a449c2c86182426b5b,
         type: 3}
+    - target: {fileID: 11468188, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468188, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468188, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468188, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 260756863}
+    - target: {fileID: 11468188, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468188, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468188, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 11492918, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 40
@@ -28741,7 +28769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11462110, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}
       propertyPath: m_FontData.m_MaxSize
-      value: 80
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 11462110, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}
       propertyPath: m_FontData.m_BestFit
@@ -28764,6 +28792,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12800000, guid: be910985fd2b66a449c2c86182426b5b,
         type: 3}
+    - target: {fileID: 11462110, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}
+      propertyPath: m_Text
+      value: arthur_wag@hotmail.com
+      objectReference: {fileID: 0}
+    - target: {fileID: 11462110, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 11468188, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -28790,6 +28826,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11468188, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468188, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468188, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}
+      propertyPath: m_CaretWidth
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11492918, guid: 4c5368a58301e4892a15a0228d4fb291, type: 3}

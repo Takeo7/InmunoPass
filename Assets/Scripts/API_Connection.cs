@@ -492,7 +492,7 @@ public class API_Connection : MonoBehaviour
 
             formData.Add(new MultipartFormDataSection("test[asintomatico]", mc.uinfo.patient_Info.Sintomatic));
 
-            formData.Add(new MultipartFormDataSection("test[tipo]", "SALIVA"));//Posibles valores: PCR, RAPIDO, ELISA, SALIVA
+            formData.Add(new MultipartFormDataSection("test[tipo]", "DSA"));//Posibles valores: PCR, RAPIDO, ELISA, SALIVA, DSA
 
             formData.Add(new MultipartFormDataSection("test[resultado]", mc.uinfo.patient_temp.tests[5].testResult));
 

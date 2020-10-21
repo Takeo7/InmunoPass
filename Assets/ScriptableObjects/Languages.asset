@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b437b71a64916ee428dc6503712e6b75, type: 3}
   m_Name: Languages
   m_EditorClassIdentifier: 
-  currentLang: 1
+  currentLang: 0
   languages:
   - textos:
     - Paciente
@@ -81,7 +81,7 @@ MonoBehaviour:
       de datos competente."
     - Hospital
     - DSA
-    - DSA Breath Pass
+    - DSA Breath
     - E-mail
     - "Tel\xE9fono"
     - Siguiente
@@ -150,7 +150,7 @@ MonoBehaviour:
       or data protection authority competent."
     - Hospital
     - DSA
-    - DSA Breath Pass
+    - DSA Breath
     - E-mail
     - Phone
     - Next
@@ -223,7 +223,7 @@ MonoBehaviour:
       o autoritat de protecci\xF3 de dades competent."
     - Hospital
     - DSA
-    - DSA Breath Pass
+    - DSA Breath
     - E-mail
     - "Tel\xE8fon"
     - "Seg\xFCent"
@@ -294,7 +294,7 @@ MonoBehaviour:
       de datos."
     - Hospital
     - DSA
-    - DSA Breath Pass
+    - DSA Breath
     - E-mail
     - "Tel\xE9fono"
     - Seguindo
@@ -366,7 +366,7 @@ MonoBehaviour:
       (https://www.aepd.es/) oder der zust\xE4ndigen Datenschutzbeh\xF6rde einreichen."
     - Krankenhaus
     - DSA
-    - DSA Breath Pass
+    - DSA Breath
     - E-mail
     - Telefon
     - Folgen
@@ -440,7 +440,7 @@ MonoBehaviour:
       (https://www.aepd.es/) ou de l'autorit\xE9 de protection des donn\xE9es comp\xE9tente."
     - "H\xF4pital"
     - DSA
-    - DSA Breath Pass
+    - DSA Breath
     - E-mail
     - "T\xE9l\xE9phone"
     - Suivant
@@ -510,7 +510,7 @@ MonoBehaviour:
       o all'autorit\xE0 competente per la protezione dei dati."
     - Ospedale
     - DSA
-    - DSA Breath Pass
+    - DSA Breath
     - E-mail
     - Telefono
     - A seguire
@@ -582,7 +582,7 @@ MonoBehaviour:
       de Dados (https://www.aepd.es/) ou autoridade de prote\xE7\xE3o de dados competente."
     - Hospital
     - DSA
-    - DSA Breath Pass
+    - DSA Breath
     - E-mail
     - Telefone
     - Segue
@@ -727,7 +727,7 @@ MonoBehaviour:
       \u0627\u0644\u0645\u062E\u062A\u0635\u0629."
     - "\u0645\u0633\u062A\u0634\u0641\u0649"
     - DSA
-    - DSA Breath Pass
+    - DSA Breath
     - "\u0627\u0644\u0628\u0631\u064A\u062F \u0627\u0644\u0625\u0644\u0643\u062A\u0631\u0648\u0646\u064A"
     - "\u0647\u0627\u062A\u0641"
     - "\u0627\u0644\u062A\u0627\u0644\u064A\u0629"
@@ -774,7 +774,7 @@ MonoBehaviour:
       Order\uFF1A[email]\u3002\u540C\u6837\uFF0C\u5982\u679C\u8BA4\u4E3A\u6709\u5FC5\u8981\uFF0C\u5219\u7528\u6237\u53EF\u4EE5\u5411\u897F\u73ED\u7259\u6570\u636E\u4FDD\u62A4\u5C40\uFF08https://www.aepd.es/\uFF09\u6216\u4E3B\u7BA1\u6570\u636E\u4FDD\u62A4\u673A\u6784\u63D0\u51FA\u7D22\u8D54\u3002"
     - "\u533B\u9662"
     - DSA
-    - DSA Breath Pass
+    - DSA Breath
     - "\u7535\u5B50\u90AE\u4EF6"
     - "\u7535\u8BDD"
     - "\u4EE5\u4E0B"
