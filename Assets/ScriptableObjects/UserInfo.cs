@@ -23,6 +23,12 @@ public class UserInfo : ScriptableObject
     [SerializeField]
     public string LabNICA;
 
+    [Space]
+    [SerializeField]
+    public string hospitalName;
+    [SerializeField]
+    public string DSACode;
+
 
     public PatientInfo patient_Info = new PatientInfo();
     public PatientInfo patient_temp = new PatientInfo();
@@ -44,6 +50,14 @@ public class UserInfo : ScriptableObject
         //userT = MainController.userType.Doctor;
         isRegistered = true;
     }
+    public void AddDSAInfo(string n, string dsa, string hospital)
+    {
+        userName = n;
+        hospitalName = hospital;
+        DSACode = dsa;
+
+        isRegistered = true;
+    }
 
     public bool CheckIsRegistered()
     {
@@ -54,7 +68,7 @@ public class UserInfo : ScriptableObject
     {
         patient_Info = new PatientInfo();
         patient_temp = new PatientInfo();
-        patient_temp.tests = new Test[5];
+        patient_temp.tests = new Test[6];
         for (int i = 0; i < patient_temp.tests.Length; i++)
         {
             patient_temp.tests[i] = new Test();
@@ -65,6 +79,11 @@ public class UserInfo : ScriptableObject
     {
         patient_temp.PatientName = pn;
         patient_temp.PatientDNI = pid;
+    }
+
+    public void AddPatientSintomatic(bool b)
+    {   
+        patient_temp.Sintomatic = b.ToString();
     }
 
     #region Rapido
@@ -216,6 +235,18 @@ public class UserInfo : ScriptableObject
 
     #endregion
 
+    #region DSA
+    public void AddDSAResult(string result)
+    {
+        patient_temp.tests[5].testType = "SALIVA";
+        patient_temp.tests[5].testResult = result;
+        patient_temp.tests[5].valid = true;
+        MainController.instance.uiC.ShowGenerateQR();
+
+        patient_Info = patient_temp;
+    }
+    #endregion
+
 
     public void ResetInfo()
     {
@@ -224,19 +255,39 @@ public class UserInfo : ScriptableObject
             case MainController.userType.Lab:
                 patient_Info = new PatientInfo();
                 patient_temp = new PatientInfo();
+                
                 isRegistered = false;
+                
                 userName = "";
                 LabNICA = "";
+                
                 SaveSystemController.SaveUser(new UserInfo());
                 UnityEngine.SceneManagement.SceneManager.LoadScene(0);
                 break;
             case MainController.userType.Doctor:
                 patient_Info = new PatientInfo();
                 patient_temp = new PatientInfo();
+                
                 isRegistered = false;
+                
                 userName = "";
                 userDNI = "";
                 docCode = "";
+
+                SaveSystemController.SaveUser(new UserInfo());
+                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+                break;
+            case MainController.userType.Hospital:
+                patient_Info = new PatientInfo();
+                patient_temp = new PatientInfo();
+                
+                isRegistered = false;
+
+                userName = "";
+                userDNI = "";
+                DSACode = "";
+                hospitalName = "";
+
                 SaveSystemController.SaveUser(new UserInfo());
                 UnityEngine.SceneManagement.SceneManager.LoadScene(0);
                 break;
@@ -257,8 +308,12 @@ public class PatientInfo
     public string PatientName;
     public string PatientDNI;
     public string PatientCountry;
+    public string PatientEmail;
+    public string PatientPhone;
 
-    public Test[] tests = new Test[3];
+    public string Sintomatic;
+
+    public Test[] tests = new Test[6];
     
 }
 
@@ -268,7 +323,7 @@ public class Test
 
     public string Date;
     public string testType;
-    public string testResult;//PCR, ELISA, RAPIDO
+    public string testResult;
 
     public string Result_igm;
     public string Result_igg;

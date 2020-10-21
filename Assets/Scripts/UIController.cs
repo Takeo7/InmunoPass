@@ -52,6 +52,17 @@ public class UIController : MonoBehaviour
     Text inputLabName;
     [SerializeField]
     Text inputNica;
+
+    [Space]
+    [Header("Hospital Input")]
+    [SerializeField]
+    Text inputHName;
+    [SerializeField]
+    Text inputHLastName;
+    [SerializeField]
+    Text inputHospital;
+    [SerializeField]
+    Text inputDSACode;
   
 
     [Space]
@@ -72,32 +83,26 @@ public class UIController : MonoBehaviour
     Text LabNica;
 
     [Space]
-    [Header("New Test Doc")]
+    [Header("Hospital Info Visualization")]
     [SerializeField]
-    Text newPatientDocName;
+    Text HospitalDocName;
     [SerializeField]
-    Text newPatientDocDNI;
+    Text HospitalName;
     [SerializeField]
-    Text newPatientDocTest;
-    [SerializeField]
-    Text newPatientDocDate;
-    [SerializeField]
-    GameObject newTestDocScan;
-    [SerializeField]
-    GameObject newDocResult;
-    [SerializeField]
-    GameObject newPatientDocGenerateQR;
-    [SerializeField]
-    RectTransform layoutVDoc;
+    Text DSA_code;
 
     [Space]
-    [Header("New Test Lab")]
+    [Header("New Test")]
     [SerializeField]
     Text newPatientLabName;
     [SerializeField]
     Text newPatientLabLastName;
     [SerializeField]
     Text newPatientLabDNI;
+    [SerializeField]
+    Text newPatientEmail;
+    [SerializeField]
+    Text newPatientPhone;
     [SerializeField]
     Text newPatientLabDate;
     [SerializeField]
@@ -137,6 +142,16 @@ public class UIController : MonoBehaviour
     GameObject LabInfo;
     [SerializeField]
     GameObject LabNewPatient;
+
+    [Space]
+    [SerializeField]
+    GameObject HospitalInput;
+    [SerializeField]
+    GameObject HospitalInfo;
+
+    [Space]
+    [SerializeField]
+    GameObject NewTest;
 
     [Space]
     [SerializeField]
@@ -234,41 +249,41 @@ public class UIController : MonoBehaviour
 
 
 
-    public void EndQRScan()
-    {        
-        if (mc.uinfo.userT == MainController.userType.Lab)
-        {
-            DeviceCamera.SetActive(false);
-            ScanLayer.SetActive(false);
+    //public void EndQRScan()
+    //{        
+    //    if (mc.uinfo.userT == MainController.userType.Lab)
+    //    {
+    //        DeviceCamera.SetActive(false);
+    //        ScanLayer.SetActive(false);
 
 
             
-        }
-        else
-        {
-            switch (mc.read_Type)
-            {
-                case MainController.readType.QR:
-                    DeviceCamera.SetActive(false);
-                    ScanLayer.SetActive(false);
+    //    }
+    //    else
+    //    {
+    //        switch (mc.read_Type)
+    //        {
+    //            case MainController.readType.QR:
+    //                DeviceCamera.SetActive(false);
+    //                ScanLayer.SetActive(false);
 
-                    DocNewPatient.SetActive(true);
-                    FillDocNewPatientInfo();
-                    break;
-                case MainController.readType.BarCode:
-                    DeviceCamera.SetActive(false);
-                    ScanLayer.SetActive(false);
+    //                DocNewPatient.SetActive(true);
+    //                FillDocNewPatientInfo();
+    //                break;
+    //            case MainController.readType.BarCode:
+    //                DeviceCamera.SetActive(false);
+    //                ScanLayer.SetActive(false);
 
-                    DocNewPatient.SetActive(true);
-                    FillDocNewTestInfo();
-                    break;
-                default:
-                    break;
-            }
+    //                DocNewPatient.SetActive(true);
+    //                FillDocNewTestInfo();
+    //                break;
+    //            default:
+    //                break;
+    //        }
             
 
-        }
-    }
+    //    }
+    //}
 
 
     public void StartUI()
@@ -283,6 +298,9 @@ public class UIController : MonoBehaviour
                 case MainController.userType.Doctor:
                     DoctorInput.SetActive(true);
                     break;
+                case MainController.userType.Hospital:
+                    HospitalInput.SetActive(true);
+                    break;
                 default:
                     break;
             }
@@ -296,6 +314,9 @@ public class UIController : MonoBehaviour
                     break;
                 case MainController.userType.Doctor:
                     DoctorAlreadyRegistered();
+                    break;
+                case MainController.userType.Hospital:
+                    HospitalAlreadyRegistered();
                     break;
                 default:
                     break;
@@ -326,6 +347,18 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void FillDSAInfo()
+    {
+        if (mc.uinfo.CheckIsRegistered())
+        {
+            HospitalDocName.text = mc.uinfo.userName;
+
+            HospitalName.text = mc.uinfo.hospitalName;
+            DSA_code.text = mc.uinfo.DSACode;
+            
+        }
+    }
+
     public void DoctorAlreadyRegistered()
     {
         DoctorInfo.SetActive(true);
@@ -337,6 +370,12 @@ public class UIController : MonoBehaviour
         FillLabInfo();
     }
 
+    public void HospitalAlreadyRegistered()
+    {
+        HospitalInfo.SetActive(true);
+        FillDSAInfo();
+    }
+
     public void SaveDoctorInfo()
     {
         mc.SaveDocStandardInfo("Dr. " + inputDocName.text + " " + inputDocLastName.text, inputDocDNI.text, inputDocID.text);
@@ -346,28 +385,20 @@ public class UIController : MonoBehaviour
     {
         mc.SaveLabStardardInfo(inputLabName.text, inputNica.text);
     }
-    
-    public void FillDocNewPatientInfo()
+
+    public void SaveDSAInfo()
     {
-
-        mc.uinfo.AddPatient(newPatientDocName.text, newPatientDocDNI.text);
-
-        newTestDocScan.SetActive(true);
+        mc.SaveHospStandardInfo("Dr. " + inputHName.text + " " + inputHLastName.text, inputDSACode.text, inputHospital.text);
     }
+   
 
-    public void FillLabNewPatientInfo()
+    public void FillNewPatientInfo()
     {
-         mc.uinfo.patient_temp.PatientName = newPatientLabName.text + "" + newPatientLabLastName.text;
-         mc.uinfo.patient_temp.PatientDNI = newPatientLabDNI.text;
-    }
+        mc.uinfo.patient_temp.PatientName = newPatientLabName.text + "" + newPatientLabLastName.text;
+        mc.uinfo.patient_temp.PatientDNI = newPatientLabDNI.text;
 
-
-
-    public void FillDocNewTestInfo()
-    {
-        newPatientDocDate.text = DateTime.Today.ToShortDateString();
-
-        newDocResult.SetActive(true);
+        mc.uinfo.patient_temp.PatientEmail = newPatientEmail.text;
+        mc.uinfo.patient_temp.PatientPhone = newPatientPhone.text;
     }
 
     public void GenerateQR(string url)
@@ -425,17 +456,7 @@ public class UIController : MonoBehaviour
 
     public void UpdateLayouts()
     {
-        switch (mc.uinfo.userT)
-        {
-            case MainController.userType.Lab:
-                LayoutRebuilder.ForceRebuildLayoutImmediate(layoutVLab);
-                break;
-            case MainController.userType.Doctor:
-                LayoutRebuilder.ForceRebuildLayoutImmediate(layoutVDoc);
-                break;
-            default:
-                break;
-        }
+        LayoutRebuilder.ForceRebuildLayoutImmediate(layoutVLab);
     }
 
     public void UpdateResultTestsVisual(int test)

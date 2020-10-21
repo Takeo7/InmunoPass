@@ -68,7 +68,15 @@ public class Idiomas : ScriptableObject
         TestAntigenos,
         Inmuno,
         PrivacidadToogle,
-        Privacidad
+        Privacidad,
+        Hospital,
+        DSA,
+        DSABreathPass,
+        Email,
+        Phone,
+        Next,
+        Sintomático,
+        Asintomático
     }
 }
 

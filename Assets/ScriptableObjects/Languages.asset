@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b437b71a64916ee428dc6503712e6b75, type: 3}
   m_Name: Languages
   m_EditorClassIdentifier: 
-  currentLang: 0
+  currentLang: 1
   languages:
   - textos:
     - Paciente
@@ -79,6 +79,14 @@ MonoBehaviour:
       el usurario podr\xE1 presentar una reclamaci\xF3n ante la Agencia Espa\xF1ola
       de Protecci\xF3n de Datos (https://www.aepd.es/) o autoridad de protecci\xF3n
       de datos competente."
+    - Hospital
+    - DSA
+    - DSA Breath Pass
+    - E-mail
+    - "Tel\xE9fono"
+    - Siguiente
+    - "Sintom\xE1tico"
+    - "Asintom\xE1tico"
   - textos:
     - Patient
     - Facultative
@@ -140,6 +148,14 @@ MonoBehaviour:
       Green to the following email address: [email]. Likewise, if deemed necessary,
       the user may file a claim with the Spanish Agency. of Data Protection (https://www.aepd.es/)
       or data protection authority competent."
+    - Hospital
+    - DSA
+    - DSA Breath Pass
+    - E-mail
+    - Phone
+    - Next
+    - Symptomatic
+    - Asymptomatic
   - textos:
     - Pacient
     - Facultatiu
@@ -205,6 +221,14 @@ MonoBehaviour:
       si ho consider\xE9s necessari, el usurari podr\xE0 presentar una reclamaci\xF3
       davant l'Ag\xE8ncia Espanyola de Protecci\xF3 de Dades (https://www.aepd.es/)
       o autoritat de protecci\xF3 de dades competent."
+    - Hospital
+    - DSA
+    - DSA Breath Pass
+    - E-mail
+    - "Tel\xE8fon"
+    - "Seg\xFCent"
+    - "Simptom\xE0tic"
+    - "Asimptom\xE0tic"
   - textos:
     - 'Paciente '
     - Doutor
@@ -268,6 +292,14 @@ MonoBehaviour:
       poder\xE1 presentar unha reclamaci\xF3n ante a Axencia Espa\xF1ola de Protecci\xF3n
       de Datos (https://www.aepd.es/) ou a autoridade competente en materia de protecci\xF3n
       de datos."
+    - Hospital
+    - DSA
+    - DSA Breath Pass
+    - E-mail
+    - "Tel\xE9fono"
+    - Seguindo
+    - "Sintom\xE1tico"
+    - "Asintom\xE1tica"
   - textos:
     - Krank
     - Mediziner
@@ -332,6 +364,14 @@ MonoBehaviour:
       unter der folgenden E-Mail-Adresse unterzeichnet und adressiert ist: [E-Mail].
       Ebenso kann der Benutzer bei Bedarf eine Klage bei der spanischen Datenschutzbeh\xF6rde
       (https://www.aepd.es/) oder der zust\xE4ndigen Datenschutzbeh\xF6rde einreichen."
+    - Krankenhaus
+    - DSA
+    - DSA Breath Pass
+    - E-mail
+    - Telefon
+    - Folgen
+    - Symptomatisch
+    - Asymptomatisch
   - textos:
     - Patient
     - "M\xE9decins"
@@ -398,6 +438,14 @@ MonoBehaviour:
       [email]. De m\xEAme, s'il le juge n\xE9cessaire, l'utilisateur peut d\xE9poser
       une r\xE9clamation aupr\xE8s de l'Agence espagnole de protection des donn\xE9es
       (https://www.aepd.es/) ou de l'autorit\xE9 de protection des donn\xE9es comp\xE9tente."
+    - "H\xF4pital"
+    - DSA
+    - DSA Breath Pass
+    - E-mail
+    - "T\xE9l\xE9phone"
+    - Suivant
+    - Symptomatique
+    - Asymptomatique
   - textos:
     - Pazienti
     - Dottori
@@ -460,6 +508,14 @@ MonoBehaviour:
       elettronica: [email]. Allo stesso modo, se ritenuto necessario, l'utente pu\xF2
       presentare un reclamo all'Agenzia spagnola per la protezione dei dati (https://www.aepd.es/)
       o all'autorit\xE0 competente per la protezione dei dati."
+    - Ospedale
+    - DSA
+    - DSA Breath Pass
+    - E-mail
+    - Telefono
+    - A seguire
+    - Sintomatico
+    - Asintomatico
   - textos:
     - Paciente
     - Doutores
@@ -524,6 +580,14 @@ MonoBehaviour:
       de e-mail: [email]. Da mesma forma, se julgar necess\xE1rio, o usu\xE1rio pode
       registrar uma reclama\xE7\xE3o junto \xE0 Ag\xEAncia Espanhola de Prote\xE7\xE3o
       de Dados (https://www.aepd.es/) ou autoridade de prote\xE7\xE3o de dados competente."
+    - Hospital
+    - DSA
+    - DSA Breath Pass
+    - E-mail
+    - Telefone
+    - Segue
+    - "Sintom\xE1tico"
+    - "Assintom\xE1tico"
   - textos:
     - "\u0635\u0628\u0648\u0631"
     - "\u0627\u062E\u062A\u064A\u0627\u0631\u064A"
@@ -661,6 +725,14 @@ MonoBehaviour:
       \u0627\u0644\u0625\u0633\u0628\u0627\u0646\u064A\u0629 (https://www.aepd.es/)
       \u0623\u0648 \u0633\u0644\u0637\u0629 \u062D\u0645\u0627\u064A\u0629 \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A
       \u0627\u0644\u0645\u062E\u062A\u0635\u0629."
+    - "\u0645\u0633\u062A\u0634\u0641\u0649"
+    - DSA
+    - DSA Breath Pass
+    - "\u0627\u0644\u0628\u0631\u064A\u062F \u0627\u0644\u0625\u0644\u0643\u062A\u0631\u0648\u0646\u064A"
+    - "\u0647\u0627\u062A\u0641"
+    - "\u0627\u0644\u062A\u0627\u0644\u064A\u0629"
+    - "\u0645\u0635\u062D\u0648\u0628 \u0628\u0623\u0639\u0631\u0627\u0636"
+    - "\u0628\u062F\u0648\u0646 \u0623\u0639\u0631\u0627\u0636 \u0638\u0627\u0647\u0631\u0629"
   - textos:
     - "\u60A3\u8005"
     - "\u53EF\u9009\u7684"
@@ -700,3 +772,11 @@ MonoBehaviour:
       \uF0B7[\u6307\u5B9A\u56FD\u5BB6\uFF0C\u5982\u679C\u5728\u8FD9\u65B9\u9762\u6709\u4EFB\u4F55\u9002\u5F53\u7684\u51B3\u5B9A\uFF0C\u5982\u679C\u6CA1\u6709\uFF0C\u90A3\u4E48\u4E3A\u4F7F\u4E0A\u8FF0\u56FD\u9645\u8F6C\u8BA9\u5408\u6CD5\u5316\u800C\u91C7\u53D6\u7684\u4FDD\u8BC1\u662F\u4EC0\u4E48\uFF1F\u9009\u98792\uFF1A\u7528\u6237\u7684\u4E2A\u4EBA\u6570\u636E\u5C06\u4E0D\u4F1A\u5728\u56FD\u9645\u8303\u56F4\u5185\u8F6C\u79FB\u3002]\u53EA\u8981\u5728Immunity
       Pass App\u4E2D\u7EF4\u62A4\u4E86\u7528\u6237\u5E10\u6237\uFF0CGreen Order\u5C31\u4F1A\u4FDD\u7559\u7528\u6237\u7684\u4E2A\u4EBA\u6570\u636E\uFF0C\u5176\u540E\uFF0C\u8BF8\u5982\u6CBB\u7597\u7684\u540E\u679C\u3002\u7528\u6237\u53EF\u4EE5\u901A\u8FC7\u4E66\u9762\u8BF7\u6C42\u6765\u884C\u4F7F\u8BBF\u95EE\uFF0C\u7EA0\u6B63\uFF0C\u5220\u9664\uFF0C\u5904\u7406\u9650\u5236\uFF0C\u53EF\u79FB\u690D\u6027\u548C\u5F02\u8BAE\u7684\u6743\u5229\uFF0C\u5E76\u901A\u8FC7\u4EE5\u4E0B\u7535\u5B50\u90AE\u4EF6\u5730\u5740\u7B7E\u7F72\u5E76\u5BC4\u7ED9Green
       Order\uFF1A[email]\u3002\u540C\u6837\uFF0C\u5982\u679C\u8BA4\u4E3A\u6709\u5FC5\u8981\uFF0C\u5219\u7528\u6237\u53EF\u4EE5\u5411\u897F\u73ED\u7259\u6570\u636E\u4FDD\u62A4\u5C40\uFF08https://www.aepd.es/\uFF09\u6216\u4E3B\u7BA1\u6570\u636E\u4FDD\u62A4\u673A\u6784\u63D0\u51FA\u7D22\u8D54\u3002"
+    - "\u533B\u9662"
+    - DSA
+    - DSA Breath Pass
+    - "\u7535\u5B50\u90AE\u4EF6"
+    - "\u7535\u8BDD"
+    - "\u4EE5\u4E0B"
+    - "\u6709\u75C7\u72B6\u7684"
+    - "\u65E0\u75C7\u72B6\u7684"

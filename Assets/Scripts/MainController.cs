@@ -6,6 +6,8 @@ using UnityEngine.Android;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//Siguente: Añadir Email y Movil a idiomas y seguir con los New Test
+
 public class MainController : MonoBehaviour
 {
     public static MainController instance;
@@ -63,18 +65,23 @@ public class MainController : MonoBehaviour
         if (data != null)
         {
             uinfo.isRegistered = data.isRegistered;
-            if (data.isDoctor)
+            switch (data.userType_ud)
             {
-                //uinfo.userT = userType.Doctor;
-                uinfo.userDNI = data.Dni;
-                uinfo.docCode = data.DocId;
+                case 0:
+                    uinfo.LabNICA = data.LabNica;
+                    break;
+                case 1:
+                    uinfo.userDNI = data.Dni;
+                    uinfo.docCode = data.DocId;
+                    break;
+                case 2:
+                    uinfo.hospitalName = data.Hospital;
+                    uinfo.DSACode = data.DSACode;
+                    break;
+                default:
+                    break;
             }
-            else
-            {
-                //uinfo.userT = userType.Lab;
-                uinfo.LabNICA = data.LabNica;
-            }
-
+            
             uinfo.userName = data.Name;
             
         }
@@ -154,11 +161,30 @@ public class MainController : MonoBehaviour
     {
         uinfo.AddStandardInfo(n, dni, docId);
     }
+    public void SaveHospStandardInfo(string n, string dsa, string hospital)
+    {
+        uinfo.AddDSAInfo(n, dsa, hospital);
+    }
 
     public void NewPatient()
     {
         uinfo.InitializeNewPatient();
     }
+
+    #region Syntomatic
+    public void SetSyntomatic(bool b)
+    {
+        switch (b)
+        {
+            case true:
+                uinfo.patient_temp.Sintomatic = "true";
+                break;
+            case false:
+                uinfo.patient_temp.Sintomatic = "False";
+                break;
+        }
+    }
+    #endregion
 
     #region ResultRapido
     public void SetResultInfo_RAPIDO_igm(bool b)
@@ -280,7 +306,22 @@ public class MainController : MonoBehaviour
     {
         uinfo.AddELISAResult_Valorigg(v_igg.text);
     }
-#endregion
+    #endregion
+
+    #region DSA
+    public void SetResultInfo_DSA(bool b)
+    {
+        switch (b)
+        {
+            case true:
+                uinfo.AddDSAResult("+");
+                break;
+            case false:
+                uinfo.AddDSAResult("-");
+                break;
+        }
+    }
+    #endregion
 
 
     public void CountryChanger(int i)
@@ -341,7 +382,8 @@ public class MainController : MonoBehaviour
     public enum userType
     {
         Lab,
-        Doctor
+        Doctor,
+        Hospital
     }
 
     public enum readType
