@@ -47,6 +47,13 @@ public class MainController : MonoBehaviour
         }
 #endif
 
+#if PLATFORM_IOS
+        if (!Application.HasUserAuthorization(UserAuthorization.WebCam))
+        {
+            Application.RequestUserAuthorization(UserAuthorization.WebCam);
+        }
+#endif
+
     }
 
 
