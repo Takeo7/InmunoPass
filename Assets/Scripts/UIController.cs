@@ -155,6 +155,10 @@ public class UIController : MonoBehaviour
 
     [Space]
     [SerializeField]
+    Text DNICountText;
+
+    [Space]
+    [SerializeField]
     GameObject GenerateQRGO;
     [SerializeField]
     public Texture2D[] qrTextures;
@@ -440,6 +444,11 @@ public class UIController : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void UpdateDNICount()
+    {
+        DNICountText.text = PlayerPrefs.GetInt("DNI_Count").ToString();
     }
 
     public void ShowGenerateQR()

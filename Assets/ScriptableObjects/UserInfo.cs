@@ -68,7 +68,7 @@ public class UserInfo : ScriptableObject
     {
         patient_Info = new PatientInfo();
         patient_temp = new PatientInfo();
-        patient_temp.tests = new Test[6];
+        patient_temp.tests = new Test[MainController.num_Tests];
         for (int i = 0; i < patient_temp.tests.Length; i++)
         {
             patient_temp.tests[i] = new Test();
@@ -235,6 +235,18 @@ public class UserInfo : ScriptableObject
 
     #endregion
 
+    #region SALIVA
+    public void AddSALIVAResult(string result)
+    {
+        patient_temp.tests[6].testType = "SALIVA";
+        patient_temp.tests[6].testResult = result;
+        patient_temp.tests[6].valid = true;
+        MainController.instance.uiC.ShowGenerateQR();
+
+        patient_Info = patient_temp;
+    }
+    #endregion
+
     #region DSA
     public void AddDSAResult(string result)
     {
@@ -313,7 +325,7 @@ public class PatientInfo
 
     public string Sintomatic;
 
-    public Test[] tests = new Test[6];
+    public Test[] tests = new Test[MainController.num_Tests];
     
 }
 

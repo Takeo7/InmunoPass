@@ -46,7 +46,7 @@ public class QRCodeEncodeController : MonoBehaviour {
 		int targetWidth = Mathf.Min(e_QRCodeWidth,e_QRCodeHeight);
 		targetWidth = Mathf.Clamp (targetWidth, 128, 1024);
 		e_QRCodeWidth = e_QRCodeHeight = targetWidth;
-		m_EncodedTex = new Texture2D[5];
+		m_EncodedTex = new Texture2D[MainController.num_Tests];
 		
 	}
 

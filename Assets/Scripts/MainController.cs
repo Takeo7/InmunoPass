@@ -16,8 +16,10 @@ public class MainController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-        }
+        }  
     }
+
+    public static int num_Tests = 7;
 
     public QRCodeDecodeController qrController;
     public QRCodeEncodeController qrCreator;
@@ -54,8 +56,32 @@ public class MainController : MonoBehaviour
         }
 #endif
 
+<<<<<<< Updated upstream
+=======
+        if (!PlayerPrefs.HasKey("DNI_Count"))
+        {
+            PlayerPrefs.SetInt("DNI_Count", 15);
+        }
+        else
+        {
+            uiC.UpdateDNICount();
+        }
+
+>>>>>>> Stashed changes
     }
 
+
+    public void DNICount(GameObject go)
+    {
+        
+        if (PlayerPrefs.GetInt("DNI_Count") > 0)
+        {
+            go.SetActive(true);
+            PlayerPrefs.SetInt("DNI_Count", (PlayerPrefs.GetInt("DNI_Count") - 1));
+            uiC.UpdateDNICount();
+        }
+        
+    }
 
     public void SaveUser()
     {
@@ -312,6 +338,21 @@ public class MainController : MonoBehaviour
     public void SetResultInfo_ELISA_V_igg(Text v_igg)
     {
         uinfo.AddELISAResult_Valorigg(v_igg.text);
+    }
+    #endregion
+
+    #region SALIVA
+    public void SetResultInfo_SALIVA(bool b)
+    {
+        switch (b)
+        {
+            case true:
+                uinfo.AddSALIVAResult("+");
+                break;
+            case false:
+                uinfo.AddSALIVAResult("-");
+                break;
+        }
     }
     #endregion
 

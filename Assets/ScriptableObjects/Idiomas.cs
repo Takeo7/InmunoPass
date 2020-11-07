@@ -76,7 +76,8 @@ public class Idiomas : ScriptableObject
         Phone,
         Next,
         Sintomático,
-        Asintomático
+        Asintomático,
+        SALIVA
     }
 }
 
