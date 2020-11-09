@@ -56,8 +56,6 @@ public class MainController : MonoBehaviour
         }
 #endif
 
-<<<<<<< Updated upstream
-=======
         if (!PlayerPrefs.HasKey("DNI_Count"))
         {
             PlayerPrefs.SetInt("DNI_Count", 15);
@@ -66,8 +64,6 @@ public class MainController : MonoBehaviour
         {
             uiC.UpdateDNICount();
         }
-
->>>>>>> Stashed changes
     }
 
 
