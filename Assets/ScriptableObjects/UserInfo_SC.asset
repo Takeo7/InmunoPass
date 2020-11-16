@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11630dd8bd1397f419a5896cde8eb7b5, type: 3}
   m_Name: UserInfo_SC
   m_EditorClassIdentifier: 
-  userT: 2
+  userT: 1
   isRegistered: 0
   userName: 
   userDNI: 

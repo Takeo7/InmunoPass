@@ -44,7 +44,7 @@ public class CameraCapture : MonoBehaviour
         string photo = TakeSnapshoot();
         s = photo;
         Debug.Log(photo);
-        //System.IO.File.WriteAllText("C:\\Users\\arthu\\Documents\\yourtextfile.txt", photo);
+        System.IO.File.WriteAllText("C:\\Users\\arthu\\Documents\\yourtextfile.txt", photo);
 
         _api.ImageRecognition(s);
     }

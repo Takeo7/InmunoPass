@@ -58,7 +58,7 @@ public class MainController : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("DNI_Count"))
         {
-            PlayerPrefs.SetInt("DNI_Count", 15);
+            PlayerPrefs.SetInt("DNI_Count", 50);
         }
         else
         {
