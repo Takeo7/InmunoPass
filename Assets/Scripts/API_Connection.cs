@@ -658,6 +658,7 @@ public class API_Connection : MonoBehaviour
 
             debugText.text = jsonContent;
 
+            PlayerPrefs.SetInt("DNI_Count", (PlayerPrefs.GetInt("DNI_Count") - 1));
         }
     }
 }

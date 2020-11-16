@@ -73,7 +73,6 @@ public class MainController : MonoBehaviour
         if (PlayerPrefs.GetInt("DNI_Count") > 0)
         {
             go.SetActive(true);
-            PlayerPrefs.SetInt("DNI_Count", (PlayerPrefs.GetInt("DNI_Count") - 1));
             uiC.UpdateDNICount();
         }
         
