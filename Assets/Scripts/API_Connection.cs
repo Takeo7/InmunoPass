@@ -583,9 +583,6 @@ public class API_Connection : MonoBehaviour
                 uic.GenerateQR(url);
             }
         }
-
-
-
     }
 
 
@@ -747,3 +744,4 @@ public class OCRResponseContent
     public string nombre;
     public string apellidos;
 }
+

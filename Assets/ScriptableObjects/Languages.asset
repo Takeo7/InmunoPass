@@ -87,6 +87,20 @@ MonoBehaviour:
     - Siguiente
     - "Sintom\xE1tico"
     - "Asintom\xE1tico"
+    - SALIVA
+    - Datos Paciente
+    - Introduce tus datos
+    - Nueva Vacuna
+    - Elige tipo de vacuna
+    - RNA
+    - Vector viral
+    - Virus inactivado
+    - Siguiente dosis
+    - Vacuna
+    - Dosis previas
+    - Confirmar dosis
+    - Confirmar
+    - "Vacuna a\xF1adida"
   - textos:
     - Patient
     - Facultative
@@ -156,6 +170,20 @@ MonoBehaviour:
     - Next
     - Symptomatic
     - Asymptomatic
+    - SALIVA
+    - Patient Info
+    - Enter your info
+    - New Vaccine
+    - Choose type of vaccine
+    - RNA
+    - Viral vector
+    - Inactivated virus
+    - Next dose
+    - Vaccine
+    - Previous doses
+    - Confirm dose
+    - Confirm
+    - Vaccine has been added
   - textos:
     - Pacient
     - Facultatiu
@@ -229,6 +257,20 @@ MonoBehaviour:
     - "Seg\xFCent"
     - "Simptom\xE0tic"
     - "Asimptom\xE0tic"
+    - Saliva
+    - "Informaci\xF3 de l'pacient"
+    - "Introdueix el teu informaci\xF3"
+    - Nova Vacuna
+    - Tria tipus de vacuna
+    - RNA
+    - Vector viral
+    - Virus inactivat
+    - "Seg\xFCent dosi"
+    - Vacuna
+    - Dosi anteriors
+    - Confirma dosi
+    - Confirmar
+    - Vacuna ha estat afegida
   - textos:
     - 'Paciente '
     - Doutor
@@ -300,6 +342,20 @@ MonoBehaviour:
     - Seguindo
     - "Sintom\xE1tico"
     - "Asintom\xE1tica"
+    - SALIVA
+    - "Informaci\xF3n do paciente"
+    - "Introduce a t\xFAa informaci\xF3n"
+    - Nova Vacina
+    - Escolla o tipo de vacina
+    - RNA
+    - Vector viral
+    - Virus inactivado
+    - "Pr\xF3xima dose"
+    - Vacina
+    - Doses previas
+    - Confirmar a dose
+    - Confirmar
+    - Engadiuse a vacina
   - textos:
     - Krank
     - Mediziner
@@ -372,6 +428,20 @@ MonoBehaviour:
     - Folgen
     - Symptomatisch
     - Asymptomatisch
+    - Speichel
+    - Informationen des Patienten
+    - Geben Sie Ihre Daten ein
+    - Neuer Impfstoff
+    - "W\xE4hlen Sie die Art des Impfstoffs"
+    - RNA
+    - Viraler Vektor
+    - Virus inactivado
+    - "N\xE4chste Dosis"
+    - Impfstoff
+    - Vorherige Dosen
+    - "Dosis best\xE4tigen"
+    - "Best\xE4tigen"
+    - "Impfstoff hinzugef\xFCgt"
   - textos:
     - Patient
     - "M\xE9decins"
@@ -446,6 +516,20 @@ MonoBehaviour:
     - Suivant
     - Symptomatique
     - Asymptomatique
+    - Salive
+    - Information du patient
+    - Entrez vos informations
+    - Nouveau vaccin
+    - Choisissez le type de vaccin
+    - RNA
+    - Vecteur viral
+    - "Virus inactiv\xE9"
+    - Prochaine dose
+    - Vaccin
+    - "Doses pr\xE9c\xE9dentes"
+    - Confirmer la dose
+    - Confirmer
+    - "Vaccin ajout\xE9"
   - textos:
     - Pazienti
     - Dottori
@@ -516,6 +600,20 @@ MonoBehaviour:
     - A seguire
     - Sintomatico
     - Asintomatico
+    - SALIVA
+    - Informazioni del paziente
+    - Inserisci le tue informazioni
+    - Nuovo vaccino
+    - Scegli il tipo di vaccino
+    - RNA
+    - Vettore virale
+    - "Virus inactiv\xE9"
+    - Dose successiva
+    - Vaccino
+    - Dosi precedenti
+    - Conferma la dose
+    - Confermare
+    - Vaccino aggiunto
   - textos:
     - Paciente
     - Doutores
@@ -588,6 +686,20 @@ MonoBehaviour:
     - Segue
     - "Sintom\xE1tico"
     - "Assintom\xE1tico"
+    - SALIVA
+    - "Informa\xE7\xE3o do paciente"
+    - "Insira suas informa\xE7\xF5es"
+    - Nova vacina
+    - Escolha o tipo de vacina
+    - RNA
+    - Vetor viral
+    - "Virus inactiv\xE9"
+    - "Pr\xF3xima dose"
+    - Vacina
+    - Doses anteriores
+    - Confirme a dose
+    - Confirme
+    - Vacina adicionada
   - textos:
     - "\u0635\u0628\u0648\u0631"
     - "\u0627\u062E\u062A\u064A\u0627\u0631\u064A"
@@ -733,6 +845,20 @@ MonoBehaviour:
     - "\u0627\u0644\u062A\u0627\u0644\u064A\u0629"
     - "\u0645\u0635\u062D\u0648\u0628 \u0628\u0623\u0639\u0631\u0627\u0636"
     - "\u0628\u062F\u0648\u0646 \u0623\u0639\u0631\u0627\u0636 \u0638\u0627\u0647\u0631\u0629"
+    - "\u0627\u0644\u0644\u0639\u0627\u0628"
+    - "\u0627\u0637\u0644\u0627\u0639\u0627\u062A \u0628\u06CC\u0645\u0627\u0631"
+    - "\u0623\u062F\u062E\u0644 \u0645\u0639\u0644\u0648\u0645\u0627\u062A\u0643"
+    - "\u0644\u0642\u0627\u062D \u062C\u062F\u064A\u062F"
+    - "\u0627\u062E\u062A\u0631 \u0646\u0648\u0639 \u0627\u0644\u0644\u0642\u0627\u062D"
+    - RNA
+    - "\u0646\u0627\u0642\u0644\u0627\u062A \u0641\u064A\u0631\u0648\u0633\u064A\u0629"
+    - "\u0641\u064A\u0631\u0648\u0633 \u0645\u0639\u0637\u0644"
+    - "\u0627\u0644\u062C\u0631\u0639\u0629 \u0627\u0644\u062A\u0627\u0644\u064A\u0629"
+    - "\u0644\u0642\u0627\u062D"
+    - "\u0627\u0644\u062C\u0631\u0639\u0627\u062A \u0627\u0644\u0633\u0627\u0628\u0642\u0629"
+    - "\u0623\u0643\u062F \u0627\u0644\u062C\u0631\u0639\u0629"
+    - "\u062A\u0624\u0643\u062F"
+    - "\u0644\u0642\u0627\u062D \u0645\u0636\u0627\u0641"
   - textos:
     - "\u60A3\u8005"
     - "\u53EF\u9009\u7684"
@@ -780,3 +906,17 @@ MonoBehaviour:
     - "\u4EE5\u4E0B"
     - "\u6709\u75C7\u72B6\u7684"
     - "\u65E0\u75C7\u72B6\u7684"
+    - "\u553E\u6DB2"
+    - "\u75C5\u4EBA\u4FE1\u606F"
+    - "\u8F93\u5165\u60A8\u7684\u4FE1\u606F"
+    - "\u65B0\u75AB\u82D7"
+    - "\u9009\u62E9\u75AB\u82D7\u7C7B\u578B"
+    - RNA
+    - "\u75C5\u6BD2\u8F7D\u4F53"
+    - "\u706D\u6D3B\u75C5\u6BD2"
+    - "\u4E0B\u4E00\u5242"
+    - "\u75AB\u82D7"
+    - "\u4EE5\u524D\u7684\u5242\u91CF"
+    - "\u786E\u8BA4\u5242\u91CF"
+    - "\u786E\u8BA4"
+    - "\u8865\u5145\u75AB\u82D7"

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIController : MonoBehaviour
+public class UIController : Singleton<UIController>
 {
 
     [SerializeField]
@@ -329,9 +329,6 @@ public class UIController : MonoBehaviour
         }
     }
 
-
-   
-
     public void FillDoctorInfo()
     {
         if (mc.uinfo.CheckIsRegistered())
@@ -396,13 +393,13 @@ public class UIController : MonoBehaviour
     }
    
 
-    public void FillNewPatientInfo()
+    public void FillNewPatientInfo(PatientInfo info)
     {
-        mc.uinfo.patient_temp.PatientName = newPatientLabName.text + "" + newPatientLabLastName.text;
-        mc.uinfo.patient_temp.PatientDNI = newPatientLabDNI.text;
+        mc.uinfo.patient_temp.PatientName = info.PatientName;
+        mc.uinfo.patient_temp.PatientDNI = info.PatientDNI;
 
-        mc.uinfo.patient_temp.PatientEmail = newPatientEmail.text;
-        mc.uinfo.patient_temp.PatientPhone = newPatientPhone.text;
+        mc.uinfo.patient_temp.PatientEmail = info.PatientEmail;
+        mc.uinfo.patient_temp.PatientPhone = info.PatientPhone;
     }
 
     public void GenerateQR(string url)

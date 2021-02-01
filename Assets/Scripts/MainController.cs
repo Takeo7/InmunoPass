@@ -418,10 +418,6 @@ public class MainController : MonoBehaviour
     }
 
 
-
-
-
-
     public enum userType
     {
         Lab,

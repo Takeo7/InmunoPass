@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -21,7 +22,7 @@ public class Idiomas : ScriptableObject
 
     public string GetText(texto t)
     {
-       return languages[(int)currentLang].textos[(int)t];  
+        return languages[(int)currentLang].textos[(int)t];
     }
 
     public enum idiomasEnum
@@ -77,7 +78,20 @@ public class Idiomas : ScriptableObject
         Next,
         Sintomático,
         Asintomático,
-        SALIVA
+        SALIVA,
+        DatosPaciente,
+        IntroduceTusDatos,
+        NuevaVacuna,
+        EligeVacuna,
+        RNA,
+        VectorViral,
+        VirusInactivado,
+        SiguienteDosis,
+        Vacuna,
+        DosisPrevias,
+        ConfirmarDosis,
+        Confirmar,
+        VacunaAnyadida
     }
 }
 
