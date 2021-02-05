@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class API_Connection : MonoBehaviour
 {
+    public bool DebugMode;
 
     [SerializeField]
     MainController mc;
@@ -114,24 +115,24 @@ public class API_Connection : MonoBehaviour
                       "\nmedico[referencia]: " + mc.uinfo.docCode +
                       "\ntest[igm]: " + mc.uinfo.patient_temp.tests[0].Result_igm +
                       "\ntest[igg]: " + mc.uinfo.patient_temp.tests[0].Result_igg);
-            formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.patient_Info.PatientName + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.patient_Info.PatientDNI + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[email]", mc.uinfo.patient_Info.PatientEmail + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[telefono]", mc.uinfo.patient_Info.PatientPhone + "DEMO"));
+            formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.patient_Info.PatientName + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.patient_Info.PatientDNI + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[email]", mc.uinfo.patient_Info.PatientEmail + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[telefono]", mc.uinfo.patient_Info.PatientPhone + AddDemoEnding()));
 
-            formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + "DEMO"));
+            formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + AddDemoEnding()));
             switch (mc.uinfo.userT)
             {
                 case MainController.userType.Lab:
-                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + AddDemoEnding()));
                     break;
                 case MainController.userType.Doctor:
-                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + AddDemoEnding()));
                     break;
                 case MainController.userType.Hospital:
-                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.hospitalName + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.DSACode + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.hospitalName + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.DSACode + AddDemoEnding()));
                     break;
                 default:
                     break;
@@ -184,24 +185,24 @@ public class API_Connection : MonoBehaviour
             formData.Add(new MultipartFormDataSection("token", token));
             formData.Add(new MultipartFormDataSection("partner", partner));//
 
-            formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.patient_Info.PatientName + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.patient_Info.PatientDNI + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[email]", mc.uinfo.patient_Info.PatientEmail + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[telefono]", mc.uinfo.patient_Info.PatientPhone + "DEMO"));
+            formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.patient_Info.PatientName + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.patient_Info.PatientDNI + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[email]", mc.uinfo.patient_Info.PatientEmail + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[telefono]", mc.uinfo.patient_Info.PatientPhone + AddDemoEnding()));
 
-            formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + "DEMO"));
+            formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + AddDemoEnding()));
             switch (mc.uinfo.userT)
             {
                 case MainController.userType.Lab:
-                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + AddDemoEnding()));
                     break;
                 case MainController.userType.Doctor:
-                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + AddDemoEnding()));
                     break;
                 case MainController.userType.Hospital:
-                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.hospitalName + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.DSACode + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.hospitalName + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.DSACode + AddDemoEnding()));
                     break;
                 default:
                     break;
@@ -248,24 +249,24 @@ public class API_Connection : MonoBehaviour
             formData.Add(new MultipartFormDataSection("token", token));
             formData.Add(new MultipartFormDataSection("partner", partner));//
 
-            formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.patient_Info.PatientName + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.patient_Info.PatientDNI + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[email]", mc.uinfo.patient_Info.PatientEmail + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[telefono]", mc.uinfo.patient_Info.PatientPhone + "DEMO"));
+            formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.patient_Info.PatientName + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.patient_Info.PatientDNI + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[email]", mc.uinfo.patient_Info.PatientEmail + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[telefono]", mc.uinfo.patient_Info.PatientPhone + AddDemoEnding()));
 
-            formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + "DEMO"));
+            formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + AddDemoEnding()));
             switch (mc.uinfo.userT)
             {
                 case MainController.userType.Lab:
-                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + AddDemoEnding()));
                     break;
                 case MainController.userType.Doctor:
-                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + AddDemoEnding()));
                     break;
                 case MainController.userType.Hospital:
-                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.hospitalName + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.DSACode + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.hospitalName + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.DSACode + AddDemoEnding()));
                     break;
                 default:
                     break;
@@ -316,24 +317,24 @@ public class API_Connection : MonoBehaviour
             formData.Add(new MultipartFormDataSection("token", token));
             formData.Add(new MultipartFormDataSection("partner", partner));//
 
-            formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.patient_Info.PatientName + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.patient_Info.PatientDNI + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[email]", mc.uinfo.patient_Info.PatientEmail + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[telefono]", mc.uinfo.patient_Info.PatientPhone + "DEMO"));
+            formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.patient_Info.PatientName + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.patient_Info.PatientDNI + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[email]", mc.uinfo.patient_Info.PatientEmail + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[telefono]", mc.uinfo.patient_Info.PatientPhone + AddDemoEnding()));
 
-            formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + "DEMO"));
+            formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + AddDemoEnding()));
             switch (mc.uinfo.userT)
             {
                 case MainController.userType.Lab:
-                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + AddDemoEnding()));
                     break;
                 case MainController.userType.Doctor:
-                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + AddDemoEnding()));
                     break;
                 case MainController.userType.Hospital:
-                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.hospitalName + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.DSACode + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.hospitalName + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.DSACode + AddDemoEnding()));
                     break;
                 default:
                     break;
@@ -386,24 +387,24 @@ public class API_Connection : MonoBehaviour
                       "\nmedico[referencia]: " + mc.uinfo.docCode +
                       "\ntest[igm]: " + mc.uinfo.patient_temp.tests[4].Result_igm +
                       "\ntest[igg]: " + mc.uinfo.patient_temp.tests[4].Result_igg);
-            formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.patient_Info.PatientName + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.patient_Info.PatientDNI + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[email]", mc.uinfo.patient_Info.PatientEmail + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[telefono]", mc.uinfo.patient_Info.PatientPhone + "DEMO"));
+            formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.patient_Info.PatientName + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.patient_Info.PatientDNI + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[email]", mc.uinfo.patient_Info.PatientEmail + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[telefono]", mc.uinfo.patient_Info.PatientPhone + AddDemoEnding()));
 
-            formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + "DEMO"));
+            formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + AddDemoEnding()));
             switch (mc.uinfo.userT)
             {
                 case MainController.userType.Lab:
-                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + AddDemoEnding()));
                     break;
                 case MainController.userType.Doctor:
-                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + AddDemoEnding()));
                     break;
                 case MainController.userType.Hospital:
-                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.hospitalName + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.DSACode + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.hospitalName + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.DSACode + AddDemoEnding()));
                     break;
                 default:
                     break;
@@ -457,10 +458,10 @@ public class API_Connection : MonoBehaviour
             formData.Add(new MultipartFormDataSection("token", token));
             formData.Add(new MultipartFormDataSection("partner", partner));
 
-            formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.patient_Info.PatientName + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.patient_Info.PatientDNI + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[email]", mc.uinfo.patient_Info.PatientEmail + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[telefono]", mc.uinfo.patient_Info.PatientPhone + "DEMO"));
+            formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.patient_Info.PatientName + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.patient_Info.PatientDNI + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[email]", mc.uinfo.patient_Info.PatientEmail + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[telefono]", mc.uinfo.patient_Info.PatientPhone + AddDemoEnding()));
 
             if (mc.uinfo.patient_temp.PatientCountry == null || mc.uinfo.patient_temp.PatientCountry == "")
             {
@@ -474,17 +475,17 @@ public class API_Connection : MonoBehaviour
             switch (mc.uinfo.userT)
             {
                 case MainController.userType.Lab:
-                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + AddDemoEnding()));
                     break;
                 case MainController.userType.Doctor:
-                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + AddDemoEnding()));
                     break;
                 case MainController.userType.Hospital:
-                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.hospitalName + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.DSACode + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.hospitalName + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.DSACode + AddDemoEnding()));
                     break;
                 default:
                     break;
@@ -524,10 +525,10 @@ public class API_Connection : MonoBehaviour
             formData.Add(new MultipartFormDataSection("token", token));
             formData.Add(new MultipartFormDataSection("partner", partner));
 
-            formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.patient_Info.PatientName + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.patient_Info.PatientDNI + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[email]", mc.uinfo.patient_Info.PatientEmail + "DEMO"));
-            formData.Add(new MultipartFormDataSection("paciente[telefono]", mc.uinfo.patient_Info.PatientPhone + "DEMO"));
+            formData.Add(new MultipartFormDataSection("paciente[nombre]", mc.uinfo.patient_Info.PatientName + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[nif]", mc.uinfo.patient_Info.PatientDNI + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[email]", mc.uinfo.patient_Info.PatientEmail + AddDemoEnding()));
+            formData.Add(new MultipartFormDataSection("paciente[telefono]", mc.uinfo.patient_Info.PatientPhone + AddDemoEnding()));
 
             if (mc.uinfo.patient_temp.PatientCountry == null || mc.uinfo.patient_temp.PatientCountry == "")
             {
@@ -541,17 +542,17 @@ public class API_Connection : MonoBehaviour
             switch (mc.uinfo.userT)
             {
                 case MainController.userType.Lab:
-                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.LabNICA + AddDemoEnding()));
                     break;
                 case MainController.userType.Doctor:
-                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.userName + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.userDNI + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[referencia]", mc.uinfo.docCode + AddDemoEnding()));
                     break;
                 case MainController.userType.Hospital:
-                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.hospitalName + "DEMO"));
-                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.DSACode + "DEMO"));
+                    formData.Add(new MultipartFormDataSection("medico[nombre]", mc.uinfo.hospitalName + AddDemoEnding()));
+                    formData.Add(new MultipartFormDataSection("medico[nif]", mc.uinfo.DSACode + AddDemoEnding()));
                     break;
                 default:
                     break;
@@ -582,6 +583,18 @@ public class API_Connection : MonoBehaviour
 
                 uic.GenerateQR(url);
             }
+        }
+    }
+
+    private string AddDemoEnding()
+    {
+        if(DebugMode)
+        {
+            return "DEMO";
+        }
+        else
+        {
+            return string.Empty;
         }
     }
 

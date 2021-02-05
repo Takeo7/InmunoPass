@@ -48851,6 +48851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e77da27ba76a04787fe1585789343a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DebugMode: 0
   mc: {fileID: 2078246361}
   uic: {fileID: 2078246362}
   ccap: {fileID: 1913689326}
@@ -49576,7 +49577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11434868, guid: 751f7137cfffd4a16b1a4c191e687d64, type: 3}
       propertyPath: m_Interactable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11495182, guid: 751f7137cfffd4a16b1a4c191e687d64, type: 3}
       propertyPath: m_Text
